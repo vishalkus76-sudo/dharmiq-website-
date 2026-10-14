@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff7ed">
+  <meta name="description" content="Dharmique Darshan — काशी में दीपदान, गंगा पूजन, चढ़ावा सेवा और पवित्र घाटों के मार्जन की सेवा बुक करें।">
+  <title>Dharmique Darshan | काशी की धार्मिक सेवाएँ</title>
+  <style>
+    :root {
+      --orange: #f07818;
+      --orange-dark: #c9570b;
+      --saffron: #ffb15c;
+      --cream: #fff8ef;
+      --paper: #fffdf9;
+      --ink: #3f2818;
+      --muted: #796858;
+      --line: #f1ddc8;
+      --green: #356b50;
+      --shadow: 0 14px 35px rgba(111, 65, 24, .09);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: var(--cream);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans Devanagari", "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,253,249,.94);
+      border-bottom: 1px solid var(--line); backdrop-filter: blur(12px);
+    }
+    .nav { min-height: 78px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; min-width:0; }
+    .brand-mark {
+      width:52px; height:52px; flex:0 0 52px; display:grid; place-items:center; border-radius:50%;
+      background: linear-gradient(135deg,#ffe6b7,#ffd08a); font-size:27px;
+    }
+    .brand-name { font-weight:850; font-size:clamp(19px,3vw,27px); line-height:1.2; letter-spacing:-.4px; }
+    .brand-tag { color:var(--muted); font-size:13px; margin-top:3px; }
+    .nav-links { display:flex; align-items:center; gap:22px; font-size:14px; font-weight:650; }
+    .nav-links a:not(.btn):hover { color:var(--orange-dark); }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:8px; border:0; cursor:pointer;
+      border-radius:999px; padding:12px 20px; background:var(--orange); color:white; font-weight:800;
+      box-shadow:0 7px 18px rgba(240,120,24,.22); transition:transform .15s, background .15s;
+    }
+    .btn:hover { background:var(--orange-dark); transform:translateY(-1px); }
+    .btn-outline { color:var(--orange-dark); background:white; border:1px solid #f4c49c; box-shadow:none; }
+    .btn-outline:hover { background:#fff0df; }
+    .hero { padding:58px 0 46px; overflow:hidden; }
+    .hero-grid { display:grid; grid-template-columns:1.12fr .88fr; gap:38px; align-items:center; }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px;
+      color:var(--orange-dark); background:#ffead4; font-weight:800; font-size:13px;
+    }
+    h1 { font-size:clamp(34px,5vw,56px); line-height:1.18; letter-spacing:-1.2px; margin:18px 0 16px; }
+    h1 span { color:var(--orange-dark); }
+    .hero p { color:var(--muted); font-size:17px; max-width:620px; margin:0 0 24px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+    .hero-art {
+      min-height:340px; position:relative; display:grid; place-items:center; border-radius:32px;
+      background:radial-gradient(circle at 50% 42%, #fff1d8 0, #ffe0b3 35%, #f6b36f 75%, #ee8c3a 100%);
+      box-shadow:var(--shadow); overflow:hidden;
+    }
+    .hero-art:before, .hero-art:after { content:""; position:absolute; border:1px solid rgba(255,255,255,.65); border-radius:50%; }
+    .hero-art:before { width:300px; height:300px; }
+    .hero-art:after { width:230px; height:230px; }
+    .diya-scene { position:relative; z-index:1; text-align:center; }
+    .diya { font-size:108px; filter:drop-shadow(0 12px 10px rgba(120,57,12,.18)); line-height:1.2; }
+    .hero-art-label { margin-top:8px; color:#7d3c10; font-weight:850; font-size:17px; }
+    .trust-row { display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:26px; color:var(--muted); font-size:13px; }
+    .trust-row span:before { content:"✓"; color:var(--green); font-weight:900; margin-right:7px; }
+    section { padding:48px 0; }
+    .section-head { text-align:center; max-width:720px; margin:0 auto 28px; }
+    .section-head h2 { font-size:clamp(26px,4vw,38px); margin:0 0 8px; line-height:1.25; }
+    .section-head p { color:var(--muted); margin:0; }
+    .services { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+    .service-card {
+      background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:25px;
+      box-shadow:var(--shadow); display:flex; flex-direction:column; align-items:flex-start;
+    }
+    .service-icon {
+      width:58px; height:58px; display:grid; place-items:center; border-radius:18px;
+      background:#fff0df; font-size:29px; margin-bottom:15px;
+    }
+    .service-card h3 { margin:0 0 9px; font-size:21px; line-height:1.4; }
+    .service-card p { color:var(--muted); margin:0 0 18px; flex:1; }
+    .service-meta { display:flex; width:100%; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:auto; }
+    .fee { font-size:13px; color:var(--muted); background:#fff5e9; border:1px dashed #edc9a5; padding:7px 12px; border-radius:999px; }
+    .fee strong { color:var(--ink); }
+    .how { background:#fff0df; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .step { background:rgba(255,255,255,.78); border:1px solid #f2d4b5; border-radius:18px; padding:22px; }
+    .step-num { width:36px; height:36px; display:grid; place-items:center; border-radius:50%; background:var(--orange); color:white; font-weight:900; margin-bottom:12px; }
+    .step h3 { margin:0 0 6px; font-size:18px; }
+    .step p { color:var(--muted); font-size:14px; margin:0; }
+    .cta { padding:48px 0; }
+    .cta-panel {
+      display:flex; justify-content:space-between; align-items:center; gap:24px; padding:30px;
+      border-radius:26px; color:white; background:linear-gradient(120deg,#c9570b,#f07818 60%,#f6a04e);
+      box-shadow:var(--shadow);
+    }
+    .cta-panel h2 { margin:0 0 5px; font-size:clamp(24px,3.5vw,34px); }
+    .cta-panel p { margin:0; color:#fff1e4; }
+    .cta-panel .btn { background:white; color:var(--orange-dark); box-shadow:none; white-space:nowrap; }
+    footer { border-top:1px solid var(--line); background:#fffdf9; padding:25px 0; color:var(--muted); font-size:13px; }
+    .footer-inner { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    @media(max-width:760px) {
+      .nav { min-height:70px; }
+      .nav-links { gap:10px; }
+      .nav-links a:not(.btn) { display:none; }
+      .nav-links .btn { padding:10px 14px; font-size:13px; }
+      .hero { padding:38px 0 28px; }
+      .hero-grid { grid-template-columns:1fr; gap:24px; }
+      .hero-art { min-height:240px; }
+      .diya { font-size:78px; }
+      .services { grid-template-columns:1fr; }
+      .steps { grid-template-columns:1fr; }
+      .cta-panel { align-items:flex-start; flex-direction:column; padding:24px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Dharmique Darshan home">
+        <span class="brand-mark" aria-hidden="true">🪷</span>
+        <span>
+          <span class="brand-name">Dharmique Darshan</span>
+          <span class="brand-tag" style="display:block">वाराणसी धाम से सीधे आपके लिए</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="मुख्य नेविगेशन">
+        <a href="#services">हमारी सेवाएँ</a>
+        <a href="#how">बुकिंग प्रक्रिया</a>
+        <a class="btn" href="#services">सेवा बुक करें <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">🪔 काशी की पावन सेवाएँ</span>
+          <h1>अपनों के नाम से करें <span>पावन सेवा</span></h1>
+          <p>काशी की पवित्र परंपराओं से जुड़िए। दीपदान, गंगा पूजन, मंदिरों में चढ़ावा और पवित्र घाटों के मार्जन जैसी सेवाओं के लिए हमसे संपर्क करें।</p>
+          <div class="hero-actions">
+            <a class="btn" href="#services">सेवाएँ देखें <span aria-hidden="true">→</span></a>
+            <a class="btn btn-outline" href="#how">बुकिंग कैसे करें?</a>
+          </div>
+          <div class="trust-row">
+            <span>सरल WhatsApp बुकिंग</span>
+            <span>परिवार के नाम से सेवा</span>
+            <span>काशी-केंद्रित सेवाएँ</span>
+          </div>
+        </div>
+        <div class="hero-art" role="img" aria-label="दीपदान का प्रतीकात्मक चित्र">
+          <div class="diya-scene">
+            <div class="diya">🪔</div>
+            <div class="hero-art-label">हर सेवा, श्रद्धा और संकल्प के साथ</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>हमारी सेवाएँ</h2>
+          <p>अपने परिवार और प्रियजनों के निमित्त सेवा चुनें। बुकिंग के लिए नीचे दिए गए WhatsApp बटन पर क्लिक करें।</p>
+        </div>
+        <div class="services">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🪔</div>
+            <h3>कार्तिक दीपदान सेवा</h3>
+            <p>बिंदु माधव के चरणों में दीपदान एवं यमुना दीपदान की पावन सेवा अपने संकल्प और श्रद्धा के साथ अर्पित करें।</p>
+            <div class="service-meta">
+              <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
+              <button class="btn book-btn" data-service="कार्तिक दीपदान सेवा">WhatsApp से बुक करें ↗</button>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🙏</div>
+            <h3>देव दीपावली गंगा पूजन एवं दीपदान</h3>
+            <p>देव दीपावली पर गंगा पूजन एवं अपने परिवार के निमित्त एक दीपदान की सेवा बुक करें।</p>
+            <div class="service-meta">
+              <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
+              <button class="btn book-btn" data-service="देव दीपावली गंगा पूजन एवं दीपदान">WhatsApp से बुक करें ↗</button>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🌼</div>
+            <h3>चढ़ावा सेवा</h3>
+            <p>काशी के विभिन्न मंदिरों में अपने परिवार की सुख-समृद्धि के लिए प्रसाद एवं सामग्री चढ़ाने की सेवा।</p>
+            <div class="service-meta">
+              <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
+              <button class="btn book-btn" data-service="चढ़ावा सेवा">WhatsApp से बुक करें ↗</button>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🌊</div>
+            <h3>पवित्र गंगा/यमुना घाटों का मार्जन</h3>
+            <p>पवित्र गंगा एवं यमुना घाटों के मार्जन की सेवा के लिए संपर्क करें और अपनी सेवा का संकल्प साझा करें।</p>
+            <div class="service-meta">
+              <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
+              <button class="btn book-btn" data-service="पवित्र गंगा/यमुना घाटों का मार्जन">WhatsApp से बुक करें ↗</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>बुकिंग की सरल प्रक्रिया</h2>
+          <p>कुछ आसान स्टेप्स में अपनी सेवा के लिए संपर्क करें।</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><h3>सेवा चुनें</h3><p>अपनी आवश्यकता के अनुसार सेवा कार्ड पर WhatsApp बटन दबाएँ।</p></div>
+          <div class="step"><div class="step-num">2</div><h3>विवरण भेजें</h3><p>WhatsApp में खुलने वाले संदेश में अपना नाम और सेवा से जुड़ी जानकारी जोड़ें।</p></div>
+          <div class="step"><div class="step-num">3</div><h3>पुष्टि प्राप्त करें</h3><p>सेवा शुल्क, उपलब्धता और आगे की प्रक्रिया की पुष्टि संदेश पर करें।</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap">
+        <div class="cta-panel">
+          <div>
+            <h2>अपनी सेवा के लिए संपर्क करें</h2>
+            <p>Dharmique Darshan — वाराणसी धाम से सीधे आपके लिए।</p>
+          </div>
+          <a class="btn" href="#services">सेवा चुनें ↑</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Dharmique Darshan. सर्वाधिकार सुरक्षित।</span>
+      <span>श्रद्धा • सेवा • संकल्प | वाराणसी, काशी</span>
+    </div>
+  </footer>
+
+  <script>
+    // IMPORTANT: Replace this with your confirmed WhatsApp number, country code included, digits only.
+    const WHATSAPP_NUMBER = "918840332855";
+    document.querySelectorAll(".book-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        const service = button.dataset.service;
+        const message = `नमस्कार Dharmique Darshan, मुझे "${service}" बुक करनी है। कृपया सेवा शुल्क और बुकिंग की प्रक्रिया बताएं।\\nनाम:\\nपरिवार/संकल्प का विवरण:`;
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+      });
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
