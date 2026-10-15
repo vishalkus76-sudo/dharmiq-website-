@@ -255,10 +255,10 @@
 <body>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#home" aria-label="Dharmique Darshan home">
-        <img src="Dharmique Logo.png" alt="Dharmique Darshan Logo" class="brand-mark">
+      <a class="brand" href="#home" aria-label="Dharmique home">
+        <img src="Dharmique Logo.png" alt="Dharmique Logo" class="brand-mark">
         <span>
-          <span class="brand-name">Dharmique Darshan</span>
+          <span class="brand-name">Dharmique</span>
           <span class="brand-tag" style="display:block">पवित्र काशी क्षेत्र से आपके घर तक</span>
         </span>
       </a>
@@ -384,7 +384,7 @@
         <div class="cta-panel">
           <div>
             <h2>अपनी सेवा के लिए संपर्क करें</h2>
-            <p>Dharmique Darshan — वाराणसी धाम से सीधे आपके लिए।</p>
+            <p>Dharmique — वाराणसी धाम से सीधे आपके लिए।</p>
           </div>
           <a class="btn" href="#services">सेवा चुनें ↑</a>
         </div>
@@ -394,7 +394,7 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <span>© <span id="year"></span> Dharmique Darshan. सर्वाधिकार सुरक्षित।</span>
+      <span>© <span id="year"></span> Dharmique. सर्वाधिकार सुरक्षित।</span>
       <span>श्रद्धा • सेवा • संकल्प | वाराणसी, काशी</span>
     </div>
   </footer>
@@ -405,7 +405,7 @@
     document.querySelectorAll(".book-btn").forEach((button) => {
       button.addEventListener("click", () => {
         const service = button.dataset.service;
-      const message = `नमस्कार Dharmique Darshan, मुझे "${service}" बुक करनी है। कृपया सेवा शुल्क और बुकिंग की प्रक्रिया बताएं।`;
+      const message = `नमस्कार Dharmique, मुझे "${service}" बुक करनी है। कृपया सेवा शुल्क और बुकिंग की प्रक्रिया बताएं।`;
 const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 window.open(url, "_blank");
       });
