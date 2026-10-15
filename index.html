@@ -60,28 +60,82 @@
     h1 span { color:var(--orange-dark); }
     .hero p { color:var(--muted); font-size:17px; max-width:620px; margin:0 0 24px; }
     .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
-    .hero-art {
-     
-width: 100%;
-aspect-ratio: 671 / 471;
-min-height: 0;
-height: auto;
-position: relative;
-display: grid;
-place-items: center;
-border-radius: 32px;
-background: radial-gradient(circle at 50% 42%, #fff1d8 0, #ffe0b3 35%, #f6b36f 75%, #ee8c3a 100%);
-box-shadow: var(--shadow);
-overflow: hidden;
-box-sizing: border-box;
+   
+.hero-art {
+  width: 100%;
+  aspect-ratio: 671 / 471;
+  min-height: 0;
+  height: auto;
+  position: relative;
+  display: block;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
+}
+
+.hero-slides,
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  opacity: 0;
+  transition: opacity .7s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 12px 18px;
+  text-align: center;
+  color: white;
+  font-size: clamp(17px, 2.5vw, 25px);
+  font-weight: 800;
+  background: linear-gradient(transparent, rgba(45,25,10,.8));
+}
+
+.hero-dots {
+  position: absolute;
+  z-index: 3;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+
+.hero-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.6);
+}
+
+.hero-dots span.active {
+  background: #f47716;
+}
 
     }
-    .hero-art:before, .hero-art:after { content:""; position:absolute; border:1px solid rgba(255,255,255,.65); border-radius:50%; }
-    .hero-art:before { width:300px; height:300px; }
-    .hero-art:after { width:230px; height:230px; }
-    .diya-scene { position:relative; z-index:1; text-align:center; }
-    .diya { font-size:108px; filter:drop-shadow(0 12px 10px rgba(120,57,12,.18)); line-height:1.2; }
-    .hero-art-label { margin-top:8px; color:#7d3c10; font-weight:850; font-size:17px; }
+    
     .trust-row { display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:26px; color:var(--muted); font-size:13px; }
     .trust-row span:before { content:"✓"; color:var(--green); font-weight:900; margin-right:7px; }
     section { padding:48px 0; }
@@ -220,12 +274,40 @@ box-sizing: border-box;
             <span>काशी-केंद्रित सेवाएँ</span>
           </div>
         </div>
-        <div class="hero-art" role="img" aria-label="दीपदान का प्रतीकात्मक चित्र">
-          <div class="diya-scene">
-            <div class="diya">🪔</div>
-            <div class="hero-art-label">हर सेवा, श्रद्धा और संकल्प के साथ</div>
-          </div>
-        </div>
+       
+<div class="hero-art" aria-label="काशी की सेवाओं की तस्वीरें">
+  <div class="hero-slides">
+    <div class="hero-slide active">
+      <img src="https://images.unsplash.com/photo-1606293926075-69a00db1295a?auto=format&fit=crop&w=1200&q=85" alt="गंगा आरती">
+      <div class="slide-caption">गंगा आरती</div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=85" alt="कार्तिक दीपदान">
+      <div class="slide-caption">कार्तिक दीपदान</div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1200&q=85" alt="काशी के मंदिर">
+      <div class="slide-caption">काशी के मंदिर</div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=85" alt="देव दीपावली">
+      <div class="slide-caption">देव दीपावली</div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=85" alt="मंदिर सेवा">
+      <div class="slide-caption">मंदिर सेवा</div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85" alt="पवित्र घाट">
+      <div class="slide-caption">पवित्र घाटों का मार्जन</div>
+    </div>
+  </div>
+  <div class="hero-dots">
+    <span class="active"></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+</div>
+
       </div>
     </section>
 
