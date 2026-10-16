@@ -60,15 +60,19 @@ button:hover{background:#c9570b}
 
 <script>
 (() => {
-  const translations = {
-    "चढ़ावा सेवा": "Temple Offering Seva",
-    "अपनी श्रद्धा के अनुसार सेवा चुनें": "Choose a service according to your devotion",
-    "लघु प्रसादी सेवा": "Basic Prasad Seva",
-    "मध्याह्न भोग सेवा": "Midday Bhog Seva",
-    "राजभोग सेवा": "Rajbhog Seva",
-    "सेवा बुक करें": "Book Seva",
-    "WhatsApp से बुक करें ↗": "Book via WhatsApp ↗"
-  };
+ 
+const translations = {
+  "अपनी चढ़ावा सेवा चुनें": "Choose Your Offering Service",
+  "श्रद्धा अनुसार सेवा चुनें और WhatsApp से बुक करें।": "Choose a service according to your devotion and book via WhatsApp.",
+  "1. लघु प्रसादी सेवा": "1. Small Prasadi Service",
+  "2. मध्याह्न भोग सेवा": "2. Midday Bhog Service",
+  "3. राजभोग सेवा": "3. Rajbhog Service",
+  "मेवा सेवा": "Dry Fruits Offering",
+  "मिठाई एवं भोग अर्पण सेवा": "Sweets and Bhog Offering Service",
+  "Rajbhog Seva": "Rajbhog Service",
+  "WhatsApp से बुक करें ↗": "Book via WhatsApp ↗",
+  "← मुख्य पेज पर वापस जाएँ": "← Back to Home Page"
+};
 
   const reverse = Object.fromEntries(
     Object.entries(translations).map(([hi, en]) => [en, hi])
