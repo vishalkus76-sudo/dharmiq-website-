@@ -647,9 +647,14 @@ document.querySelectorAll("a, button, h1, h2, h3, p, span").forEach(el => {
     localStorage.setItem("dharmique-language", lang);
   }
 
-  const nav = document.querySelector(".nav-links");
-  if (!nav) return;
+ const nav =
+  document.querySelector(".nav-links") ||
+  document.querySelector("header .wrap") ||
+  document.querySelector("header");
 
+if (!nav) {
+  console.error("Language switcher: header not found");
+} else {
   const switcher = document.createElement("div");
   switcher.className = "language-switch";
   switcher.innerHTML = `
