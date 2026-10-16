@@ -567,7 +567,34 @@ if (slides.length > 1) {
   const reverseTranslations = Object.fromEntries(
     Object.entries(translations).map(([hi, en]) => [en, hi])
   );
+// Translate button labels and carousel text
+const extraTranslations = {
+  "सेवा बुक करें →": "Book Service →",
+  "सेवा बुक करें": "Book Service",
+  "सेवाएँ देखें →": "Explore Services →",
+  "और जानें": "Learn More",
+  "अगला": "Next",
+  "पिछला": "Previous",
+  "सभी सेवाएँ देखें": "View All Services",
+  "सेवा शुल्क:": "Service Fee:",
+  "WhatsApp पर पूछें": "Ask on WhatsApp",
+  "काशी की पावन सेवाएँ": "Sacred Services of Kashi"
+};
 
+const activeTranslations = lang === "en"
+  ? extraTranslations
+  : Object.fromEntries(
+      Object.entries(extraTranslations).map(([hi, en]) => [en, hi])
+    );
+
+document.querySelectorAll("a, button, h1, h2, h3, p, span").forEach(el => {
+  if (el.closest(".language-switch")) return;
+
+  const text = el.textContent.trim();
+  if (activeTranslations[text]) {
+    el.textContent = activeTranslations[text];
+  }
+});
   function changeLanguage(lang) {
     const dictionary = lang === "en"
       ? translations
