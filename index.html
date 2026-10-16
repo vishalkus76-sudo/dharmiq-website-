@@ -668,7 +668,18 @@ if (!nav) {
     });
   });
 
-  nav.appendChild(switcher);
+  document.body.appendChild(switcher);
+
+switcher.style.cssText += `
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 99999;
+  background: #fff8ef;
+  border: 1px solid #f1ddc8;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.12);
+`;
 
   const savedLanguage = localStorage.getItem("dharmique-language") || "hi";
   changeLanguage(savedLanguage);
