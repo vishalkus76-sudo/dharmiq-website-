@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>चढ़ावा सेवा बुकिंग | Dharmique</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff8ef;color:#422719;font-family:Arial,sans-serif}
+header{text-align:center;padding:28px 16px 10px}
+h1{font-size:clamp(27px,4vw,40px);margin:0 0 10px}
+header p{color:#795e4c;line-height:1.7}
+.services{max-width:1100px;margin:28px auto;padding:0 18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.card{background:#fff;border:1px solid #f0d8c2;border-radius:20px;padding:22px 16px;display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.picture{height:105px;width:105px;border-radius:14px;background:#fce9d4;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.picture svg{width:76px;height:76px}
+h2{font-size:20px;line-height:1.4;min-height:56px;display:flex;align-items:center;justify-content:center;margin:0 0 8px}
+.price{font-size:27px;font-weight:bold;color:#c9570b;margin:6px 0 18px}
+button{margin-top:auto;border:0;border-radius:30px;background:#f47716;color:white;padding:13px 12px;font-size:14px;font-weight:bold;cursor:pointer;width:100%;min-height:48px}
+button:hover{background:#c9570b}
+.back{display:block;text-align:center;margin:0 auto 35px;color:#b94f0b}
+@media(max-width:650px){.services{grid-template-columns:1fr;max-width:390px}.card{min-height:300px}h2{min-height:0}}
+</style>
+</head>
+<body>
+<header>
+<h1>अपनी चढ़ावा सेवा चुनें</h1>
+<p>श्रद्धा अनुसार सेवा चुनें और WhatsApp से बुक करें।</p>
+</header>
+
+<main class="services">
+<article class="card">
+<div class="picture" aria-label="प्रसादी बॉक्स">
+<svg viewBox="0 0 100 100" fill="none" stroke="#b95d19" stroke-width="4" stroke-linejoin="round">
+<path d="M18 38h64v45H18z" fill="#f4c47f"/>
+<path d="M13 29h74v13H13z" fill="#e99a44"/>
+<path d="M25 29q0-18 25-18t25 18" fill="#f9dfac"/>
+<path d="M34 55h32v17H34z" fill="#fff1d1"/>
+<path d="M42 63h16M50 55v17"/>
+</svg>
+</div>
+<h2>1. लघु प्रसादी सेवा</h2>
+<p>प्रसादी बॉक्स अर्पण सेवा</p>
+<div class="price">₹51</div>
+<button onclick="book('लघु प्रसादी सेवा',51)">WhatsApp से बुक करें ↗</button>
+</article>
+
+<article class="card">
+<div class="picture" aria-label="मिठाई">
+<svg viewBox="0 0 100 100" fill="none" stroke="#b95d19" stroke-width="3">
+<ellipse cx="50" cy="68" rx="39" ry="16" fill="#f4c47f"/>
+<path d="M12 63q38 22 76 0" fill="#fff0d1"/>
+<circle cx="34" cy="48" r="15" fill="#e9a343"/>
+<circle cx="63" cy="44" r="15" fill="#f2cf78"/>
+<circle cx="51" cy="62" r="14" fill="#c97b30"/>
+<path d="M27 45l7-4 7 7M56 40l7 5 7-5M44 61l7-5 8 6" stroke="#fff1d1"/>
+</svg>
+</div>
+<h2>2. मध्याह्न भोग सेवा</h2>
+<p>मिठाई एवं भोग अर्पण सेवा</p>
+<div class="price">₹101</div>
+<button onclick="book('मध्याह्न भोग सेवा',101)">WhatsApp से बुक करें ↗</button>
+</article>
+
+<article class="card">
+<div class="picture" aria-label="आरती और मिठाई">
+<svg viewBox="0 0 100 100" fill="none" stroke="#b95d19" stroke-width="3" stroke-linejoin="round">
+<path d="M14 61h42l-6 17H20z" fill="#e9a343"/>
+<path d="M24 60q11-18 22 0" fill="#f9dfac"/>
+<path d="M35 48q-13-15 0-29 13 14 0 29" fill="#f47716"/>
+<path d="M35 44q-5-10 0-17 6 9 0 17" fill="#ffdf70"/>
+<circle cx="69" cy="43" r="12" fill="#e9a343"/>
+<circle cx="72" cy="67" r="12" fill="#d98b36"/>
+<circle cx="61" cy="55" r="11" fill="#f2cf78"/>
+<path d="M64 40l5-3 5 5M66 65l6-3 5 5" stroke="#fff1d1"/>
+</svg>
+</div>
+<h2>3. राजभोग सेवा</h2>
+<p>आरती एवं मिठाई अर्पण सेवा</p>
+<div class="price">₹151</div>
+<button onclick="book('राजभोग सेवा',151)">WhatsApp से बुक करें ↗</button>
+</article>
+</main>
+
+<a class="back" href="index.html">← मुख्य पेज पर वापस जाएँ</a>
+
+<script>
+function book(service, price) {
+  const phone = "919555669751";
+  const message = `नमस्कार, मुझे ${service} (₹${price}) बुक करनी है। कृपया बुकिंग की जानकारी दें।`;
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank");
+}
+</script>
+</body>
+</html>
