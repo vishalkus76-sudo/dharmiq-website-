@@ -24,6 +24,91 @@ button:hover{background:#c9570b}
 </style>
 </head>
 <body>
+  
+<style>
+.language-switch {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 99999;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #f1ddc8;
+  border-radius: 30px;
+  background: #fff8ef;
+}
+.language-switch button {
+  border: 0;
+  border-radius: 22px;
+  padding: 8px 11px;
+  background: transparent;
+  color: #3f2818;
+  font-weight: 700;
+  cursor: pointer;
+}
+.language-switch button.active {
+  background: #f07818;
+  color: white;
+}
+</style>
+
+<div class="language-switch">
+  <button type="button" data-lang="hi">हिन्दी</button>
+  <button type="button" data-lang="en">English</button>
+</div>
+
+<script>
+(() => {
+  const translations = {
+    "चढ़ावा सेवा": "Temple Offering Service",
+    "अपनी श्रद्धा के अनुसार सेवा चुनें": "Choose a service according to your devotion",
+    "लघु प्रसादी सेवा": "Basic Prasad Service",
+    "मध्याह्न भोग सेवा": "Midday Bhog Service",
+    "राजभोग सेवा": "Rajbhog Service",
+    "सेवा बुक करें": "Book Service",
+    "WhatsApp से बुक करें ↗": "Book via WhatsApp ↗"
+  };
+
+  const reverse = Object.fromEntries(
+    Object.entries(translations).map(([hi, en]) => [en, hi])
+  );
+
+  function changeLanguage(lang) {
+    const dictionary = lang === "en" ? translations : reverse;
+
+    document.querySelectorAll(
+      "h1, h2, h3, p, a, button, span"
+    ).forEach(el => {
+      if (el.closest(".language-switch")) return;
+      if (el.children.length > 0) return;
+
+      const text = el.textContent.trim();
+      if (dictionary[text]) {
+        el.textContent = dictionary[text];
+      }
+    });
+
+    document.querySelectorAll(".language-switch button").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.lang === lang);
+    });
+
+    document.documentElement.lang = lang;
+    localStorage.setItem("dharmique-language", lang);
+  }
+
+  document.querySelectorAll(".language-switch button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      changeLanguage(btn.dataset.lang);
+    });
+  });
+
+  changeLanguage(localStorage.getItem("dharmique-language") || "hi");
+})();
+</script>
+</body>
+</html>
+
 <header>
 <h1>अपनी चढ़ावा सेवा चुनें</h1>
 <p>श्रद्धा अनुसार सेवा चुनें और WhatsApp से बुक करें।</p>
