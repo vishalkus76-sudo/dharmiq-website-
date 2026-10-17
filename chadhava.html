@@ -21,6 +21,78 @@ button{margin-top:auto;border:0;border-radius:30px;background:#f47716;color:whit
 button:hover{background:#c9570b}
 .back{display:block;text-align:center;margin:0 auto 35px;color:#b94f0b}
 @media(max-width:650px){.services{grid-template-columns:1fr;max-width:390px}.card{min-height:300px}h2{min-height:0}}
+  
+/* Dharmique Footer */
+footer {
+  background: #202746;
+  color: #f7f0e7;
+  padding: 45px 0 0;
+  font-size: 14px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+  gap: 30px;
+  padding-bottom: 35px;
+}
+
+.footer-column h3 {
+  color: #fff;
+  font-size: 17px;
+  margin: 0 0 15px;
+}
+
+.footer-brand {
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.footer-description {
+  color: #d2d7e7;
+  line-height: 1.8;
+}
+
+.footer-column a {
+  display: block;
+  color: #d2d7e7;
+  margin-bottom: 10px;
+  overflow-wrap: anywhere;
+}
+
+.footer-column a:hover {
+  color: #ffb15c;
+}
+
+.footer-highlight {
+  color: #ffb15c !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid #414968;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #d2d7e7;
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 18px;
+  }
+}
+
+@media (max-width: 440px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 <body>
