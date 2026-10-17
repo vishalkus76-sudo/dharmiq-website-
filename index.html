@@ -806,16 +806,23 @@ if (!nav) {
 
   document.body.appendChild(switcher);
 
-switcher.style.cssText += `
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 99999;
-  background: #fff8ef;
-  border: 1px solid #f1ddc8;
-  border-radius: 30px;
-  box-shadow: 0 4px 15px rgba(0,0,0,.12);
+
+switcher.style.cssText = `
+  position: fixed !important;
+  top: 85px !important;
+  right: 20px !important;
+  z-index: 999999 !important;
+  display: flex !important;
+  gap: 6px !important;
+  padding: 5px !important;
+  background: #fff8ef !important;
+  border: 1px solid #f1ddc8 !important;
+  border-radius: 30px !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,.12) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 `;
+
 
   const savedLanguage = localStorage.getItem("dharmique-language") || "hi";
   changeLanguage(savedLanguage);
