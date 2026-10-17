@@ -145,6 +145,11 @@ const translations = {
   "WhatsApp से बुक करें ↗": "Book via WhatsApp ↗",
   "← मुख्य पेज पर वापस जाएँ": "← Back to Home Page"
 };
+  
+const reverseTranslations = Object.fromEntries(
+  Object.entries(translations).map(([hi, en]) => [en, hi])
+);
+
 
   const reverse = Object.fromEntries(
     Object.entries(translations).map(([hi, en]) => [en, hi])
