@@ -341,7 +341,10 @@ footer {
       </nav>
     </div>
   </header>
-
+<!-- Full Width Ganga Aarti Banner -->
+<section class="ganga-banner">
+  <img src="Ganga-Aarti.jpg" alt="Ganga Aarti in Varanasi">
+</section>
   <main>
     <section class="hero" id="home">
       <div class="wrap hero-grid">
@@ -591,6 +594,26 @@ if (slides.length > 1) {
     currentSlide = (currentSlide + 1) % slides.length;
     slides[currentSlide].classList.add('active');
   }, 3500);
+}
+  .ganga-banner {
+  width: 100%;
+  margin: 20px 0 30px;
+  overflow: hidden;
+}
+
+.ganga-banner img {
+  display: block;
+  width: 100%;
+  height: clamp(240px, 42vw, 520px);
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+}
+
+@media (max-width: 650px) {
+  .ganga-banner img {
+    height: 240px;
+  }
 }
 </script>
   <style>
