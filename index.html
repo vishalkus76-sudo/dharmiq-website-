@@ -725,16 +725,7 @@ if (slides.length > 1) {
         "script, style, .language-switch"
       )) continue;
 
-      const original = node.nodeValue;
-      const trimmed = original.trim();
-
-      if (dictionary[trimmed]) {
-        const start = original.match(/^\s*/)[0];
-        const end = original.match(/\s*$/)[0];
-        node.nodeValue = start + dictionary[trimmed] + end;
-      }
-    }
-
+    
     document.documentElement.lang = lang === "en" ? "en" : "hi";
 
     document.querySelectorAll(".language-switch button")
