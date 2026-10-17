@@ -811,7 +811,15 @@ switcher.querySelectorAll("button").forEach(button => {
     cursor: pointer;
   `;
 });
+const original = node.nodeValue;
+const trimmed = original.trim();
 
+if (dictionary[trimmed]) {
+  const start = original.match(/^\s*/)[0];
+  const end = original.match(/\s*$/)[0];
+
+  node.nodeValue = start + dictionary[trimmed] + end;
+}
 
   const savedLanguage = localStorage.getItem("dharmique-language") || "hi";
   changeLanguage(savedLanguage);
