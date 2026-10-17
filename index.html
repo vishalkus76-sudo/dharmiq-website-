@@ -516,13 +516,6 @@ footer {
   </div>
 </footer>
 
-  <footer>
-    <div class="wrap footer-inner">
-      <span>© <span id="year"></span> Dharmique. सर्वाधिकार सुरक्षित।</span>
-      <span>श्रद्धा • सेवा • संकल्प | वाराणसी, काशी</span>
-    </div>
-  </footer>
-
   <script>
     // IMPORTANT: Replace this with your confirmed WhatsApp number, country code included, digits only.
     const WHATSAPP_NUMBER = "919555669751";
@@ -631,198 +624,69 @@ if (slides.length > 1) {
 
 <script>
 (() => {
-  const translations = {
-    "पवित्र काशी क्षेत्र से आपके घर तक": "From Sacred Kashi to Your Home",
-    "मुख्य नेविगेशन": "Main Navigation",
-    "हमारी सेवाएँ": "Our Services",
-    "बुकिंग प्रक्रिया": "Booking Process",
-    "सेवा बुक करें": "Book a Service",
-    "🪔 काशी की पावन सेवाएँ": "🪔 Sacred Services of Kashi",
-    "अपनों के नाम से करें": "Perform a Sacred Service",
-    "पावन सेवा": "For Your Loved Ones",
-    "काशी की पवित्र परंपराओं से जुड़िए। दीपदान, गंगा पूजन, मंदिरों में चढ़ावा और पवित्र घाटों के मार्जन जैसी सेवाओं के लिए हमसे संपर्क करें।":
-      "Connect with the sacred traditions of Kashi. Contact us for Deepdaan, Ganga Pujan, temple offerings and the cleaning of sacred ghats.",
-    "सेवाएँ देखें": "Explore Services",
-    "बुकिंग कैसे करें?": "How to Book?",
-    "सरल WhatsApp बुकिंग": "Easy WhatsApp Booking",
-    "परिवार के नाम से सेवा": "Service in Your Family's Name",
-    "काशी-केंद्रित सेवाएँ": "Services Focused on Kashi",
-    "सेवा की तस्वीरें": "Service Images",
-    "अपने परिवार और प्रियजनों के निमित्त सेवा चुनें। बुकिंग के लिए नीचे दिए गए WhatsApp बटन पर क्लिक करें।":
-      "Choose a service for your family and loved ones. Click the WhatsApp button below to enquire or book.",
-    "कार्तिक दीपदान सेवा": "Kartik Deepdaan Service",
-    "बिंदु माधव के चरणों में दीपदान एवं यमुना दीपदान की पावन सेवा अपने संकल्प और श्रद्धा के साथ अर्पित करें।":
-      "Offer the sacred service of Deepdaan at Bindu Madhav and Yamuna Deepdaan with devotion and your personal sankalp.",
-    "देव दीपावली गंगा पूजन एवं दीपदान": "Dev Deepawali Ganga Pujan & Deepdaan",
-    "देव दीपावली पर गंगा पूजन एवं अपने परिवार के निमित्त एक दीपदान की सेवा बुक करें।":
-      "Book Ganga Pujan and a Deepdaan service for your family on Dev Deepawali.",
-    "चढ़ावा सेवा": "Temple Offering Service",
-    "काशी के विभिन्न मंदिरों में अपने परिवार की सुख-समृद्धि के लिए प्रसाद एवं सामग्री चढ़ाने की सेवा।":
-      "Offer prasad and sacred items at temples across Kashi for your family's well-being and prosperity.",
-    "पवित्र गंगा/यमुना घाटों का मार्जन": "Cleaning of Sacred Ganga/Yamuna Ghats",
-    "पवित्र गंगा एवं यमुना घाटों के मार्जन की सेवा के लिए संपर्क करें और अपनी सेवा का संकल्प साझा करें।":
-      "Contact us to arrange the cleaning of sacred Ganga and Yamuna ghats and share your seva sankalp.",
-    "सेवा शुल्क:": "Service Fee:",
-    "WhatsApp पर पूछें": "Ask on WhatsApp",
-    "WhatsApp से बुक करें ↗": "Book via WhatsApp ↗",
-    "बुकिंग की सरल प्रक्रिया": "Simple Booking Process",
-    "कुछ आसान स्टेप्स में अपनी सेवा के लिए संपर्क करें।":
-      "Contact us to arrange your service in a few simple steps.",
-    "सेवा चुनें": "Choose a Service",
-    "अपनी आवश्यकता के अनुसार सेवा कार्ड पर WhatsApp बटन दबाएँ।":
-      "Click the WhatsApp button on the service card you need.",
-    "विवरण भेजें": "Send Details",
-    "WhatsApp में खुलने वाले संदेश में अपना नाम और सेवा से जुड़ी जानकारी जोड़ें।":
-      "Add your name and service details to the message that opens in WhatsApp.",
-    "पुष्टि प्राप्त करें": "Get Confirmation",
-    "सेवा शुल्क, उपलब्धता और आगे की प्रक्रिया की पुष्टि संदेश पर करें।":
-      "Confirm the service fee, availability and next steps through messages.",
-    "अपनी सेवा के लिए संपर्क करें": "Contact Us for Your Service",
-    "Dharmique — वाराणसी धाम से सीधे आपके लिए।":
-      "Dharmique — Serving You from the Sacred City of Varanasi.",
-    "सेवा चुनें ↑": "Choose a Service ↑",
-    "सर्वाधिकार सुरक्षित।": "All rights reserved.",
-    "श्रद्धा • सेवा • संकल्प | वाराणसी, काशी":
-      "Faith • Service • Devotion | Varanasi, Kashi",
-  "हमारे बारे में": "About Us",
-  "वृंदावन धाम से सीधे आपके लिए।":
-    "Serving You from the Sacred Abode of Vrindavan. A connection to Sanatan traditions and sacred seva.",
-  "Quick Links": "त्वरित लिंक",
-  "Home": "होम",
-  "Our Sevas": "हमारी सेवाएँ",
-  "How to Book": "बुकिंग कैसे करें",
-  "Kartik Deep Daan": "कार्तिक दीपदान",
-  "Navratri Prasad Seva": "नवरात्रि प्रसाद सेवा",
-  "Kartik Sadhu Seva": "कार्तिक साधु सेवा",
-  "Marjan Seva": "मार्जन सेवा",
-  "Contact Us": "संपर्क करें",
-  "WhatsApp Enquiries ↗": "WhatsApp पर पूछताछ ↗",
-  "Follow Us": "हमें फॉलो करें",
-  "Instagram ↗": "इंस्टाग्राम ↗",
-  "Dharmique. All rights reserved.":
-    "Dharmique. सर्वाधिकार सुरक्षित।",
-  "Faith • Service • Devotion": "श्रद्धा • सेवा • भक्ति"
+  const hiToEn = {
+    "पवित्र काशी क्षेत्र से आपके घर तक":"From Sacred Kashi to Your Home",
+    "मुख्य नेविगेशन":"Main Navigation","हमारी सेवाएँ":"Our Services","बुकिंग प्रक्रिया":"Booking Process","सेवा बुक करें":"Book a Service",
+    "🪔 काशी की पावन सेवाएँ":"🪔 Sacred Services of Kashi","अपनों के नाम से करें":"Perform a Sacred Service","पावन सेवा":"For Your Loved Ones",
+    "काशी की पवित्र परंपराओं से जुड़िए। दीपदान, गंगा पूजन, मंदिरों में चढ़ावा और पवित्र घाटों के मार्जन जैसी सेवाओं के लिए हमसे संपर्क करें।":"Connect with the sacred traditions of Kashi. Contact us for Deepdaan, Ganga Pujan, temple offerings and the cleaning of sacred ghats.",
+    "सेवाएँ देखें":"Explore Services","बुकिंग कैसे करें?":"How to Book?","सरल WhatsApp बुकिंग":"Easy WhatsApp Booking","परिवार के नाम से सेवा":"Service in Your Family's Name","काशी-केंद्रित सेवाएँ":"Services Focused on Kashi",
+    "सेवा की तस्वीरें":"Service Images","अपने परिवार और प्रियजनों के निमित्त सेवा चुनें। बुकिंग के लिए नीचे दिए गए WhatsApp बटन पर क्लिक करें।":"Choose a service for your family and loved ones. Click the WhatsApp button below to enquire or book.",
+    "कार्तिक दीपदान सेवा":"Kartik Deepdaan Service","बिंदु माधव के चरणों में दीपदान एवं यमुना दीपदान की पावन सेवा अपने संकल्प और श्रद्धा के साथ अर्पित करें।":"Offer the sacred service of Deepdaan at Bindu Madhav and Yamuna Deepdaan with devotion and your personal sankalp.",
+    "देव दीपावली गंगा पूजन एवं दीपदान":"Dev Deepawali Ganga Pujan & Deepdaan","देव दीपावली पर गंगा पूजन एवं अपने परिवार के निमित्त एक दीपदान की सेवा बुक करें।":"Book Ganga Pujan and a Deepdaan service for your family on Dev Deepawali.",
+    "चढ़ावा सेवा":"Temple Offering Service","काशी के विभिन्न मंदिरों में अपने परिवार की सुख-समृद्धि के लिए प्रसाद एवं सामग्री चढ़ाने की सेवा।":"Offer prasad and sacred items at temples across Kashi for your family's well-being and prosperity.",
+    "पवित्र गंगा/यमुना घाटों का मार्जन":"Cleaning of Sacred Ganga/Yamuna Ghats","पवित्र गंगा एवं यमुना घाटों के मार्जन की सेवा के लिए संपर्क करें और अपनी सेवा का संकल्प साझा करें।":"Contact us to arrange the cleaning of sacred Ganga and Yamuna ghats and share your seva sankalp.",
+    "सेवा शुल्क:":"Service Fee:","WhatsApp पर पूछें":"Ask on WhatsApp","WhatsApp से बुक करें ↗":"Book via WhatsApp ↗","बुकिंग की सरल प्रक्रिया":"Simple Booking Process",
+    "कुछ आसान स्टेप्स में अपनी सेवा के लिए संपर्क करें।":"Contact us to arrange your service in a few simple steps.","सेवा चुनें":"Choose a Service","अपनी आवश्यकता के अनुसार सेवा कार्ड पर WhatsApp बटन दबाएँ।":"Click the WhatsApp button on the service card you need.",
+    "विवरण भेजें":"Send Details","WhatsApp में खुलने वाले संदेश में अपना नाम और सेवा से जुड़ी जानकारी जोड़ें।":"Add your name and service details to the message that opens in WhatsApp.",
+    "पुष्टि प्राप्त करें":"Get Confirmation","सेवा शुल्क, उपलब्धता और आगे की प्रक्रिया की पुष्टि संदेश पर करें।":"Confirm the service fee, availability and next steps through messages.",
+    "अपनी सेवा के लिए संपर्क करें":"Contact Us for Your Service","Dharmique — वाराणसी धाम से सीधे आपके लिए।":"Dharmique — Serving You from the Sacred City of Varanasi.","सेवा चुनें ↑":"Choose a Service ↑",
+    "सर्वाधिकार सुरक्षित।":"All rights reserved.","श्रद्धा • सेवा • संकल्प | वाराणसी, काशी":"Faith • Service • Devotion | Varanasi, Kashi",
+    "त्वरित लिंक":"Quick Links","होम":"Home","कार्तिक दीपदान":"Kartik Deep Daan","नवरात्रि प्रसाद सेवा":"Navratri Prasad Seva","कार्तिक साधु सेवा":"Kartik Sadhu Seva","मार्जन सेवा":"Marjan Seva",
+    "संपर्क करें":"Contact Us","WhatsApp पर पूछताछ ↗":"WhatsApp Enquiries ↗","हमें फॉलो करें":"Follow Us","इंस्टाग्राम ↗":"Instagram ↗","श्रद्धा • सेवा • भक्ति":"Faith • Service • Devotion","सेवा बुक करें →":"Book Service →"
   };
-
-  const reverseTranslations = Object.fromEntries(
-    Object.entries(translations).map(([hi, en]) => [en, hi])
-  );
-
+  const enToHi = {
+    "Serving You from the Sacred Abode of Vrindavan.":"वृंदावन धाम से सीधे आपके लिए।",
+    "A connection to Sanatan traditions and sacred seva.":"सनातन परंपराओं और पवित्र सेवा से जुड़ाव।",
+    "Quick Links":"त्वरित लिंक","Home":"होम","Our Sevas":"हमारी सेवाएँ","How to Book":"बुकिंग कैसे करें",
+    "Kartik Deep Daan":"कार्तिक दीपदान","Navratri Prasad Seva":"नवरात्रि प्रसाद सेवा","Kartik Sadhu Seva":"कार्तिक साधु सेवा","Marjan Seva":"मार्जन सेवा",
+    "Contact Us":"संपर्क करें","WhatsApp Enquiries ↗":"WhatsApp पर पूछताछ ↗","Follow Us":"हमें फॉलो करें","Instagram ↗":"इंस्टाग्राम ↗"
+  };
+  const textNodes = [];
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  let node;
+  while ((node = walker.nextNode())) {
+    if (node.parentElement?.closest("script, style, .language-switch")) continue;
+    textNodes.push({node, original: node.nodeValue});
+  }
   function changeLanguage(lang) {
-    const dictionary = lang === "en"
-      ? translations
-      : reverseTranslations;
-
-    const walker = document.createTreeWalker(
-      document.body,
-      NodeFilter.SHOW_TEXT
-    );
-
-    let node;
-    while ((node = walker.nextNode())) {
-      if (node.parentElement?.closest(
-        "script, style, .language-switch"
-      )) continue;
-
-    
-    document.documentElement.lang = lang === "en" ? "en" : "hi";
-
-    document.querySelectorAll(".language-switch button")
-      .forEach(button => {
-        const active = button.dataset.lang === lang;
-        button.classList.toggle("active", active);
-        button.setAttribute("aria-pressed", String(active));
-      });
-
-    document.querySelectorAll(".book-btn").forEach(button => {
-      const service = button.dataset.service;
-      if (service) {
-        button.textContent = lang === "en"
-          ? "Book via WhatsApp ↗"
-          : "WhatsApp से बुक करें ↗";
-      }
+    textNodes.forEach(({node, original}) => {
+      const trimmed = original.trim();
+      if (!trimmed) return;
+      const normalized = trimmed.replace(/\\s+/g, " ");
+      let translated = normalized;
+      if (lang === "en") translated = hiToEn[normalized] || normalized;
+      else translated = enToHi[normalized] || Object.keys(hiToEn).find(key => hiToEn[key] === normalized) || normalized;
+      node.nodeValue = (original.match(/^\s*/)?.[0] || "") + translated + (original.match(/\s*$/)?.[0] || "");
     });
-
-    const title = lang === "en"
-      ? "Dharmique | Sacred Services of Kashi"
-      : "Dharmique | काशी की धार्मिक सेवाएँ";
-document.querySelectorAll("[data-hi][data-en]").forEach(el => {
-  el.textContent = lang === "en"
-    ? el.dataset.en
-    : el.dataset.hi;
-});
-    document.title = title;
+    document.querySelectorAll("[data-hi][data-en]").forEach(el => el.textContent = lang === "en" ? el.dataset.en : el.dataset.hi);
+    document.querySelectorAll(".book-btn").forEach(button => button.textContent = lang === "en" ? "Book via WhatsApp ↗" : "WhatsApp से बुक करें ↗");
+    document.documentElement.lang = lang;
+    document.title = lang === "en" ? "Dharmique | Sacred Services of Kashi" : "Dharmique | काशी की धार्मिक सेवाएँ";
+    document.querySelectorAll(".language-switch button").forEach(button => {
+      const active = button.dataset.lang === lang;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
     localStorage.setItem("dharmique-language", lang);
   }
-
- const nav =
-  document.querySelector(".nav-links") ||
-  document.querySelector("header .wrap") ||
-  document.querySelector("header");
-
-if (!nav) {
-  console.error("Language switcher: header not found");
-} else {
   const switcher = document.createElement("div");
   switcher.className = "language-switch";
-  switcher.innerHTML = `
-    <button type="button" data-lang="hi">हिन्दी</button>
-    <button type="button" data-lang="en">English</button>
-  `;
-
-  switcher.querySelectorAll("button").forEach(button => {
-    button.addEventListener("click", () => {
-      changeLanguage(button.dataset.lang);
-    });
-  });
-
+  switcher.innerHTML = '<button type="button" data-lang="hi">हिं</button><button type="button" data-lang="en">E</button>';
   document.body.appendChild(switcher);
-
-
-switcher.style.cssText = `
-  position: fixed !important;
-  top: 85px !important;
-  right: 20px !important;
-  z-index: 999999 !important;
-  display: flex !important;
-  gap: 6px !important;
-  padding: 5px !important;
-  background: #fff8ef !important;
-  border: 1px solid #f1ddc8 !important;
-  border-radius: 30px !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,.12) !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-`;
-
-switcher.querySelectorAll("button").forEach(button => {
-  button.style.cssText = `
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    background: #f07818;
-    color: white;
-    border: none;
-    border-radius: 22px;
-    padding: 9px 14px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-  `;
-});
-const original = node.nodeValue;
-const trimmed = original.trim();
-
-if (dictionary[trimmed]) {
-  const start = original.match(/^\s*/)[0];
-  const end = original.match(/\s*$/)[0];
-
-  node.nodeValue = start + dictionary[trimmed] + end;
-}
-
-  const savedLanguage = localStorage.getItem("dharmique-language") || "hi";
-  changeLanguage(savedLanguage);
-  } 
+  switcher.querySelectorAll("button").forEach(button => button.addEventListener("click", () => changeLanguage(button.dataset.lang)));
+  switcher.style.cssText = "position:fixed;top:85px;right:20px;z-index:999999;display:flex;gap:6px;padding:5px;background:#fff8ef;border:1px solid #f1ddc8;border-radius:30px;box-shadow:0 4px 15px rgba(0,0,0,.12)";
+  switcher.querySelectorAll("button").forEach(button => button.style.cssText = "display:inline-block;background:#f07818;color:white;border:none;border-radius:22px;padding:9px 14px;font-size:15px;font-weight:700;cursor:pointer");
+  changeLanguage(localStorage.getItem("dharmique-language") || "hi");
 })();
 </script>
 </body>
