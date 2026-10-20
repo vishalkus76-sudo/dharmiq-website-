@@ -305,6 +305,17 @@ input {
   background: #fffefb;
   color: var(--ink);
 }
+.skip-gotra {
+  display: block;
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: var(--orange);
+  font-size: 12px;
+  text-align: left;
+  text-decoration: underline;
+}
 .wide {
   width: 100%;
   margin-top: 18px;

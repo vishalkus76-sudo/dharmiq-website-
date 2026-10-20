@@ -99,6 +99,11 @@ $("#booking-form").addEventListener("input", (event) => {
   if (event.target.setCustomValidity) event.target.setCustomValidity("");
   clearResult();
 });
+$("#skip-gotra").addEventListener("click", () => {
+  $("#gotra").value = "";
+  clearResult();
+  $("#booking-form").requestSubmit();
+});
 $("#booking-form").addEventListener("submit", (event) => {
   event.preventDefault();
   const form = event.currentTarget;
