@@ -50,3 +50,19 @@ test("Short English messages omit empty gotra and unused draft fields", () => {
   assert.ok(!text.includes("Gotra:"));
   assert.ok(!text.includes("Intention:"));
 });
+
+test("Optional prasadi adds exactly ₹200 to every seva and survives WhatsApp encoding", () => {
+  for (const seva of catalog.services) {
+    for (const lang of ["hi", "en"]) {
+      const text = bookingMessage({ ...draft, prasadi: "yes" }, seva, lang);
+      assert.ok(text.includes("₹200"));
+      if (seva.price === null) {
+        assert.ok(text.includes(lang === "hi" ? "सेवा शुल्क + ₹200" : "seva fee + ₹200"));
+      } else {
+        assert.ok(text.includes(`${lang === "hi" ? "कुल" : "Total"}: ₹${seva.price + 200}`));
+      }
+      assert.equal(new URL(whatsappUrl(text)).searchParams.get("text"), text);
+      assert.ok(!bookingMessage(draft, seva, lang).includes("₹200"));
+    }
+  }
+});

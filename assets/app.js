@@ -1,4 +1,4 @@
-import { bookingMessage, whatsappUrl } from "./booking.js";
+import { bookingMessage, whatsappUrl, prasadiSummary } from "./booking.js";
 const $ = (selector) => document.querySelector(selector);
 let language = "hi";
 try {
@@ -30,6 +30,11 @@ function updateSelection() {
   if (!selectedService) return;
   $("#selected-service").textContent =
     `${selectedService[language]} · ${selectedService.price === null ? tr("शुल्क WhatsApp पर पूछें", "Ask for a quote on WhatsApp") : money(selectedService.price)}`;
+  const summary = prasadiSummary(
+    { prasadi: $("#prasadi").checked ? "yes" : "" }, selectedService, language,
+  );
+  $("#prasadi-summary").textContent = summary.join(" · ");
+  $("#prasadi-summary").hidden = summary.length === 0;
   if (bookingDraft)
     $("#whatsapp-retry").href = whatsappUrl(
       bookingMessage(bookingDraft, selectedService, language),
@@ -88,6 +93,7 @@ function openBooking(serviceId) {
   );
   if (!service) return;
   selectedService = service;
+  $("#prasadi").checked = false;
   clearResult();
   updateSelection();
   if (!dialog.open) dialog.showModal();
@@ -98,6 +104,7 @@ dialog.addEventListener("close", clearResult);
 $("#booking-form").addEventListener("input", (event) => {
   if (event.target.setCustomValidity) event.target.setCustomValidity("");
   clearResult();
+  updateSelection();
 });
 $("#skip-gotra").addEventListener("click", () => {
   $("#gotra").value = "";

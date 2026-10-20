@@ -305,6 +305,30 @@ input {
   background: #fffefb;
   color: var(--ink);
 }
+.prasadi-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.prasadi-option input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  accent-color: var(--orange);
+}
+.prasadi-summary {
+  margin: 8px 0;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--orange);
+}
 .skip-gotra {
   display: block;
   min-height: 44px;

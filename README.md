@@ -18,6 +18,8 @@ Naya code `coderabbit/add-more-features/5dfbb9b0` branch mein hai. Public websit
 
 `vercel.json` build command `npm run build` aur output folder `dist` set karta hai. Node-based build Vercel karta hai; website kholne ya use karne ke liye aapke computer par Node install karna zaroori nahi hai. Koi payment keys, database ya environment variables configure nahi karne hain.
 
+Har seva ke booking form mein optional **प्रसादी चाहिए — अतिरिक्त ₹200** checkbox hai. Tick karne par seva fee se alag ₹200 aur total WhatsApp message mein judta hai. Jis seva ka fee abhi tay nahi hai, usmein “seva fee + ₹200” dikhega; final amount chat mein tay hoga. Bina tick kiye koi add-on charge nahi judta.
+
 Banner original 1280 × 720 image ke proportion mein poora dikhta hai; mobile par bhi crop nahi hota.
 
 ## Content badalna
