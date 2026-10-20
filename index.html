@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#fff8ef" />
     <meta
       name="description"
-      content="Dharmique — काशी से दीपदान, गंगा पूजन, चढ़ावा और घाट मार्जन सेवाएँ। Book seva, track requests and connect with our team."
+      content="Dharmique — काशी से दीपदान, गंगा पूजन, चढ़ावा और घाट मार्जन सेवाएँ। Choose a seva and book directly on WhatsApp."
     />
     <title>Dharmique | काशी की पावन सेवाएँ</title>
     <link rel="icon" href="Dharmique%20Logo.png" />
@@ -41,9 +41,9 @@
             ><span data-hi="सेवाएँ" data-en="Services">सेवाएँ</span></a
           ><a href="#gallery"
             ><span data-hi="गैलरी" data-en="Gallery">गैलरी</span></a
-          ><a href="#track"
-            ><span data-hi="बुकिंग देखें" data-en="Track booking"
-              >बुकिंग देखें</span
+          ><a href="#booking"
+            ><span data-hi="WhatsApp बुकिंग" data-en="WhatsApp booking"
+              >WhatsApp बुकिंग</span
             ></a
           >
         </nav>
@@ -226,14 +226,15 @@
             </article>
             <article class="step">
               <span class="step-number">03</span>
-              <h3 data-hi="सेवा से जुड़े रहें" data-en="Stay connected">
-                सेवा से जुड़े रहें
+              <h3 data-hi="UPI से भुगतान करें" data-en="Pay by UPI">
+                UPI से भुगतान करें
               </h3>
               <p
-                data-hi="पुष्टि के बाद भुगतान करें और अपनी बुकिंग का स्टेटस देखें।"
-                data-en="Pay after confirmation and track your booking with your access code."
+                data-hi="WhatsApp पर बुकिंग और शुल्क तय करें। फिर टीम के बताए UPI पर भुगतान करें।"
+                data-en="Confirm your booking and fee on WhatsApp, then pay using the UPI details shared by our team."
               >
-                पुष्टि के बाद भुगतान करें और अपनी बुकिंग का स्टेटस देखें।
+                WhatsApp पर बुकिंग और शुल्क तय करें। फिर टीम के बताए UPI पर
+                भुगतान करें।
               </p>
             </article>
           </div>
@@ -269,10 +270,10 @@
             />
             <div class="note">
               <span
-                data-hi="अनुरोध भेजना बुकिंग की पुष्टि नहीं है। टीम से पुष्टि और लागू शर्तें मिलने के बाद ही भुगतान करें।"
-                data-en="Submitting a request does not confirm your booking. Pay only after receiving confirmation and the applicable terms from our team."
-                >अनुरोध भेजना बुकिंग की पुष्टि नहीं है। टीम से पुष्टि और लागू
-                शर्तें मिलने के बाद ही भुगतान करें।</span
+                data-hi="फॉर्म भरकर WhatsApp खोलें और Send दबाएँ। बुकिंग की पुष्टि और UPI भुगतान की जानकारी आपको वहीं मिलेगी।"
+                data-en="Fill the form, open WhatsApp and press Send. Our team will confirm your booking and share UPI payment details in the chat."
+                >फॉर्म भरकर WhatsApp खोलें और Send दबाएँ। बुकिंग की पुष्टि और
+                UPI भुगतान की जानकारी आपको वहीं मिलेगी।</span
               >
             </div>
           </div>
@@ -380,10 +381,10 @@
             <p id="estimate" class="estimate"></p>
             <label class="check"
               ><input type="checkbox" name="consent" required /><span
-                data-hi="मैं सेवा के संबंध में संपर्क की सहमति देता/देती हूँ और गोपनीयता व बुकिंग जानकारी पढ़ चुका/चुकी हूँ।"
-                data-en="I consent to contact about my seva and have read the privacy and booking information."
-                >मैं सेवा के संबंध में संपर्क की सहमति देता/देती हूँ और गोपनीयता
-                व बुकिंग जानकारी पढ़ चुका/चुकी हूँ।</span
+                data-hi="मैं यह जानकारी WhatsApp पर Dharmique को भेजने के लिए सहमत हूँ।"
+                data-en="I agree to share these details with Dharmique on WhatsApp."
+                >मैं यह जानकारी WhatsApp पर Dharmique को भेजने के लिए सहमत
+                हूँ।</span
               ></label
             ><a class="text-link" href="#policies"
               ><span
@@ -391,11 +392,14 @@
                 data-en="Read privacy and booking information"
                 >गोपनीयता और बुकिंग जानकारी पढ़ें</span
               ></a
-            ><button id="submit-booking" class="btn wide" type="submit">
-              <span
-                data-hi="बुकिंग अनुरोध बनाएँ"
-                data-en="Create booking request"
-                >बुकिंग अनुरोध बनाएँ</span
+            ><button
+              id="submit-booking"
+              disabled
+              class="btn wide"
+              type="submit"
+            >
+              <span data-hi="WhatsApp पर बुक करें" data-en="Book on WhatsApp"
+                >WhatsApp पर बुक करें</span
               >
               →
             </button>
@@ -576,83 +580,6 @@
           <div id="review-list" class="three-grid"></div>
         </div>
       </section>
-      <section id="track" class="tinted">
-        <div class="wrap tracking-layout">
-          <div>
-            <div class="eyebrow">
-              <span data-hi="अनुरोध से सेवा तक" data-en="From request to seva"
-                >अनुरोध से सेवा तक</span
-              >
-            </div>
-            <h2 data-hi="अपनी बुकिंग देखें" data-en="Track your booking">
-              अपनी बुकिंग देखें
-            </h2>
-            <p
-              data-hi="बुकिंग बनाते समय मिले रेफरेंस और निजी एक्सेस कोड का उपयोग करें। इन्हें सुरक्षित रखें।"
-              data-en="Use the reference and private access code you received when creating your request. Keep them safe."
-            >
-              बुकिंग बनाते समय मिले रेफरेंस और निजी एक्सेस कोड का उपयोग करें।
-              इन्हें सुरक्षित रखें।
-            </p>
-            <a
-              href="https://wa.me/919555669751"
-              target="_blank"
-              rel="noopener"
-              class="text-link"
-              ><span
-                data-hi="कोड खो गया? टीम से संपर्क करें"
-                data-en="Lost your code? Contact the team"
-                >कोड खो गया? टीम से संपर्क करें</span
-              >
-              ↗</a
-            >
-          </div>
-          <div class="panel">
-            <form id="track-form">
-              <div class="form-grid">
-                <div>
-                  <label
-                    data-hi="बुकिंग रेफरेंस"
-                    data-en="Booking reference"
-                    for="track-id"
-                    >बुकिंग रेफरेंस</label
-                  ><input
-                    id="track-id"
-                    name="id"
-                    required
-                    maxlength="60"
-                    placeholder="DH-…"
-                    autocapitalize="characters"
-                  />
-                </div>
-                <div>
-                  <label
-                    data-hi="निजी एक्सेस कोड"
-                    data-en="Private access code"
-                    for="track-token"
-                    >निजी एक्सेस कोड</label
-                  ><input
-                    id="track-token"
-                    name="token"
-                    required
-                    maxlength="100"
-                    type="password"
-                    autocomplete="off"
-                  />
-                </div>
-              </div>
-              <button class="btn" type="submit">
-                <span data-hi="स्टेटस देखें" data-en="View status"
-                  >स्टेटस देखें</span
-                >
-                →
-              </button>
-              <p id="track-message" role="status"></p>
-            </form>
-            <div id="track-result" hidden></div>
-          </div>
-        </div>
-      </section>
       <section id="faq">
         <div class="wrap narrow">
           <div class="section-head">
@@ -673,12 +600,12 @@
               >
             </summary>
             <p
-              data-hi="फॉर्म से अनुरोध बनता है। टीम उपलब्धता, तारीख, स्थान और शुल्क की पुष्टि करेगी। बुकिंग स्टेटस में “पुष्टि हुई” दिखने पर बुकिंग स्वीकार मानी जाएगी।"
-              data-en="The form creates a request. Our team confirms availability, date, location and fee. Your booking is accepted when its status changes to “Confirmed”."
+              data-hi="WhatsApp पर संदेश भेजने के बाद टीम तारीख, स्थान, सामग्री और शुल्क की पुष्टि करेगी। टीम का पुष्टि संदेश मिलने पर ही बुकिंग पक्की होगी।"
+              data-en="After you send your message on WhatsApp, our team confirms the date, location, offerings and fee. Your booking is confirmed only when you receive the team’s confirmation in the chat."
             >
-              फॉर्म से अनुरोध बनता है। टीम उपलब्धता, तारीख, स्थान और शुल्क की
-              पुष्टि करेगी। बुकिंग स्टेटस में “पुष्टि हुई” दिखने पर बुकिंग
-              स्वीकार मानी जाएगी।
+              WhatsApp पर संदेश भेजने के बाद टीम तारीख, स्थान, सामग्री और शुल्क
+              की पुष्टि करेगी। टीम का पुष्टि संदेश मिलने पर ही बुकिंग पक्की
+              होगी।
             </p>
           </details>
           <details>
@@ -720,11 +647,12 @@
               >
             </summary>
             <p
-              data-hi="टीम की पुष्टि के बाद बुकिंग स्टेटस में ऑनलाइन भुगतान उपलब्ध होने पर भुगतान करें। अन्यथा टीम से आधिकारिक भुगतान विवरण लें।"
-              data-en="After confirmation, use online payment from your booking status when available. Otherwise obtain official payment instructions from the team."
+              data-hi="भुगतान सीधे UPI से होगा। पहले WhatsApp पर टीम से बुकिंग और राशि तय करें। फिर उसी चैट में मिले UPI विवरण पर भुगतान करें और लेनदेन का विवरण साझा करें।"
+              data-en="Payment is directly by UPI. Agree on your booking and amount with our team on WhatsApp, then pay using the UPI details shared in the chat and share the transaction details there."
             >
-              टीम की पुष्टि के बाद बुकिंग स्टेटस में ऑनलाइन भुगतान उपलब्ध होने
-              पर भुगतान करें। अन्यथा टीम से आधिकारिक भुगतान विवरण लें।
+              भुगतान सीधे UPI से होगा। पहले WhatsApp पर टीम से बुकिंग और राशि तय
+              करें। फिर उसी चैट में मिले UPI विवरण पर भुगतान करें और लेनदेन का
+              विवरण साझा करें।
             </p>
           </details>
           <details>
@@ -772,11 +700,11 @@
             </summary>
             <p id="refund-copy"></p>
             <p
-              data-hi="रिफंड या बदलाव का अनुरोध WhatsApp या ईमेल पर करें। ऑनलाइन भुगतान की रसीद केवल भुगतान की पुष्टि है; सेवा पूरी होने की पुष्टि नहीं।"
-              data-en="Request refunds or changes by WhatsApp or email. A payment receipt confirms payment; it does not confirm that the seva has been completed."
+              data-hi="रिफंड, तारीख बदलने या भुगतान से जुड़े सवाल के लिए उसी WhatsApp चैट में संपर्क करें। भुगतान का लेनदेन विवरण अपने पास रखें।"
+              data-en="For refunds, date changes or payment questions, contact us in the same WhatsApp chat. Keep your UPI transaction details for reference."
             >
-              रिफंड या बदलाव का अनुरोध WhatsApp या ईमेल पर करें। ऑनलाइन भुगतान
-              की रसीद केवल भुगतान की पुष्टि है; सेवा पूरी होने की पुष्टि नहीं।
+              रिफंड, तारीख बदलने या भुगतान से जुड़े सवाल के लिए उसी WhatsApp चैट
+              में संपर्क करें। भुगतान का लेनदेन विवरण अपने पास रखें।
             </p>
           </details>
           <details>
@@ -788,15 +716,15 @@
               >
             </summary>
             <p
-              data-hi="नाम, फोन, वैकल्पिक गोत्र, तारीख और संकल्प बुकिंग पूरी करने व संपर्क के लिए सर्वर पर सुरक्षित किए जाते हैं। भुगतान कार्ड की जानकारी Dharmique नहीं रखता; भुगतान प्रदाता इसे संभालता है। WhatsApp से भेजी गई जानकारी उस सेवा पर भी साझा होगी। जानकारी सुधारने या हटाने के लिए aryangodvani@gmail.com पर संपर्क करें। सार्वजनिक समीक्षा केवल आपकी सहमति से प्रकाशित की जाती है।"
-              data-en="Your name, phone, optional gotra, date and intention are stored on our server to arrange and discuss your booking. Dharmique does not store payment card details; the payment provider handles them. Information sent through WhatsApp is also shared with that service. Contact aryangodvani@gmail.com to correct or delete your information. Public reviews are published only with your consent."
+              data-hi="फॉर्म की जानकारी WhatsApp संदेश तैयार करने के लिए उपयोग होती है। यह वेबसाइट आपके फॉर्म की जानकारी अपने किसी डेटाबेस में सेव नहीं करती। WhatsApp पर Send दबाने पर जानकारी Dharmique और WhatsApp के साथ साझा होगी। UPI भुगतान विवरण WhatsApp पर तय होते हैं। जानकारी सुधारने या हटाने के लिए उसी चैट या aryangodvani@gmail.com पर संपर्क करें। भाषा की पसंद इस ब्राउज़र में याद रखी जा सकती है।"
+              data-en="The form is used to prepare your WhatsApp message. This website does not save form details in a database. Pressing Send in WhatsApp shares them with Dharmique and WhatsApp. UPI payment details are arranged in the chat. For correction or deletion requests, contact us there or at aryangodvani@gmail.com. Your language preference may be remembered in this browser."
             >
-              नाम, फोन, वैकल्पिक गोत्र, तारीख और संकल्प बुकिंग पूरी करने व
-              संपर्क के लिए सर्वर पर सुरक्षित किए जाते हैं। भुगतान कार्ड की
-              जानकारी Dharmique नहीं रखता; भुगतान प्रदाता इसे संभालता है।
-              WhatsApp से भेजी गई जानकारी उस सेवा पर भी साझा होगी। जानकारी
-              सुधारने या हटाने के लिए aryangodvani@gmail.com पर संपर्क करें।
-              सार्वजनिक समीक्षा केवल आपकी सहमति से प्रकाशित की जाती है।
+              फॉर्म की जानकारी WhatsApp संदेश तैयार करने के लिए उपयोग होती है।
+              यह वेबसाइट आपके फॉर्म की जानकारी अपने किसी डेटाबेस में सेव नहीं
+              करती। WhatsApp पर Send दबाने पर जानकारी Dharmique और WhatsApp के
+              साथ साझा होगी। UPI भुगतान विवरण WhatsApp पर तय होते हैं। जानकारी
+              सुधारने या हटाने के लिए उसी चैट या aryangodvani@gmail.com पर
+              संपर्क करें। भाषा की पसंद इस ब्राउज़र में याद रखी जा सकती है।
             </p>
           </details>
         </div>
@@ -867,11 +795,7 @@
           </h3>
           <a href="https://wa.me/919555669751" target="_blank" rel="noopener"
             >+91 95556 69751 ↗</a
-          ><a href="mailto:aryangodvani@gmail.com">aryangodvani@gmail.com</a
-          ><a href="admin.html"
-            ><span data-hi="टीम लॉगिन" data-en="Team login">टीम लॉगिन</span>
-            ↗</a
-          >
+          ><a href="mailto:aryangodvani@gmail.com">aryangodvani@gmail.com</a>
         </div>
       </div>
       <div class="wrap footer-bottom">

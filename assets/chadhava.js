@@ -38,17 +38,11 @@ document
 (async () => {
   let catalog;
   try {
-    const response = await fetch("/api/catalog");
+    const response = await fetch("assets/catalog.json");
     if (!response.ok) throw new Error();
     catalog = await response.json();
   } catch {
-    try {
-      const response = await fetch("assets/catalog.json");
-      if (!response.ok) throw new Error();
-      catalog = await response.json();
-    } catch {
-      return;
-    }
+    return;
   }
   for (const button of document.querySelectorAll("[data-book]")) {
     const service = catalog.services.find((s) => s.id === button.dataset.book);
