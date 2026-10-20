@@ -1,6 +1,6 @@
 # Dharmique — simple WhatsApp booking
 
-Customer website par seva, naam, date aur optional gotra/occasion bharta hai. **“WhatsApp पर बुक करें”** dabane se details wala WhatsApp message khulta hai. Customer wahan **Send** dabata hai. Aap usi chat mein date, final amount aur UPI payment details decide karte ho.
+Customer seva par **“बुक करें”** dabata hai. Chhote form mein sirf **naam, number aur gotra** hai (gotra optional). **“WhatsApp पर बुक करें”** dabane se details wala WhatsApp message khulta hai. Customer wahan **Send** dabata hai. Aap usi chat mein date, final amount aur UPI payment details decide karte ho.
 
 Website par payment gateway, admin login, booking database, access code ya automated payment receipt nahi hai. Form submit hone ka matlab booking confirmed ya payment received nahi hai. Confirmation, UPI transaction verification, changes aur refunds WhatsApp par aap khud handle karte ho.
 
@@ -10,12 +10,15 @@ Existing site: https://dharmiq-website.vercel.app
 
 Naya code `coderabbit/add-more-features/5dfbb9b0` branch mein hai. Public website abhi `main` par purana version dikha sakti hai.
 
-1. GitHub par repository kholo aur is branch ke changes ko `main` mein merge karo.
-2. Agar Vercel project is GitHub repository ke `main` se connected hai, deployment apne aap shuru hogi.
-3. Vercel dashboard mein is website ka project kholo → **Deployments** → latest production deployment **Ready** hone do. Zaroorat ho to `main` ki latest deployment ko **Redeploy** karo.
-4. https://dharmiq-website.vercel.app kholo aur refresh karo.
+1. Aapki request pehle se bani hai: https://github.com/vishalkus76-sudo/dharmiq-website-/pull/1
+2. Us page par **Merge pull request** phir **Confirm merge** dabao.
+3. Agar Vercel project is GitHub repository ke `main` se connected hai, deployment apne aap shuru hogi.
+4. Vercel dashboard mein is website ka project kholo → **Deployments** → latest production deployment **Ready** hone do. Zaroorat ho to `main` ki latest deployment ko **Redeploy** karo.
+5. https://dharmiq-website.vercel.app kholo aur refresh karo.
 
 `vercel.json` build command `npm run build` aur output folder `dist` set karta hai. Node-based build Vercel karta hai; website kholne ya use karne ke liye aapke computer par Node install karna zaroori nahi hai. Koi payment keys, database ya environment variables configure nahi karne hain.
+
+Banner original 1280 × 720 image ke proportion mein poora dikhta hai; mobile par bhi crop nahi hota.
 
 ## Content badalna
 
@@ -45,4 +48,4 @@ npm test
 npm run build
 ```
 
-Tests WhatsApp destination, Hindi URL encoding, form details, English occasion labels aur UPI instructions verify karte hain. Browser checks form validation, both languages, mobile layout, WhatsApp handoff, chadhava page aur static hosting cover karte hain. WhatsApp message khud nahi bheja jata; customer ko Send dabana hota hai. UPI transaction website verify nahi karti.
+Tests WhatsApp destination, Hindi URL encoding, form details, English messages aur optional gotra aur UPI instructions verify karte hain. Browser checks form validation, both languages, mobile layout, WhatsApp handoff, chadhava page aur static hosting cover karte hain. WhatsApp message khud nahi bheja jata; customer ko Send dabana hota hai. UPI transaction website verify nahi karti.

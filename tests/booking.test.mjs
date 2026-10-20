@@ -30,23 +30,23 @@ test("Hindi form data survives WhatsApp URL encoding and requests UPI details in
     "+91 90000 00000",
     "लघु प्रसादी सेवा",
     "कश्यप",
-    "जन्मदिन",
-    "परिवार की सुख-शांति 🙏",
-    "₹51",
     "UPI",
   ])
     assert.ok(text.includes(expected));
 });
-test("English messages localize occasions and handle quotes without a fixed price", () => {
+test("Short English messages omit empty gotra and unused draft fields", () => {
   const text = bookingMessage(
     { ...draft, gotra: "", notes: "", occasion: "memory" },
     { ...service, price: null },
     "en",
   );
   assert.ok(text.includes("Small Prasadi Offering"));
-  assert.ok(text.includes("In remembrance"));
-  assert.ok(text.includes("please share a quote"));
-  assert.ok(text.includes("share UPI payment details in this chat"));
+  assert.ok(text.includes("Name: भक्त & परिवार +"));
+  assert.ok(text.includes("Number: +91 90000 00000"));
+  assert.ok(text.includes("share UPI payment details"));
+  assert.ok(!text.includes("2027-01-15"));
+  assert.ok(!text.includes("memory"));
+  assert.ok(!text.includes("₹"));
   assert.ok(!text.includes("Gotra:"));
   assert.ok(!text.includes("Intention:"));
 });
