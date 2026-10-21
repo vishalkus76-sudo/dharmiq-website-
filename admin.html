@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Dharmique Admin</title>
+    <link rel="icon" href="Dharmique%20Logo.png" />
+    <link rel="stylesheet" href="assets/admin.css" />
+    <script type="module" src="assets/admin.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">Dharmique</a><span>Admin panel</span
+      ><button id="logout" hidden>लॉग आउट</button>
+    </header>
+    <main>
+      <p id="notice" role="status" aria-live="polite">लोड हो रहा है…</p>
+      <section id="login-panel" class="login-panel" hidden>
+        <h1>Admin लॉगिन</h1>
+        <p>अपनी booking requests देखने के लिए पासवर्ड डालें।</p>
+        <form id="login-form">
+          <label for="password">Admin password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+            maxlength="256"
+          />
+          <button type="submit">लॉगिन करें</button>
+        </form>
+      </section>
+      <section id="dashboard" hidden>
+        <div class="heading">
+          <div>
+            <h1>आपका dashboard</h1>
+            <p id="updated"></p>
+          </div>
+          <button id="refresh" class="secondary">रिफ्रेश करें</button>
+        </div>
+        <div id="stats" class="stats"></div>
+        <p class="help">
+          विज़िट गिनती अनुमान है: एक browser tab की एक दिन में एक गिनती। तारीख
+          भारत के समय से है। Tracking शुरू होने के बाद का data दिखेगा।
+        </p>
+        <h2>Booking requests</h2>
+        <p class="help">
+          Form भेजने पर request यहाँ आती है। WhatsApp पर बात और UPI की जाँच के
+          बाद booking तथा payment status खुद बदलें। यह सूची WhatsApp का Send या
+          भुगतान अपने आप verify नहीं करती।
+        </p>
+        <form id="filters" class="filters">
+          <div>
+            <label for="status-filter">Booking status</label
+            ><select id="status-filter">
+              <option value="all">सभी</option>
+              <option value="requested">नई request</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div class="search">
+            <label for="search">नाम या नंबर से ढूँढें</label
+            ><input id="search" type="search" maxlength="100" />
+          </div>
+          <button type="submit">देखें</button>
+        </form>
+        <p id="result-count"></p>
+        <div id="bookings"></div>
+        <nav class="pagination" aria-label="Booking pages">
+          <button id="previous" class="secondary">पिछला</button
+          ><span id="page-number"></span
+          ><button id="next" class="secondary">अगला</button>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>
