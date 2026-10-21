@@ -1,718 +1,276 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fff7ed">
-  <meta name="description" content="Dharmique — काशी में दीपदान, गंगा पूजन, चढ़ावा सेवा और पवित्र घाटों के मार्जन की सेवा बुक करें।">
-  <title>Dharmique| काशी की धार्मिक सेवाएँ</title>
-  <link rel="icon" type="image/png" href="/Dharmique Logo.png">
-  <style>
-    :root {
-      --orange: #f07818;
-      --orange-dark: #c9570b;
-      --saffron: #ffb15c;
-      --cream: #fff8ef;
-      --paper: #fffdf9;
-      --ink: #3f2818;
-      --muted: #796858;
-      --line: #f1ddc8;
-      --green: #356b50;
-      --shadow: 0 14px 35px rgba(111, 65, 24, .09);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0; color: var(--ink); background: var(--cream);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans Devanagari", "Segoe UI", sans-serif;
-      line-height: 1.65;
-    }
-    a { color: inherit; text-decoration: none; }
-    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
-    header {
-      position: sticky; top: 0; z-index: 10; background: rgba(255,253,249,.94);
-      border-bottom: 1px solid var(--line); backdrop-filter: blur(12px);
-    }
-    .nav { min-height: 78px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
-    .brand { display:flex; align-items:center; gap:12px; min-width:0; }
-    .brand-mark {
-      width:52px; height:52px; flex:0 0 52px; display:grid; place-items:center; border-radius:50%;
-      background: linear-gradient(135deg,#ffe6b7,#ffd08a); font-size:27px;
-    }
-    .brand-name { font-weight:850; font-size:clamp(19px,3vw,27px); line-height:1.2; letter-spacing:-.4px; }
-    .brand-tag { color:var(--muted); font-size:13px; margin-top:3px; }
-    .nav-links { display:flex; align-items:center; gap:22px; font-size:14px; font-weight:650; }
-    .nav-links a:not(.btn):hover { color:var(--orange-dark); }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center; gap:8px; border:0; cursor:pointer;
-      border-radius:999px; padding:12px 20px; background:var(--orange); color:white; font-weight:800;
-      box-shadow:0 7px 18px rgba(240,120,24,.22); transition:transform .15s, background .15s;
-    }
-    .btn:hover { background:var(--orange-dark); transform:translateY(-1px); }
-    .btn-outline { color:var(--orange-dark); background:white; border:1px solid #f4c49c; box-shadow:none; }
-    .btn-outline:hover { background:#fff0df; }
-    .hero { padding:58px 0 46px; overflow:hidden; }
-    .hero-grid { display:grid; grid-template-columns:1.12fr .88fr; gap:38px; align-items:center; }
-    .eyebrow {
-      display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px;
-      color:var(--orange-dark); background:#ffead4; font-weight:800; font-size:13px;
-    }
-    h1 { font-size:clamp(34px,5vw,56px); line-height:1.18; letter-spacing:-1.2px; margin:18px 0 16px; }
-    h1 span { color:var(--orange-dark); }
-    .hero p { color:var(--muted); font-size:17px; max-width:620px; margin:0 0 24px; }
-    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
-   
-.hero-art {
-  width: 100%;
-  aspect-ratio: 671 / 471;
-  min-height: 0;
-  height: auto;
-  position: relative;
-  display: block;
-  border-radius: 32px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  box-sizing: border-box;
-}
-
-.hero-slides,
-.hero-slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-slide {
-  opacity: 0;
-  transition: opacity .7s ease;
-}
-
-.hero-slide.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-.hero-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.slide-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 22px 12px 18px;
-  text-align: center;
-  color: white;
-  font-size: clamp(17px, 2.5vw, 25px);
-  font-weight: 800;
-  background: linear-gradient(transparent, rgba(45,25,10,.8));
-}
-
-.hero-dots {
-  position: absolute;
-  z-index: 3;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 7px;
-}
-
-.hero-dots span {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.6);
-}
-
-.hero-dots span.active {
-  background: #f47716;
-}
-
-    }
-    
-    .trust-row { display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:26px; color:var(--muted); font-size:13px; }
-    .trust-row span:before { content:"✓"; color:var(--green); font-weight:900; margin-right:7px; }
-    section { padding:48px 0; }
-    .section-head { text-align:center; max-width:720px; margin:0 auto 28px; }
-    .section-head h2 { font-size:clamp(26px,4vw,38px); margin:0 0 8px; line-height:1.25; }
-    .section-head p { color:var(--muted); margin:0; }
-    .services { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
-    .service-card {
-      background:var(--paper); border:1px solid var(--line); border-radius:22px; padding:25px;
-      box-shadow:var(--shadow); display:flex; flex-direction:column; align-items:flex-start;
-    }
-    
-.service-icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 18px;
-  overflow: hidden;
-  margin-bottom: 14px;
-  flex-shrink: 0;
-}
-
-.service-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-    .service-card h3 { margin:0 0 9px; font-size:21px; line-height:1.4; }
-    .service-card p { color:var(--muted); margin:0 0 18px; flex:1; }
-    .service-meta { display:flex; width:100%; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:auto; }
-    .fee { font-size:13px; color:var(--muted); background:#fff5e9; border:1px dashed #edc9a5; padding:7px 12px; border-radius:999px; }
-    .fee strong { color:var(--ink); }
-    .how { background:#fff0df; }
-    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-    .step { background:rgba(255,255,255,.78); border:1px solid #f2d4b5; border-radius:18px; padding:22px; }
-    .step-num { width:36px; height:36px; display:grid; place-items:center; border-radius:50%; background:var(--orange); color:white; font-weight:900; margin-bottom:12px; }
-    .step h3 { margin:0 0 6px; font-size:18px; }
-    .step p { color:var(--muted); font-size:14px; margin:0; }
-    .cta { padding:48px 0; }
-    .cta-panel {
-      display:flex; justify-content:space-between; align-items:center; gap:24px; padding:30px;
-      border-radius:26px; color:white; background:linear-gradient(120deg,#c9570b,#f07818 60%,#f6a04e);
-      box-shadow:var(--shadow);
-    }
-    .cta-panel h2 { margin:0 0 5px; font-size:clamp(24px,3.5vw,34px); }
-    .cta-panel p { margin:0; color:#fff1e4; }
-    .cta-panel .btn { background:white; color:var(--orange-dark); box-shadow:none; white-space:nowrap; }
-    footer { border-top:1px solid var(--line); background:#fffdf9; padding:25px 0; color:var(--muted); font-size:13px; }
-    .footer-inner { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
-    @media(max-width:760px) {
-      .nav { min-height:70px; }
-      .nav-links { gap:10px; }
-      .nav-links a:not(.btn) { display:none; }
-      .nav-links .btn { padding:10px 14px; font-size:13px; }
-      .hero { padding:38px 0 28px; }
-      .hero-grid { grid-template-columns:1fr; gap:24px; }
-      .hero-art { min-height:240px; }
-      .diya { font-size:78px; }
-      .services { grid-template-columns:1fr; }
-      .steps { grid-template-columns:1fr; }
-      .cta-panel { align-items:flex-start; flex-direction:column; padding:24px; }
-    }
-  
-/* Mobile header alignment fix */
-@media (max-width: 600px) {
-  header .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 8px;
-  }
-
-  header .brand {
-    flex: 1 1 auto;
-    min-width: 0;
-    gap: 7px;
-  }
-
-  header .brand-mark {
-    width: 38px;
-    height: 38px;
-    flex: 0 0 38px;
-  }
-
-  header .brand-name {
-    font-size: 15px;
-    line-height: 1.2;
-    white-space: nowrap;
-    letter-spacing: -0.6px;
-  }
-
-  header .brand-tag {
-    font-size: 9px;
-    line-height: 1.3;
-    white-space: nowrap;
-  }
-
-  header .nav-links {
-    flex: 0 0 auto;
-    margin: 0;
-  }
-
-  header .nav-links .btn {
-    width: auto;
-    max-width: none;
-    padding: 10px 11px;
-    font-size: 12px;
-    line-height: 1.3;
-    white-space: nowrap;
-    gap: 5px;
-  }
-}
-
-/* Dharmique Footer */
-footer {
-  background: #202746;
-  color: #f7f0e7;
-  padding: 45px 0 0;
-  font-size: 14px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
-  gap: 30px;
-  padding-bottom: 35px;
-}
-
-.footer-column h3 {
-  color: #fff;
-  font-size: 17px;
-  margin: 0 0 15px;
-}
-
-.footer-brand {
-  font-size: 25px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.footer-description {
-  color: #d2d7e7;
-  line-height: 1.8;
-}
-
-.footer-column a {
-  display: block;
-  color: #d2d7e7;
-  margin-bottom: 10px;
-  overflow-wrap: anywhere;
-}
-
-.footer-column a:hover {
-  color: #ffb15c;
-}
-
-.footer-highlight {
-  color: #ffb15c !important;
-}
-
-.footer-bottom {
-  border-top: 1px solid #414968;
-  padding: 20px 0;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  color: #d2d7e7;
-  font-size: 12px;
-}
-
-@media (max-width: 760px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 25px 18px;
-  }
-}
-
-@media (max-width: 440px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-  </style>
-</head>
-<body>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#home" aria-label="Dharmique home">
-        <img src="Dharmique Logo.png" alt="Dharmique Logo" class="brand-mark">
-        <span>
-          <span class="brand-name">Dharmique</span>
-          <span class="brand-tag" style="display:block">पवित्र काशी क्षेत्र से आपके घर तक</span>
-        </span>
-      </a>
-      <nav class="nav-links" aria-label="मुख्य नेविगेशन">
-        <a href="#services">हमारी सेवाएँ</a>
-        <a href="#how">बुकिंग प्रक्रिया</a>
-        <a class="btn" href="#services">सेवा बुक करें <span aria-hidden="true">↗</span></a>
-      </nav>
-    </div>
-  </header>
-<!-- Full Width Ganga Aarti Banner -->
-<section class="ganga-banner">
- <img src="111032106.webp" alt="Ganga Aarti in Varanasi">
-</section>
-  <main>
-    <section class="hero" id="home">
-      <div class="wrap hero-grid">
-        <div>
-          <span class="eyebrow">🪔 काशी की पावन सेवाएँ</span>
-         <h1>अपनों के नाम से करें<br>
-           <span>पावन सेवा</span></h1>
-          <p>काशी की पवित्र परंपराओं से जुड़िए। दीपदान, गंगा पूजन, मंदिरों में चढ़ावा और पवित्र घाटों के मार्जन जैसी सेवाओं के लिए हमसे संपर्क करें।</p>
-          <div class="hero-actions">
-            <a class="btn" href="#services">सेवाएँ देखें <span aria-hidden="true">→</span></a>
-            <a class="btn btn-outline" href="#how">बुकिंग कैसे करें?</a>
-          </div>
-          <div class="trust-row">
-            <span>सरल WhatsApp बुकिंग</span>
-            <span>परिवार के नाम से सेवा</span>
-            <span>काशी-केंद्रित सेवाएँ</span>
-          </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#fff8ef" />
+    <meta
+      name="description"
+      content="Dharmique — सेवा चुनें, नाम, नंबर और गोत्र भरें, WhatsApp पर बुक करें।"
+    />
+    <title>Dharmique | काशी की पावन सेवाएँ</title>
+    <link rel="icon" href="Dharmique%20Logo.png" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script type="module" src="assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#services"
+      ><span data-hi="सेवाओं पर जाएँ" data-en="Skip to services"
+        >सेवाओं पर जाएँ</span
+      ></a
+    >
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="index.html"
+          ><img
+            src="Dharmique%20Logo.png"
+            width="42"
+            height="42"
+            alt="Dharmique"
+          /><span
+            ><strong>Dharmique</strong
+            ><small
+              data-hi="श्रद्धा • सेवा • संकल्प"
+              data-en="Faith • Seva • Devotion"
+              >श्रद्धा • सेवा • संकल्प</small
+            ></span
+          ></a
+        >
+        <div class="language-switch" aria-label="Language">
+          <button type="button" data-lang="hi">हिं</button
+          ><button type="button" data-lang="en">EN</button>
         </div>
-       
-<div class="hero-art" aria-label="सेवा की तस्वीरें">
-  <div class="hero-slides">
-    <div class="hero-slide active">
-     <img src="./WhatsApp%20Image%202026-10-15%20at%2010.20.58%20AM.jpeg" alt="">
-    </div>
-    <div class="hero-slide">
-    <img src="./WhatsApp%20Image%202026-10-15%20at%2010.21.05%20AM.jpeg" alt="">
-    </div>
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1200&q=85" alt="">
-    </div>
-    <div class="hero-slide">
-      <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=85" alt="">
-    </div>
-  </div>
-</div>
-```
-
+        <a class="btn" href="#services"
+          ><span data-hi="सेवा चुनें" data-en="Choose seva">सेवा चुनें</span>
+          ↓</a
+        >
       </div>
-    </section>
-
-    <section id="services">
-      <div class="wrap">
+    </header>
+    <main>
+      <div class="banner wrap">
+        <img
+          id="banner-image"
+          src="111032106.webp"
+          width="1280"
+          height="720"
+          alt="काशी में गंगा आरती · Ganga Aarti in Kashi"
+          fetchpriority="high"
+        />
+      </div>
+      <section id="services" class="wrap services-section">
         <div class="section-head">
-          <h2>हमारी सेवाएँ</h2>
-          <p>अपने परिवार और प्रियजनों के निमित्त सेवा चुनें। बुकिंग के लिए नीचे दिए गए WhatsApp बटन पर क्लिक करें।</p>
+          <h1
+            data-hi="अपनों के नाम से पावन सेवा"
+            data-en="A sacred seva for your loved ones"
+          >
+            अपनों के नाम से पावन सेवा
+          </h1>
+          <p
+            id="how"
+            data-hi="सेवा चुनें → नाम, नंबर और गोत्र भरें → WhatsApp पर भेजें"
+            data-en="Choose seva → enter name, number &amp; gotra → send on WhatsApp"
+          >
+            सेवा चुनें → नाम, नंबर और गोत्र भरें → WhatsApp पर भेजें
+          </p>
         </div>
-        <div class="services">
-          <article class="service-card">
-          <div class="service-icon">
-  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=300&q=80" alt="पवित्र घाट">
-</div>
-            <h3>कार्तिक दीपदान सेवा</h3>
-            <p>बिंदु माधव के चरणों में दीपदान एवं यमुना दीपदान की पावन सेवा अपने संकल्प और श्रद्धा के साथ अर्पित करें।</p>
-            <div class="service-meta">
-              <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
-              <button class="btn book-btn" data-service="कार्तिक दीपदान सेवा">WhatsApp से बुक करें ↗</button>
-            </div>
-          </article>
-          <article class="service-card">
-          <div class="service-icon">
-  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=300&q=80" alt="पवित्र घाट">
-</div>
-            <h3>देव दीपावली गंगा पूजन एवं दीपदान</h3>
-            <p>देव दीपावली पर गंगा पूजन एवं अपने परिवार के निमित्त एक दीपदान की सेवा बुक करें।</p>
-            <div class="service-meta">
-              <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
-              <button class="btn book-btn" data-service="देव दीपावली गंगा पूजन एवं दीपदान">WhatsApp से बुक करें ↗</button>
-            </div>
-          </article>
-          <article class="service-card">
-        <div class="service-icon">
-  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=300&q=80" alt="पवित्र घाट">
-</div>
-            <h3>चढ़ावा सेवा</h3>
-            <p>काशी के विभिन्न मंदिरों में अपने परिवार की सुख-समृद्धि के लिए प्रसाद एवं सामग्री चढ़ाने की सेवा।</p>
-            <div class="service-meta">
-              <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
-             <a class="btn" href="chadhava.html" data-hi="सेवा बुक करें →" data-en="Book Service →">सेवा बुक करें →</a>
-            </div>
-          </article>
-          <article class="service-card">
-          <div class="service-icon">
-  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=300&q=80" alt="पवित्र घाट">
-</div>
-            <h3>पवित्र गंगा/यमुना घाटों का मार्जन</h3>
-            <p>पवित्र गंगा एवं यमुना घाटों के मार्जन की सेवा के लिए संपर्क करें और अपनी सेवा का संकल्प साझा करें।</p>
-            <div class="service-meta">
-              <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
-              <button class="btn book-btn" data-service="पवित्र गंगा/यमुना घाटों का मार्जन">WhatsApp से बुक करें ↗</button>
-            </div>
-          </article>
-      
-        </div>
-      </div>
-    </section>
-
-    <section class="how" id="how">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>बुकिंग की सरल प्रक्रिया</h2>
-          <p>कुछ आसान स्टेप्स में अपनी सेवा के लिए संपर्क करें।</p>
-        </div>
-        <div class="steps">
-          <div class="step"><div class="step-num">1</div><h3>सेवा चुनें</h3><p>अपनी आवश्यकता के अनुसार सेवा कार्ड पर WhatsApp बटन दबाएँ।</p></div>
-          <div class="step"><div class="step-num">2</div><h3>विवरण भेजें</h3><p>WhatsApp में खुलने वाले संदेश में अपना नाम और सेवा से जुड़ी जानकारी जोड़ें।</p></div>
-          <div class="step"><div class="step-num">3</div><h3>पुष्टि प्राप्त करें</h3><p>सेवा शुल्क, उपलब्धता और आगे की प्रक्रिया की पुष्टि संदेश पर करें।</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="wrap">
-        <div class="cta-panel">
-          <div>
-            <h2>अपनी सेवा के लिए संपर्क करें</h2>
-            <p>Dharmique — वाराणसी धाम से सीधे आपके लिए।</p>
-          </div>
-          <a class="btn" href="#services">सेवा चुनें ↑</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-
-      <div>
-        <div class="footer-brand">Dharmique</div>
-        <p class="footer-description">
-          Serving You from the Sacred Abode of Vrindavan.
-          A connection to Sanatan traditions and sacred seva.
+        <p id="catalog-error" role="status" hidden></p>
+        <div id="service-list" class="service-grid"></div>
+        <noscript
+          ><p>
+            सेवा बुक करने के लिए
+            <a href="https://wa.me/919555669751">WhatsApp पर संपर्क करें ↗</a>
+          </p></noscript
+        >
+        <p class="payment-note">
+          <span
+            data-hi="बुकिंग की पुष्टि और UPI भुगतान की बात सीधे WhatsApp पर होगी।"
+            data-en="Booking confirmation and UPI payment are arranged directly on WhatsApp."
+            >बुकिंग की पुष्टि और UPI भुगतान की बात सीधे WhatsApp पर होगी।</span
+          >
         </p>
+      </section>
+      <div class="wrap more-wrap">
+        <details class="more-info">
+          <summary>
+            <span
+              data-hi="हमारे बारे में, गैलरी और ज़रूरी जानकारी"
+              data-en="About us, gallery &amp; helpful information"
+              >हमारे बारे में, गैलरी और ज़रूरी जानकारी</span
+            >
+          </summary>
+          <div class="more-content">
+            <h2>
+              <span data-hi="Dharmique के बारे में" data-en="About Dharmique"
+                >Dharmique के बारे में</span
+              >
+            </h2>
+            <p id="about-copy"></p>
+            <div id="team-list"></div>
+            <div id="review-list"></div>
+            <h2>
+              <span data-hi="सेवा की झलकियाँ" data-en="Glimpses of seva"
+                >सेवा की झलकियाँ</span
+              >
+            </h2>
+            <div class="gallery-grid">
+              <img
+                src="WhatsApp%20Image%202026-10-15%20at%2010.20.58%20AM.jpeg"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                alt="Dharmique सेवा संग्रह 1"
+              /><img
+                src="WhatsApp%20Image%202026-10-15%20at%2010.21.05%20AM.jpeg"
+                loading="lazy"
+                alt="Dharmique सेवा संग्रह 2"
+              /><video
+                controls
+                preload="none"
+                poster="111032106.webp"
+                aria-label="Dharmique video"
+              >
+                <source
+                  src="turn_into_video_20261012133732.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+            <h2>
+              <span data-hi="बुकिंग और भुगतान" data-en="Booking &amp; payment"
+                >बुकिंग और भुगतान</span
+              >
+            </h2>
+            <p
+              data-hi="WhatsApp खुलने पर Send दबाएँ। हमारी टीम उसी चैट में सेवा, तारीख, स्थान और अंतिम शुल्क की पुष्टि करेगी। फिर बताए गए UPI विवरण पर भुगतान करें।"
+              data-en="Press Send when WhatsApp opens. Our team will confirm your seva, date, location and final fee in that chat, then share UPI payment details."
+            >
+              WhatsApp खुलने पर Send दबाएँ। हमारी टीम उसी चैट में सेवा, तारीख,
+              स्थान और अंतिम शुल्क की पुष्टि करेगी। फिर बताए गए UPI विवरण पर
+              भुगतान करें।
+            </p>
+            <p
+              data-hi="फोटो, वीडियो या प्रसाद की डिलीवरी चाहिए तो बुकिंग से पहले टीम से तय करें।"
+              data-en="If you need photos, video or prasad delivery, agree on it with our team before booking."
+            >
+              फोटो, वीडियो या प्रसाद की डिलीवरी चाहिए तो बुकिंग से पहले टीम से
+              तय करें।
+            </p>
+            <h2>
+              <span
+                data-hi="रद्द करना और रिफंड"
+                data-en="Cancellation &amp; refunds"
+                >रद्द करना और रिफंड</span
+              >
+            </h2>
+            <p id="refund-copy"></p>
+            <h2>
+              <span data-hi="आपकी जानकारी" data-en="Your information"
+                >आपकी जानकारी</span
+              >
+            </h2>
+            <p
+              data-hi="यह वेबसाइट नाम, नंबर और गोत्र से WhatsApp संदेश तैयार करती है; फॉर्म की जानकारी किसी डेटाबेस में सेव नहीं होती। WhatsApp पर Send दबाने पर जानकारी साझा होगी। भाषा की पसंद आपके ब्राउज़र में याद रखी जा सकती है। जानकारी सुधारने या हटाने के लिए उसी चैट या नीचे दिए ईमेल पर संपर्क करें।"
+              data-en="This website prepares a WhatsApp message from your name, number and gotra; it does not save form details in a database. The details are shared when you press Send in WhatsApp. Your language preference may be remembered in this browser. For correction or deletion requests, contact us in the chat or by email below."
+            >
+              यह वेबसाइट नाम, नंबर और गोत्र से WhatsApp संदेश तैयार करती है;
+              फॉर्म की जानकारी किसी डेटाबेस में सेव नहीं होती। WhatsApp पर Send
+              दबाने पर जानकारी साझा होगी। भाषा की पसंद आपके ब्राउज़र में याद रखी
+              जा सकती है। जानकारी सुधारने या हटाने के लिए उसी चैट या नीचे दिए
+              ईमेल पर संपर्क करें।
+            </p>
+          </div>
+        </details>
       </div>
-
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <a href="#home">Home</a>
-        <a href="#services">Our Sevas</a>
-        <a href="#how">How to Book</a>
+    </main>
+    <dialog id="booking" aria-labelledby="booking-title">
+      <div class="dialog-top">
+        <h2 data-hi="सेवा बुक करें" data-en="Book your seva" id="booking-title">
+          सेवा बुक करें
+        </h2>
+        <button
+          class="close-dialog"
+          id="close-booking"
+          type="button"
+          aria-label="Close / बंद करें"
+        >
+          ×
+        </button>
       </div>
-
-      <div class="footer-column">
-        <h3>Our Sevas</h3>
-        <a href="#services">Kartik Deep Daan</a>
-        <a href="#services">Navratri Prasad Seva</a>
-        <a href="#services">Kartik Sadhu Seva</a>
-        <a href="#services">Marjan Seva</a>
+      <p id="selected-service" class="selected-service"></p>
+      <form id="booking-form">
+        <label for="name"
+          ><span data-hi="नाम *" data-en="Name *">नाम *</span></label
+        ><input
+          id="name"
+          name="name"
+          required
+          maxlength="100"
+          autocomplete="name"
+        /><label for="phone"
+          ><span data-hi="नंबर *" data-en="Number *">नंबर *</span></label
+        ><input
+          id="phone"
+          name="phone"
+          type="tel"
+          required
+          maxlength="20"
+          pattern="\+?[0-9][0-9 \(\)\-]{6,19}"
+          autocomplete="tel"
+          placeholder="+91…"
+        /><label for="gotra"
+          ><span data-hi="गोत्र (वैकल्पिक)" data-en="Gotra (optional)"
+            >गोत्र (वैकल्पिक)</span
+          ></label
+        ><input id="gotra" name="gotra" maxlength="100" />
+        <label class="prasadi-option" for="prasadi">
+          <input id="prasadi" name="prasadi" type="checkbox" value="yes" />
+          <span data-hi="प्रसादी चाहिए — अतिरिक्त ₹200" data-en="Add prasadi — extra ₹200">प्रसादी चाहिए — अतिरिक्त ₹200</span>
+        </label>
+        <p id="prasadi-summary" class="prasadi-summary" aria-live="polite" hidden></p>
+        <button id="skip-gotra" class="skip-gotra" type="button"
+          data-hi="गोत्र नहीं पता? छोड़ें और WhatsApp पर जाएँ"
+          data-en="Don't know your gotra? Skip and open WhatsApp">गोत्र नहीं पता? छोड़ें और WhatsApp पर जाएँ</button>
+        <button
+          class="btn wide"
+          id="submit-booking"
+          type="submit"
+        >
+          <span data-hi="WhatsApp पर भेजें" data-en="Send on WhatsApp"
+            >WhatsApp पर भेजें</span
+          >
+          ↗
+        </button>
+        <p class="form-note">
+          <span
+            data-hi="WhatsApp खुलने पर Send दबाएँ। UPI की जानकारी वहीं मिलेगी।"
+            data-en="Press Send when WhatsApp opens. UPI details will be shared there."
+            >WhatsApp खुलने पर Send दबाएँ। UPI की जानकारी वहीं मिलेगी।</span
+          >
+        </p>
+        <div id="booking-result" hidden>
+          <a
+            id="whatsapp-retry"
+            class="retry-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span
+              data-hi="WhatsApp नहीं खुला? यहाँ दबाएँ"
+              data-en="WhatsApp did not open? Tap here"
+              >WhatsApp नहीं खुला? यहाँ दबाएँ</span
+            >
+            ↗</a
+          >
+        </div>
+        <p id="booking-message" role="status"></p>
+      </form>
+    </dialog>
+    <footer>
+      <div class="wrap footer-row">
+        <span>© <span id="year">2026</span> Dharmique</span
+        ><a href="https://wa.me/919555669751" target="_blank" rel="noopener"
+          >WhatsApp: +91 95556 69751 ↗</a
+        ><a href="mailto:aryangodvani@gmail.com">aryangodvani@gmail.com</a>
       </div>
-
-      <div class="footer-column">
-        <h3>Contact Us</h3>
-        <a class="footer-highlight"
-           href="https://wa.me/919555669751"
-           target="_blank" rel="noopener noreferrer">
-          WhatsApp Enquiries ↗
-        </a>
-        <a href="mailto:aryangodvani@gmail.com">
-          aryangodvani@gmail.com
-        </a>
-        <h3 style="margin-top:20px">Follow Us</h3>
-        <a href="https://www.instagram.com/">
-          Instagram ↗
-        </a>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-   
-    </div>
-  </div>
-</footer>
-
-  <script>
-    // IMPORTANT: Replace this with your confirmed WhatsApp number, country code included, digits only.
-    const WHATSAPP_NUMBER = "919555669751";
-    document.querySelectorAll(".book-btn").forEach((button) => {
-      button.addEventListener("click", () => {
-        const service = button.dataset.service;
-      const message = `नमस्कार Dharmique, मुझे "${service}" बुक करनी है। कृपया सेवा शुल्क और बुकिंग की प्रक्रिया बताएं।`;
-const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-window.open(url, "_blank");
-      });
-    });
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  
-
-<style>
-  .whatsapp-float {
-    position: fixed;
-    right: 16px;
-    bottom: 20px;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    padding: 13px 18px;
-    border-radius: 50px;
-    background: #25D366;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 5px 18px rgba(0,0,0,.2);
-  }
-
-  .whatsapp-float .wa-icon {
-    font-size: 23px;
-    line-height: 1;
-  }
-
-  .whatsapp-float:hover {
-    background: #1eae54;
-  }
-
-  @media (max-width: 480px) {
-    .whatsapp-float {
-      right: 12px;
-      bottom: 14px;
-      padding: 12px 15px;
-      font-size: 13px;
-    }
-  }
-</style>
-
-
-<a 
-href="https://wa.me/919555669751?text=Namaste%2C%20I%20want%20to%20know%20more%20about%20this%20seva."
-   target="_blank"
-   rel="noopener noreferrer"
-   aria-label="WhatsApp Enquiry"
-   style="position:fixed;right:18px;bottom:20px;width:58px;height:58px;background:#25D366;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:999999;text-decoration:none;box-shadow:0 4px 15px #0003;">
-  <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor" aria-hidden="true">
-    <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-3-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-.3-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.2-.3 0-.4.1-.5l.4-.5c.1-.1.1-.2.2-.4.1-.1 0-.3 0-.4l-.7-1.8c-.2-.5-.4-.4-.5-.4H9c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.7 2.6 4.1 3.6.6.3 1 .4 1.4.5.6.2 1.1.1 1.5.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.2-.1-.1-.3-.2-.5-.3z"/>
-  </svg>
-</a>
-<script>
-const slides = document.querySelectorAll('.hero-slide');
-let currentSlide = 0;
-
-if (slides.length > 1) {
-  setInterval(() => {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }, 3500);
-}
-  .ganga-banner {
-  width: 100%;
-  margin: 20px 0 30px;
-  overflow: hidden;
-}
-
-.ganga-banner img {
-  display: block;
-  width: 100%;
-  height: clamp(240px, 42vw, 520px);
-  object-fit: cover;
-  object-position: center;
-  border-radius: 0;
-}
-
-@media (max-width: 650px) {
-  .ganga-banner img {
-    height: 240px;
-  }
-}
-</script>
-  <style>
-  .language-switch {
-    display: inline-flex;
-    gap: 4px;
-    align-items: center;
-    padding: 4px;
-    margin-left: 10px;
-    border: 1px solid #f1ddc8;
-    border-radius: 30px;
-    background: #fff8ef;
-    flex-shrink: 0;
-  }
-
-  .language-switch button {
-    border: 0;
-    border-radius: 22px;
-    padding: 8px 11px;
-    background: transparent;
-    color: #3f2818;
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  .language-switch button.active {
-    background: #f07818;
-    color: white;
-  }
-</style>
-
-<script>
-(() => {
-  const hiToEn = {
-    "पवित्र काशी क्षेत्र से आपके घर तक":"From Sacred Kashi to Your Home",
-    "मुख्य नेविगेशन":"Main Navigation","हमारी सेवाएँ":"Our Services","बुकिंग प्रक्रिया":"Booking Process","सेवा बुक करें":"Book a Service",
-    "🪔 काशी की पावन सेवाएँ":"🪔 Sacred Services of Kashi","अपनों के नाम से करें":"Perform a Sacred Service","पावन सेवा":"For Your Loved Ones",
-    "काशी की पवित्र परंपराओं से जुड़िए। दीपदान, गंगा पूजन, मंदिरों में चढ़ावा और पवित्र घाटों के मार्जन जैसी सेवाओं के लिए हमसे संपर्क करें।":"Connect with the sacred traditions of Kashi. Contact us for Deepdaan, Ganga Pujan, temple offerings and the cleaning of sacred ghats.",
-    "सेवाएँ देखें":"Explore Services","बुकिंग कैसे करें?":"How to Book?","सरल WhatsApp बुकिंग":"Easy WhatsApp Booking","परिवार के नाम से सेवा":"Service in Your Family's Name","काशी-केंद्रित सेवाएँ":"Services Focused on Kashi",
-    "सेवा की तस्वीरें":"Service Images","अपने परिवार और प्रियजनों के निमित्त सेवा चुनें। बुकिंग के लिए नीचे दिए गए WhatsApp बटन पर क्लिक करें।":"Choose a service for your family and loved ones. Click the WhatsApp button below to enquire or book.",
-    "कार्तिक दीपदान सेवा":"Kartik Deepdaan Service","बिंदु माधव के चरणों में दीपदान एवं यमुना दीपदान की पावन सेवा अपने संकल्प और श्रद्धा के साथ अर्पित करें।":"Offer the sacred service of Deepdaan at Bindu Madhav and Yamuna Deepdaan with devotion and your personal sankalp.",
-    "देव दीपावली गंगा पूजन एवं दीपदान":"Dev Deepawali Ganga Pujan & Deepdaan","देव दीपावली पर गंगा पूजन एवं अपने परिवार के निमित्त एक दीपदान की सेवा बुक करें।":"Book Ganga Pujan and a Deepdaan service for your family on Dev Deepawali.",
-    "चढ़ावा सेवा":"Temple Offering Service","काशी के विभिन्न मंदिरों में अपने परिवार की सुख-समृद्धि के लिए प्रसाद एवं सामग्री चढ़ाने की सेवा।":"Offer prasad and sacred items at temples across Kashi for your family's well-being and prosperity.",
-    "पवित्र गंगा/यमुना घाटों का मार्जन":"Cleaning of Sacred Ganga/Yamuna Ghats","पवित्र गंगा एवं यमुना घाटों के मार्जन की सेवा के लिए संपर्क करें और अपनी सेवा का संकल्प साझा करें।":"Contact us to arrange the cleaning of sacred Ganga and Yamuna ghats and share your seva sankalp.",
-    "सेवा शुल्क:":"Service Fee:","WhatsApp पर पूछें":"Ask on WhatsApp","WhatsApp से बुक करें ↗":"Book via WhatsApp ↗","बुकिंग की सरल प्रक्रिया":"Simple Booking Process",
-    "कुछ आसान स्टेप्स में अपनी सेवा के लिए संपर्क करें।":"Contact us to arrange your service in a few simple steps.","सेवा चुनें":"Choose a Service","अपनी आवश्यकता के अनुसार सेवा कार्ड पर WhatsApp बटन दबाएँ।":"Click the WhatsApp button on the service card you need.",
-    "विवरण भेजें":"Send Details","WhatsApp में खुलने वाले संदेश में अपना नाम और सेवा से जुड़ी जानकारी जोड़ें।":"Add your name and service details to the message that opens in WhatsApp.",
-    "पुष्टि प्राप्त करें":"Get Confirmation","सेवा शुल्क, उपलब्धता और आगे की प्रक्रिया की पुष्टि संदेश पर करें।":"Confirm the service fee, availability and next steps through messages.",
-    "अपनी सेवा के लिए संपर्क करें":"Contact Us for Your Service","Dharmique — वाराणसी धाम से सीधे आपके लिए।":"Dharmique — Serving You from the Sacred City of Varanasi.","सेवा चुनें ↑":"Choose a Service ↑",
-    "सर्वाधिकार सुरक्षित।":"All rights reserved.","श्रद्धा • सेवा • संकल्प | वाराणसी, काशी":"Faith • Service • Devotion | Varanasi, Kashi",
-    "त्वरित लिंक":"Quick Links","होम":"Home","कार्तिक दीपदान":"Kartik Deep Daan","नवरात्रि प्रसाद सेवा":"Navratri Prasad Seva","कार्तिक साधु सेवा":"Kartik Sadhu Seva","मार्जन सेवा":"Marjan Seva",
-    "संपर्क करें":"Contact Us","WhatsApp पर पूछताछ ↗":"WhatsApp Enquiries ↗","हमें फॉलो करें":"Follow Us","इंस्टाग्राम ↗":"Instagram ↗","श्रद्धा • सेवा • भक्ति":"Faith • Service • Devotion","सेवा बुक करें →":"Book Service →"
-  };
-  const enToHi = {
-    "Serving You from the Sacred Abode of Vrindavan.":"वृंदावन धाम से सीधे आपके लिए।",
-    "A connection to Sanatan traditions and sacred seva.":"सनातन परंपराओं और पवित्र सेवा से जुड़ाव।",
-    "Quick Links":"त्वरित लिंक","Home":"होम","Our Sevas":"हमारी सेवाएँ","How to Book":"बुकिंग कैसे करें",
-    "Kartik Deep Daan":"कार्तिक दीपदान","Navratri Prasad Seva":"नवरात्रि प्रसाद सेवा","Kartik Sadhu Seva":"कार्तिक साधु सेवा","Marjan Seva":"मार्जन सेवा",
-    "Contact Us":"संपर्क करें","WhatsApp Enquiries ↗":"WhatsApp पर पूछताछ ↗","Follow Us":"हमें फॉलो करें","Instagram ↗":"इंस्टाग्राम ↗"
-  };
-  const textNodes = [];
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-  let node;
-  while ((node = walker.nextNode())) {
-    if (node.parentElement?.closest("script, style, .language-switch")) continue;
-    textNodes.push({node, original: node.nodeValue});
-  }
-  function changeLanguage(lang) {
-    textNodes.forEach(({node, original}) => {
-      const trimmed = original.trim();
-      if (!trimmed) return;
-      const normalized = trimmed.replace(/\\s+/g, " ");
-      let translated = normalized;
-      if (lang === "en") translated = hiToEn[normalized] || normalized;
-      else translated = enToHi[normalized] || Object.keys(hiToEn).find(key => hiToEn[key] === normalized) || normalized;
-      node.nodeValue = (original.match(/^\s*/)?.[0] || "") + translated + (original.match(/\s*$/)?.[0] || "");
-    });
-    document.querySelectorAll("[data-hi][data-en]").forEach(el => el.textContent = lang === "en" ? el.dataset.en : el.dataset.hi);
-    document.querySelectorAll(".book-btn").forEach(button => button.textContent = lang === "en" ? "Book via WhatsApp ↗" : "WhatsApp से बुक करें ↗");
-    document.documentElement.lang = lang;
-    document.title = lang === "en" ? "Dharmique | Sacred Services of Kashi" : "Dharmique | काशी की धार्मिक सेवाएँ";
-    document.querySelectorAll(".language-switch button").forEach(button => {
-      const active = button.dataset.lang === lang;
-      button.classList.toggle("active", active);
-      button.setAttribute("aria-pressed", String(active));
-    });
-    localStorage.setItem("dharmique-language", lang);
-  }
-  const switcher = document.createElement("div");
-  switcher.className = "language-switch";
-  switcher.innerHTML = '<button type="button" data-lang="hi">हिं</button><button type="button" data-lang="en">E</button>';
-  document.body.appendChild(switcher);
-  switcher.querySelectorAll("button").forEach(button => button.addEventListener("click", () => changeLanguage(button.dataset.lang)));
-  switcher.style.cssText = "position:fixed;top:85px;right:20px;z-index:999999;display:flex;gap:6px;padding:5px;background:#fff8ef;border:1px solid #f1ddc8;border-radius:30px;box-shadow:0 4px 15px rgba(0,0,0,.12)";
-  switcher.querySelectorAll("button").forEach(button => button.style.cssText = "display:inline-block;background:#f07818;color:white;border:none;border-radius:22px;padding:9px 14px;font-size:15px;font-weight:700;cursor:pointer");
-  changeLanguage(localStorage.getItem("dharmique-language") || "hi");
-})();
-</script>
-</body>
+    </footer>
+  </body>
 </html>
-
-

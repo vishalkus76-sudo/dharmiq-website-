@@ -1,181 +1,445 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>चढ़ावा सेवा | Dharmique Darshan</title>
-<link rel="icon" type="image/png" href="/Dharmique%20Logo.png">
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#fff8ef;color:#422719;font-family:Arial,sans-serif}
-header{text-align:center;padding:70px 16px 10px}
-h1{font-size:clamp(27px,4vw,40px);margin:0 0 10px}
-header p{color:#795e4c;line-height:1.7}
-.services{max-width:1100px;margin:28px auto;padding:0 18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
-.card{background:#fff;border:1px solid #f0d8c2;border-radius:20px;padding:22px 16px;display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
-.picture{height:105px;width:105px;border-radius:14px;background:#fce9d4;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.picture svg{width:76px;height:76px}
-h2{font-size:20px;line-height:1.4;min-height:56px;display:flex;align-items:center;justify-content:center;margin:0 0 8px}
-.price{font-size:27px;font-weight:bold;color:#c9570b;margin:6px 0 18px}
-button{border:0;border-radius:30px;background:#f47716;color:white;padding:13px 12px;font-size:14px;font-weight:bold;cursor:pointer;width:100%;min-height:48px}
-button:hover{background:#c9570b}
-.card button{margin-top:auto}
-.back{display:block;text-align:center;margin:0 auto 35px;color:#b94f0b}
-.wrap{max-width:1150px;margin:auto;padding:0 22px}
-footer{background:#202746;color:#f7f0e7;padding:45px 0 0;font-size:14px;margin-top:30px}
-.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:30px;padding-bottom:35px}
-.footer-column h3{color:#fff;font-size:17px;margin:0 0 15px}
-.footer-brand{font-size:25px;font-weight:800;margin-bottom:10px}
-.footer-description{color:#d2d7e7;line-height:1.8}
-.footer-column a{display:block;color:#d2d7e7;margin-bottom:10px;overflow-wrap:anywhere}
-.footer-column a:hover{color:#ffb15c}
-.footer-highlight{color:#ffb15c!important}
-.footer-bottom{border-top:1px solid #414968;padding:20px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#d2d7e7;font-size:12px}
-.language-switch{position:fixed;top:15px;right:15px;z-index:99999;display:flex;gap:4px;padding:4px;border:1px solid #f1ddc8;border-radius:30px;background:#fff8ef;box-shadow:0 3px 12px #42271918}
-.language-switch button{border-radius:22px;padding:8px 12px;background:transparent;color:#3f2818;width:auto;min-height:0}
-.language-switch button.active{background:#f07818;color:white}
-@media(max-width:760px){.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 18px}}
-@media(max-width:650px){.services{grid-template-columns:1fr;max-width:390px}.card{min-height:300px}h2{min-height:0}}
-@media(max-width:440px){.footer-grid{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-<div class="language-switch" aria-label="Choose language">
-  <button type="button" data-lang="hi" class="active">हिं</button>
-  <button type="button" data-lang="en">E</button>
-</div>
-
-<header>
-  <h1 data-hi="अपनी चढ़ावा सेवा चुनें" data-en="Choose Your Offering Service">अपनी चढ़ावा सेवा चुनें</h1>
-  <p data-hi="श्रद्धा अनुसार सेवा चुनें और WhatsApp से बुक करें।" data-en="Choose a service according to your devotion and book via WhatsApp.">श्रद्धा अनुसार सेवा चुनें और WhatsApp से बुक करें।</p>
-</header>
-
-<main class="services">
-  <article class="card">
-    <div class="picture" aria-label="प्रसादी बॉक्स">
-      <svg viewBox="0 0 100 100" fill="none" stroke="#b95d19" stroke-width="4" stroke-linejoin="round">
-        <path d="M18 38h64v45H18z" fill="#f4c47f"/>
-        <path d="M13 29h74v13H13z" fill="#e99a44"/>
-        <path d="M25 29q0-18 25-18t25 18" fill="#f9dfac"/>
-        <path d="M34 55h32v17H34z" fill="#fff1d1"/>
-        <path d="M42 63h16M50 55v17"/>
-      </svg>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>चढ़ावा सेवा | Dharmique Darshan</title>
+    <link rel="icon" type="image/png" href="/Dharmique%20Logo.png" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #fff8ef;
+        color: #422719;
+        font-family: Arial, sans-serif;
+      }
+      header {
+        text-align: center;
+        padding: 70px 16px 10px;
+      }
+      h1 {
+        font-size: clamp(27px, 4vw, 40px);
+        margin: 0 0 10px;
+      }
+      header p {
+        color: #795e4c;
+        line-height: 1.7;
+      }
+      .services {
+        max-width: 1100px;
+        margin: 28px auto;
+        padding: 0 18px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        align-items: stretch;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid #f0d8c2;
+        border-radius: 20px;
+        padding: 22px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        min-width: 0;
+      }
+      .picture {
+        height: 105px;
+        width: 105px;
+        border-radius: 14px;
+        background: #fce9d4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      .picture svg {
+        width: 76px;
+        height: 76px;
+      }
+      h2 {
+        font-size: 20px;
+        line-height: 1.4;
+        min-height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 8px;
+      }
+      .price {
+        font-size: 27px;
+        font-weight: bold;
+        color: #c9570b;
+        margin: 6px 0 18px;
+      }
+      button {
+        border: 0;
+        border-radius: 30px;
+        background: #f47716;
+        color: white;
+        padding: 13px 12px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        min-height: 48px;
+      }
+      button:hover {
+        background: #c9570b;
+      }
+      .card button {
+        margin-top: auto;
+      }
+      .back {
+        display: block;
+        text-align: center;
+        margin: 0 auto 35px;
+        color: #b94f0b;
+      }
+      .wrap {
+        max-width: 1150px;
+        margin: auto;
+        padding: 0 22px;
+      }
+      footer {
+        background: #202746;
+        color: #f7f0e7;
+        padding: 45px 0 0;
+        font-size: 14px;
+        margin-top: 30px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+        gap: 30px;
+        padding-bottom: 35px;
+      }
+      .footer-column h3 {
+        color: #fff;
+        font-size: 17px;
+        margin: 0 0 15px;
+      }
+      .footer-brand {
+        font-size: 25px;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .footer-description {
+        color: #d2d7e7;
+        line-height: 1.8;
+      }
+      .footer-column a {
+        display: block;
+        color: #d2d7e7;
+        margin-bottom: 10px;
+        overflow-wrap: anywhere;
+      }
+      .footer-column a:hover {
+        color: #ffb15c;
+      }
+      .footer-highlight {
+        color: #ffb15c !important;
+      }
+      .footer-bottom {
+        border-top: 1px solid #414968;
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        color: #d2d7e7;
+        font-size: 12px;
+      }
+      .language-switch {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        z-index: 99999;
+        display: flex;
+        gap: 4px;
+        padding: 4px;
+        border: 1px solid #f1ddc8;
+        border-radius: 30px;
+        background: #fff8ef;
+        box-shadow: 0 3px 12px #42271918;
+      }
+      .language-switch button {
+        border-radius: 22px;
+        padding: 8px 12px;
+        background: transparent;
+        color: #3f2818;
+        width: auto;
+        min-height: 0;
+      }
+      .language-switch button.active {
+        background: #f07818;
+        color: white;
+      }
+      @media (max-width: 760px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 25px 18px;
+        }
+      }
+      @media (max-width: 650px) {
+        .services {
+          grid-template-columns: 1fr;
+          max-width: 390px;
+        }
+        .card {
+          min-height: 300px;
+        }
+        h2 {
+          min-height: 0;
+        }
+      }
+      @media (max-width: 440px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="language-switch" aria-label="Choose language">
+      <button type="button" data-lang="hi" class="active">हिं</button>
+      <button type="button" data-lang="en">E</button>
     </div>
-    <h2 data-hi="1. लघु प्रसादी सेवा" data-en="1. Small Prasadi Service">1. लघु प्रसादी सेवा</h2>
-    <p data-hi="मेवा सेवा" data-en="Dry Fruits Offering">मेवा सेवा</p>
-    <div class="price">₹51</div>
-    <button type="button" data-book="small" data-hi="WhatsApp से बुक करें ↗" data-en="Book via WhatsApp ↗" onclick="book('small')">WhatsApp से बुक करें ↗</button>
-  </article>
 
-  <article class="card">
-    <div class="picture" aria-label="मिठाई">
-      <svg viewBox="0 0 100 100" fill="none" stroke="#b95d19" stroke-width="3">
-        <ellipse cx="50" cy="68" rx="39" ry="16" fill="#f4c47f"/>
-        <path d="M12 63q38 22 76 0" fill="#fff0d1"/>
-        <circle cx="34" cy="48" r="15" fill="#e9a343"/>
-        <circle cx="63" cy="44" r="15" fill="#f2cf78"/>
-        <circle cx="51" cy="62" r="14" fill="#c97b30"/>
-        <path d="M27 45l7-4 7 7M56 40l7 5 7-5M44 61l7-5 8 6" stroke="#fff1d1"/>
-      </svg>
-    </div>
-    <h2 data-hi="2. मध्याह्न भोग सेवा" data-en="2. Midday Bhog Service">2. मध्याह्न भोग सेवा</h2>
-    <p data-hi="मिठाई एवं भोग अर्पण सेवा" data-en="Sweets and Bhog Offering Service">मिठाई एवं भोग अर्पण सेवा</p>
-    <div class="price">₹101</div>
-    <button type="button" data-book="midday" data-hi="WhatsApp से बुक करें ↗" data-en="Book via WhatsApp ↗" onclick="book('midday')">WhatsApp से बुक करें ↗</button>
-  </article>
+    <header>
+      <h1
+        data-hi="अपनी चढ़ावा सेवा चुनें"
+        data-en="Choose Your Offering Service"
+      >
+        अपनी चढ़ावा सेवा चुनें
+      </h1>
+      <p
+        data-hi="श्रद्धा अनुसार सेवा चुनें और बुकिंग फॉर्म भरें।"
+        data-en="Choose your offering and complete the booking form."
+      >
+        श्रद्धा अनुसार सेवा चुनें और बुकिंग फॉर्म भरें।
+      </p>
+    </header>
 
-  <article class="card">
-    <div class="picture" aria-label="आरती और मिठाई">
-      <svg viewBox="0 0 100 100" fill="none" stroke="#b95d19" stroke-width="3" stroke-linejoin="round">
-        <path d="M14 61h42l-6 17H20z" fill="#e9a343"/>
-        <path d="M24 60q11-18 22 0" fill="#f9dfac"/>
-        <path d="M35 48q-13-15 0-29 13 14 0 29" fill="#f47716"/>
-        <path d="M35 44q-5-10 0-17 6 9 0 17" fill="#ffdf70"/>
-        <circle cx="69" cy="43" r="12" fill="#e9a343"/>
-        <circle cx="72" cy="67" r="12" fill="#d98b36"/>
-        <circle cx="61" cy="55" r="11" fill="#f2cf78"/>
-        <path d="M64 40l5-3 5 5M66 65l6-3 5 5" stroke="#fff1d1"/>
-      </svg>
-    </div>
-    <h2 data-hi="3. राजभोग सेवा" data-en="3. Rajbhog Service">3. राजभोग सेवा</h2>
-    <p data-hi="राजभोग सेवा" data-en="Rajbhog Offering">राजभोग सेवा</p>
-    <div class="price">₹151</div>
-    <button type="button" data-book="rajbhog" data-hi="WhatsApp से बुक करें ↗" data-en="Book via WhatsApp ↗" onclick="book('rajbhog')">WhatsApp से बुक करें ↗</button>
-  </article>
-</main>
+    <main class="services">
+      <article class="card">
+        <div class="picture" aria-label="प्रसादी बॉक्स">
+          <svg
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="#b95d19"
+            stroke-width="4"
+            stroke-linejoin="round"
+          >
+            <path d="M18 38h64v45H18z" fill="#f4c47f" />
+            <path d="M13 29h74v13H13z" fill="#e99a44" />
+            <path d="M25 29q0-18 25-18t25 18" fill="#f9dfac" />
+            <path d="M34 55h32v17H34z" fill="#fff1d1" />
+            <path d="M42 63h16M50 55v17" />
+          </svg>
+        </div>
+        <h2 data-hi="1. लघु प्रसादी सेवा" data-en="1. Small Prasadi Service">
+          1. लघु प्रसादी सेवा
+        </h2>
+        <p data-hi="मेवा सेवा" data-en="Dry Fruits Offering">मेवा सेवा</p>
+        <div class="price">₹51</div>
+        <button
+          type="button"
+          data-book="small"
+          data-hi="सेवा बुक करें ↗"
+          data-en="Book seva ↗"
+        >
+          सेवा बुक करें ↗
+        </button>
+      </article>
 
-<a class="back" href="index.html" data-hi="← मुख्य पेज पर वापस जाएँ" data-en="← Back to Home Page">← मुख्य पेज पर वापस जाएँ</a>
+      <article class="card">
+        <div class="picture" aria-label="मिठाई">
+          <svg
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="#b95d19"
+            stroke-width="3"
+          >
+            <ellipse cx="50" cy="68" rx="39" ry="16" fill="#f4c47f" />
+            <path d="M12 63q38 22 76 0" fill="#fff0d1" />
+            <circle cx="34" cy="48" r="15" fill="#e9a343" />
+            <circle cx="63" cy="44" r="15" fill="#f2cf78" />
+            <circle cx="51" cy="62" r="14" fill="#c97b30" />
+            <path
+              d="M27 45l7-4 7 7M56 40l7 5 7-5M44 61l7-5 8 6"
+              stroke="#fff1d1"
+            />
+          </svg>
+        </div>
+        <h2 data-hi="2. मध्याह्न भोग सेवा" data-en="2. Midday Bhog Service">
+          2. मध्याह्न भोग सेवा
+        </h2>
+        <p
+          data-hi="मिठाई एवं भोग अर्पण सेवा"
+          data-en="Sweets and Bhog Offering Service"
+        >
+          मिठाई एवं भोग अर्पण सेवा
+        </p>
+        <div class="price">₹101</div>
+        <button
+          type="button"
+          data-book="midday"
+          data-hi="सेवा बुक करें ↗"
+          data-en="Book seva ↗"
+        >
+          सेवा बुक करें ↗
+        </button>
+      </article>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">Dharmique</div>
-        <p class="footer-description" data-hi="वृंदावन धाम से सीधे आपके लिए। सनातन परंपराओं और पवित्र सेवा से जुड़ाव।" data-en="Serving you from the sacred abode of Vrindavan. A connection to Sanatan traditions and sacred seva.">वृंदावन धाम से सीधे आपके लिए। सनातन परंपराओं और पवित्र सेवा से जुड़ाव।</p>
+      <article class="card">
+        <div class="picture" aria-label="आरती और मिठाई">
+          <svg
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="#b95d19"
+            stroke-width="3"
+            stroke-linejoin="round"
+          >
+            <path d="M14 61h42l-6 17H20z" fill="#e9a343" />
+            <path d="M24 60q11-18 22 0" fill="#f9dfac" />
+            <path d="M35 48q-13-15 0-29 13 14 0 29" fill="#f47716" />
+            <path d="M35 44q-5-10 0-17 6 9 0 17" fill="#ffdf70" />
+            <circle cx="69" cy="43" r="12" fill="#e9a343" />
+            <circle cx="72" cy="67" r="12" fill="#d98b36" />
+            <circle cx="61" cy="55" r="11" fill="#f2cf78" />
+            <path d="M64 40l5-3 5 5M66 65l6-3 5 5" stroke="#fff1d1" />
+          </svg>
+        </div>
+        <h2 data-hi="3. राजभोग सेवा" data-en="3. Rajbhog Service">
+          3. राजभोग सेवा
+        </h2>
+        <p data-hi="राजभोग सेवा" data-en="Rajbhog Offering">राजभोग सेवा</p>
+        <div class="price">₹151</div>
+        <button
+          type="button"
+          data-book="rajbhog"
+          data-hi="सेवा बुक करें ↗"
+          data-en="Book seva ↗"
+        >
+          सेवा बुक करें ↗
+        </button>
+      </article>
+    </main>
+
+    <a
+      class="back"
+      href="index.html"
+      data-hi="← मुख्य पेज पर वापस जाएँ"
+      data-en="← Back to Home Page"
+      >← मुख्य पेज पर वापस जाएँ</a
+    >
+
+    <footer>
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand">Dharmique</div>
+            <p
+              class="footer-description"
+              data-hi="काशी की परंपराओं से आपके परिवार तक। सनातन परंपराओं और पवित्र सेवा से जुड़ाव।"
+              data-en="From the traditions of Kashi to your family. A connection to Sanatan traditions and sacred seva."
+            >
+              काशी की परंपराओं से आपके परिवार तक। सनातन परंपराओं और पवित्र सेवा
+              से जुड़ाव।
+            </p>
+          </div>
+          <div class="footer-column">
+            <h3 data-hi="त्वरित लिंक" data-en="Quick Links">त्वरित लिंक</h3>
+            <a href="index.html" data-hi="मुख्य पेज" data-en="Home"
+              >मुख्य पेज</a
+            >
+            <a
+              href="index.html#services"
+              data-hi="हमारी सेवाएँ"
+              data-en="Our Sevas"
+              >हमारी सेवाएँ</a
+            >
+            <a
+              href="index.html#how"
+              data-hi="बुकिंग कैसे करें"
+              data-en="How to Book"
+              >बुकिंग कैसे करें</a
+            >
+          </div>
+          <div class="footer-column">
+            <h3 data-hi="हमारी सेवाएँ" data-en="Our Sevas">हमारी सेवाएँ</h3>
+            <a
+              href="index.html#services"
+              data-hi="कार्तिक दीपदान"
+              data-en="Kartik Deep Daan"
+              >कार्तिक दीपदान</a
+            >
+            <a
+              href="index.html#services"
+              data-hi="नवरात्रि प्रसाद सेवा"
+              data-en="Navratri Prasad Seva"
+              >नवरात्रि प्रसाद सेवा</a
+            >
+            <a
+              href="index.html#services"
+              data-hi="कार्तिक साधु सेवा"
+              data-en="Kartik Sadhu Seva"
+              >कार्तिक साधु सेवा</a
+            >
+            <a
+              href="index.html#services"
+              data-hi="मार्जन सेवा"
+              data-en="Marjan Seva"
+              >मार्जन सेवा</a
+            >
+          </div>
+          <div class="footer-column">
+            <h3 data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</h3>
+            <a
+              class="footer-highlight"
+              href="https://wa.me/919555669751"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-hi="WhatsApp पूछताछ ↗"
+              data-en="WhatsApp Enquiries ↗"
+              >WhatsApp पूछताछ ↗</a
+            >
+            <a href="mailto:aryangodvani@gmail.com">aryangodvani@gmail.com</a>
+            <h3
+              style="margin-top: 20px"
+              data-hi="हमें फ़ॉलो करें"
+              data-en="Follow Us"
+            >
+              हमें फ़ॉलो करें
+            </h3>
+            <a
+              href="https://www.instagram.com/"
+              data-hi="Instagram ↗"
+              data-en="Instagram ↗"
+              >Instagram ↗</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            data-hi="© 2026 Dharmique. सर्वाधिकार सुरक्षित।"
+            data-en="© 2026 Dharmique. All rights reserved."
+            >© 2026 Dharmique. सर्वाधिकार सुरक्षित।</span
+          >
+          <span
+            data-hi="श्रद्धा • सेवा • भक्ति"
+            data-en="Faith • Service • Devotion"
+            >श्रद्धा • सेवा • भक्ति</span
+          >
+        </div>
       </div>
-      <div class="footer-column">
-        <h3 data-hi="त्वरित लिंक" data-en="Quick Links">त्वरित लिंक</h3>
-        <a href="index.html" data-hi="मुख्य पेज" data-en="Home">मुख्य पेज</a>
-        <a href="index.html#services" data-hi="हमारी सेवाएँ" data-en="Our Sevas">हमारी सेवाएँ</a>
-        <a href="index.html#how" data-hi="बुकिंग कैसे करें" data-en="How to Book">बुकिंग कैसे करें</a>
-      </div>
-      <div class="footer-column">
-        <h3 data-hi="हमारी सेवाएँ" data-en="Our Sevas">हमारी सेवाएँ</h3>
-        <a href="index.html#services" data-hi="कार्तिक दीपदान" data-en="Kartik Deep Daan">कार्तिक दीपदान</a>
-        <a href="index.html#services" data-hi="नवरात्रि प्रसाद सेवा" data-en="Navratri Prasad Seva">नवरात्रि प्रसाद सेवा</a>
-        <a href="index.html#services" data-hi="कार्तिक साधु सेवा" data-en="Kartik Sadhu Seva">कार्तिक साधु सेवा</a>
-        <a href="index.html#services" data-hi="मार्जन सेवा" data-en="Marjan Seva">मार्जन सेवा</a>
-      </div>
-      <div class="footer-column">
-        <h3 data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</h3>
-        <a class="footer-highlight" href="https://wa.me/919555669751" target="_blank" rel="noopener noreferrer" data-hi="WhatsApp पूछताछ ↗" data-en="WhatsApp Enquiries ↗">WhatsApp पूछताछ ↗</a>
-        <a href="mailto:aryangodvani@gmail.com">aryangodvani@gmail.com</a>
-        <h3 style="margin-top:20px" data-hi="हमें फ़ॉलो करें" data-en="Follow Us">हमें फ़ॉलो करें</h3>
-        <a href="https://www.instagram.com/" data-hi="Instagram ↗" data-en="Instagram ↗">Instagram ↗</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span data-hi="© 2026 Dharmique. सर्वाधिकार सुरक्षित।" data-en="© 2026 Dharmique. All rights reserved.">© 2026 Dharmique. सर्वाधिकार सुरक्षित।</span>
-      <span data-hi="श्रद्धा • सेवा • भक्ति" data-en="Faith • Service • Devotion">श्रद्धा • सेवा • भक्ति</span>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-<script>
-const services = {
-  small: {hi:"लघु प्रसादी सेवा", en:"Small Prasadi Service", price:51},
-  midday: {hi:"मध्याह्न भोग सेवा", en:"Midday Bhog Service", price:101},
-  rajbhog: {hi:"राजभोग सेवा", en:"Rajbhog Service", price:151}
-};
-
-function book(key) {
-  const service = services[key];
-  const lang = localStorage.getItem("dharmique-language") || "hi";
-  const phone = "919555669751";
-  const message = lang === "en"
-    ? `Namaste, I would like to book ${service.en} (₹${service.price}). Please share the booking details.`
-    : `नमस्कार, मुझे ${service.hi} (₹${service.price}) बुक करनी है। कृपया बुकिंग की जानकारी दें।`;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
-}
-
-(function(){
-  const buttons = document.querySelectorAll(".language-switch button");
-  const elements = document.querySelectorAll("[data-hi][data-en]");
-
-  function setLanguage(lang) {
-    elements.forEach(el => {
-      el.textContent = el.dataset[lang];
-    });
-    buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.lang === lang));
-    document.documentElement.lang = lang;
-    try { localStorage.setItem("dharmique-language", lang); } catch(e) {}
-  }
-
-  buttons.forEach(btn => btn.addEventListener("click", () => setLanguage(btn.dataset.lang)));
-  let saved = "hi";
-  try { saved = localStorage.getItem("dharmique-language") || "hi"; } catch(e) {}
-  setLanguage(saved === "en" ? "en" : "hi");
-})();
-</script>
-</body>
+    <script src="assets/chadhava.js" defer></script>
+  </body>
 </html>
