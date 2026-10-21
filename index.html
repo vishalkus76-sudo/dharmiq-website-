@@ -659,7 +659,7 @@ if (slides.length > 1) {
       node.nodeValue = (original.match(/^\s*/)?.[0] || "") + translated + (original.match(/\s*$/)?.[0] || "");
     });
     document.querySelectorAll("[data-hi][data-en]").forEach(el => el.textContent = lang === "en" ? el.dataset.en : el.dataset.hi);
-    document.querySelectorAll(".book now-btn").forEach(button => button.textContent = lang === "en" ? "Book now" : "बुक करें");
+    document.querySelectorAll(".book-btn").forEach(button => button.textContent = lang === "en" ? "Book" : "बुक करें");
     document.documentElement.lang = lang;
     document.title = lang === "en" ? "Dharmique | Sacred Services of Kashi" : "Dharmique | काशी की धार्मिक सेवाएँ";
     document.querySelectorAll(".language-switch button").forEach(button => {
