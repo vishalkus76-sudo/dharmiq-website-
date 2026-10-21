@@ -38,6 +38,8 @@ footer{background:#202746;color:#f7f0e7;padding:45px 0 0;font-size:14px;margin-t
 @media(max-width:650px){.services{grid-template-columns:1fr;max-width:390px}.card{min-height:300px}h2{min-height:0}}
 @media(max-width:440px){.footer-grid{grid-template-columns:1fr}}
 </style>
+  <link rel="stylesheet" href="assets/booking-form.css">
+  <script type="module" src="assets/booking-form.js"></script>
 </head>
 <body>
 <div class="language-switch" aria-label="Choose language">
@@ -64,7 +66,7 @@ footer{background:#202746;color:#f7f0e7;padding:45px 0 0;font-size:14px;margin-t
     <h2 data-hi="1. लघु प्रसादी सेवा" data-en="1. Small Prasadi Service">1. लघु प्रसादी सेवा</h2>
     <p data-hi="मेवा सेवा" data-en="Dry Fruits Offering">मेवा सेवा</p>
     <div class="price">₹51</div>
-    <button type="button" data-book="small" data-hi="WhatsApp से बुक करें ↗" data-en="Book via WhatsApp ↗" onclick="book('small')">WhatsApp से बुक करें ↗</button>
+    <button type="button" data-book="small" data-hi="बुक करें" data-en="Book">बुक करें</button>
   </article>
 
   <article class="card">
@@ -81,7 +83,7 @@ footer{background:#202746;color:#f7f0e7;padding:45px 0 0;font-size:14px;margin-t
     <h2 data-hi="2. मध्याह्न भोग सेवा" data-en="2. Midday Bhog Service">2. मध्याह्न भोग सेवा</h2>
     <p data-hi="मिठाई एवं भोग अर्पण सेवा" data-en="Sweets and Bhog Offering Service">मिठाई एवं भोग अर्पण सेवा</p>
     <div class="price">₹101</div>
-    <button type="button" data-book="midday" data-hi="WhatsApp से बुक करें ↗" data-en="Book via WhatsApp ↗" onclick="book('midday')">WhatsApp से बुक करें ↗</button>
+    <button type="button" data-book="midday" data-hi="बुक करें" data-en="Book">बुक करें</button>
   </article>
 
   <article class="card">
@@ -100,7 +102,7 @@ footer{background:#202746;color:#f7f0e7;padding:45px 0 0;font-size:14px;margin-t
     <h2 data-hi="3. राजभोग सेवा" data-en="3. Rajbhog Service">3. राजभोग सेवा</h2>
     <p data-hi="राजभोग सेवा" data-en="Rajbhog Offering">राजभोग सेवा</p>
     <div class="price">₹151</div>
-    <button type="button" data-book="rajbhog" data-hi="WhatsApp से बुक करें ↗" data-en="Book via WhatsApp ↗" onclick="book('rajbhog')">WhatsApp से बुक करें ↗</button>
+    <button type="button" data-book="rajbhog" data-hi="बुक करें" data-en="Book">बुक करें</button>
   </article>
 </main>
 
@@ -142,22 +144,6 @@ footer{background:#202746;color:#f7f0e7;padding:45px 0 0;font-size:14px;margin-t
 </footer>
 
 <script>
-const services = {
-  small: {hi:"लघु प्रसादी सेवा", en:"Small Prasadi Service", price:51},
-  midday: {hi:"मध्याह्न भोग सेवा", en:"Midday Bhog Service", price:101},
-  rajbhog: {hi:"राजभोग सेवा", en:"Rajbhog Service", price:151}
-};
-
-function book(key) {
-  const service = services[key];
-  const lang = localStorage.getItem("dharmique-language") || "hi";
-  const phone = "919555669751";
-  const message = lang === "en"
-    ? `Namaste, I would like to book ${service.en} (₹${service.price}). Please share the booking details.`
-    : `नमस्कार, मुझे ${service.hi} (₹${service.price}) बुक करनी है। कृपया बुकिंग की जानकारी दें।`;
-  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, "_blank", "noopener");
-}
-
 (function(){
   const buttons = document.querySelectorAll(".language-switch button");
   const elements = document.querySelectorAll("[data-hi][data-en]");
