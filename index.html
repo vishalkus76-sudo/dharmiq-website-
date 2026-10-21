@@ -323,6 +323,8 @@ footer {
 }
 
   </style>
+  <link rel="stylesheet" href="assets/booking-form.css">
+  <script type="module" src="assets/booking-form.js"></script>
 </head>
 <body>
   <header>
@@ -341,10 +343,6 @@ footer {
       </nav>
     </div>
   </header>
-<!-- Full Width Ganga Aarti Banner -->
-<section class="ganga-banner">
- <img src="111032106.webp" alt="Ganga Aarti in Varanasi">
-</section>
   <main>
     <section class="hero" id="home">
       <div class="wrap hero-grid">
@@ -400,7 +398,7 @@ footer {
             <p>बिंदु माधव के चरणों में दीपदान एवं यमुना दीपदान की पावन सेवा अपने संकल्प और श्रद्धा के साथ अर्पित करें।</p>
             <div class="service-meta">
               <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
-              <button class="btn book-btn" data-service="कार्तिक दीपदान सेवा">WhatsApp से बुक करें ↗</button>
+              <button class="btn book-btn" data-service="कार्तिक दीपदान सेवा" data-book="deepdaan">बुक करें</button>
             </div>
           </article>
           <article class="service-card">
@@ -411,7 +409,7 @@ footer {
             <p>देव दीपावली पर गंगा पूजन एवं अपने परिवार के निमित्त एक दीपदान की सेवा बुक करें।</p>
             <div class="service-meta">
               <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
-              <button class="btn book-btn" data-service="देव दीपावली गंगा पूजन एवं दीपदान">WhatsApp से बुक करें ↗</button>
+              <button class="btn book-btn" data-service="देव दीपावली गंगा पूजन एवं दीपदान" data-book="ganga">बुक करें</button>
             </div>
           </article>
           <article class="service-card">
@@ -422,7 +420,7 @@ footer {
             <p>काशी के विभिन्न मंदिरों में अपने परिवार की सुख-समृद्धि के लिए प्रसाद एवं सामग्री चढ़ाने की सेवा।</p>
             <div class="service-meta">
               <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
-             <a class="btn" href="chadhava.html" data-hi="सेवा बुक करें →" data-en="Book Service →">सेवा बुक करें →</a>
+             <a class="btn" href="chadhava.html" data-hi="बुक करें" data-en="Book">बुक करें</a>
             </div>
           </article>
           <article class="service-card">
@@ -433,7 +431,7 @@ footer {
             <p>पवित्र गंगा एवं यमुना घाटों के मार्जन की सेवा के लिए संपर्क करें और अपनी सेवा का संकल्प साझा करें।</p>
             <div class="service-meta">
               <span class="fee">सेवा शुल्क: <strong>WhatsApp पर पूछें</strong></span>
-              <button class="btn book-btn" data-service="पवित्र गंगा/यमुना घाटों का मार्जन">WhatsApp से बुक करें ↗</button>
+              <button class="btn book-btn" data-service="पवित्र गंगा/यमुना घाटों का मार्जन" data-book="marjan">बुक करें</button>
             </div>
           </article>
       
@@ -519,19 +517,7 @@ footer {
   </div>
 </footer>
 
-  <script>
-    // IMPORTANT: Replace this with your confirmed WhatsApp number, country code included, digits only.
-    const WHATSAPP_NUMBER = "919555669751";
-    document.querySelectorAll(".book-btn").forEach((button) => {
-      button.addEventListener("click", () => {
-        const service = button.dataset.service;
-      const message = `नमस्कार Dharmique, मुझे "${service}" बुक करनी है। कृपया सेवा शुल्क और बुकिंग की प्रक्रिया बताएं।`;
-const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-window.open(url, "_blank");
-      });
-    });
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+
   
 
 <style>
@@ -595,26 +581,7 @@ if (slides.length > 1) {
     slides[currentSlide].classList.add('active');
   }, 3500);
 }
-  .ganga-banner {
-  width: 100%;
-  margin: 20px 0 30px;
-  overflow: hidden;
-}
 
-.ganga-banner img {
-  display: block;
-  width: 100%;
-  height: clamp(240px, 42vw, 520px);
-  object-fit: cover;
-  object-position: center;
-  border-radius: 0;
-}
-
-@media (max-width: 650px) {
-  .ganga-banner img {
-    height: 240px;
-  }
-}
 </script>
   <style>
   .language-switch {
@@ -692,7 +659,7 @@ if (slides.length > 1) {
       node.nodeValue = (original.match(/^\s*/)?.[0] || "") + translated + (original.match(/\s*$/)?.[0] || "");
     });
     document.querySelectorAll("[data-hi][data-en]").forEach(el => el.textContent = lang === "en" ? el.dataset.en : el.dataset.hi);
-    document.querySelectorAll(".book-btn").forEach(button => button.textContent = lang === "en" ? "Book via WhatsApp ↗" : "WhatsApp से बुक करें ↗");
+    document.querySelectorAll(".book-btn").forEach(button => button.textContent = lang === "en" ? "Book" : "बुक करें");
     document.documentElement.lang = lang;
     document.title = lang === "en" ? "Dharmique | Sacred Services of Kashi" : "Dharmique | काशी की धार्मिक सेवाएँ";
     document.querySelectorAll(".language-switch button").forEach(button => {
