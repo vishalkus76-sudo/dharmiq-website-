@@ -616,7 +616,7 @@ if (slides.length > 1) {
 (() => {
   const hiToEn = {
     "पवित्र काशी क्षेत्र से आपके घर तक":"From Sacred Kashi to Your Home",
-    "मुख्य नेविगेशन":"Main Navigation","हमारी सेवाएँ":"Our Services","बुकिंग प्रक्रिया":"Booking Process","सेवा बुक करें":"Book a Service",
+    "मुख्य नेविगेशन":"Main Navigation","हमारी सेवाएँ":"Our Services","बुकिंग प्रक्रिया":"Booking Process","सेवा बुक करें":"Book a Seva",
     "🪔 काशी की पावन सेवाएँ":"🪔 Sacred Services of Kashi","अपनों के नाम से करें":"Perform a Sacred Service","पावन सेवा":"For Your Loved Ones",
     "काशी की पवित्र परंपराओं से जुड़िए। दीपदान, गंगा पूजन, मंदिरों में चढ़ावा और पवित्र घाटों के मार्जन जैसी सेवाओं के लिए हमसे संपर्क करें।":"Connect with the sacred traditions of Kashi. Contact us for Deepdaan, Ganga Pujan, temple offerings and the cleaning of sacred ghats.",
     "सेवाएँ देखें":"Explore Services","बुकिंग कैसे करें?":"How to Book?","सरल WhatsApp बुकिंग":"Easy WhatsApp Booking","परिवार के नाम से सेवा":"Service in Your Family's Name","काशी-केंद्रित सेवाएँ":"Services Focused on Kashi",
@@ -659,7 +659,7 @@ if (slides.length > 1) {
       node.nodeValue = (original.match(/^\s*/)?.[0] || "") + translated + (original.match(/\s*$/)?.[0] || "");
     });
     document.querySelectorAll("[data-hi][data-en]").forEach(el => el.textContent = lang === "en" ? el.dataset.en : el.dataset.hi);
-    document.querySelectorAll(".book-btn").forEach(button => button.textContent = lang === "en" ? "Book" : "बुक करें");
+    document.querySelectorAll(".book now-btn").forEach(button => button.textContent = lang === "en" ? "Book now" : "बुक करें");
     document.documentElement.lang = lang;
     document.title = lang === "en" ? "Dharmique | Sacred Services of Kashi" : "Dharmique | काशी की धार्मिक सेवाएँ";
     document.querySelectorAll(".language-switch button").forEach(button => {
