@@ -57,7 +57,7 @@ Tests cover auth, CSRF, cookies/session expiry/revocation, public/private routes
 
 ## Redesigned page bookings
 
-The current `index.html` and `chadhava.html` forms call `saveSevaRequest` from `assets/booking-save.js` before opening WhatsApp. Keep this script and the `/api/bookings` call when editing either page; a direct WhatsApp link alone does not create an admin record. Both pages also load `assets/visits.js` for visitor counting.
+The current `index.html` and `chadhava.html` forms call `saveSevaRequest` from `assets/booking-save.js` before opening WhatsApp. Keep this script and the `/api/bookings` call when editing either page; a direct WhatsApp link alone does not create an admin record. Both pages also load `assets/visits.js` for visitor counting. The single green enquiry button saves first, then opens `whatsapp://send` in the current tab on phones (the WhatsApp app must be installed), or `wa.me` on desktop. If a phone requires another tap after the async save, the same button opens the app without saving a duplicate. A failed save is clearly reported; pressing that same button again provides the direct WhatsApp fallback. Editing the form starts a new save attempt.
 
 City and optional sankalp/message are stored with the request and displayed privately in admin. Missing fields in older requests remain blank. The current Rajbhog offering uses service ID `rajbhog-251` (₹251); historical `rajbhog` records retain their saved ₹151 fee. When changing service names/prices, update both page text and `assets/booking-message.js` so the server catalog matches.
 
@@ -65,7 +65,7 @@ City and optional sankalp/message are stored with the request and displayed priv
 
 - Main page: `index.html`; offerings: `chadhava.html`.
 - Current customer form and look: inline in `index.html` and `chadhava.html`; persistence: `assets/booking-save.js`. Older shared form: `assets/booking-form.js`, `assets/booking-form.css`.
-- Seva names/prices, ₹200 prasadi, WhatsApp number/message: `assets/booking-message.js` (server also imports these prices).
+- Seva names/prices and ₹200 prasadi: `assets/booking-message.js` (server also imports these prices). Current WhatsApp number/messages: inline `WHATSAPP_NUMBER` and submit handlers in both customer HTML pages; legacy shared form uses `assets/booking-message.js`. Keep all destinations set to `919555669751`.
 - Admin page: `admin.html`, `assets/admin.js`, `assets/admin.css`.
 - Backend/auth/validation: `api/`, `lib/api.js`; PostgreSQL schema: `lib/db.js`.
 - Visitor counter: `assets/visits.js`; deployment/build: `vercel.json`, `build.mjs`.
