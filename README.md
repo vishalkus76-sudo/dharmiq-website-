@@ -73,3 +73,21 @@ Every current booking form has an optional ₹200 prasadi box checkbox. Its pric
 - Visitor counter: `assets/visits.js`; deployment/build: `vercel.json`, `build.mjs`.
 
 No payment gateway is required. Customer details remain private behind admin session authentication. Browser sessions use HttpOnly/SameSite cookies (Secure on production), login attempts are limited in PostgreSQL, and state-changing API requests require the website's origin.
+
+## Customer-supplied homepage photos
+
+The nine supplied JPGs are saved in the repository and included in the public build. Replace a file with the same name to update its photo. `index.html` holds the `serviceImages`/`templeImages` order and banner image paths. Both existing Ann Seva thali images stay unchanged.
+
+| Place | Photo file |
+| --- | --- |
+| Chadhava service card | `chadhava-seva.jpg` |
+| Ganga Pujan card | `ganga-pujan.jpg` |
+| Kashi prasadi box card | `kashi-prasadi-box.jpg` |
+| Dev Deepawali banner | `dev-deepawali.jpg` |
+| Chadhava banner, Mahadev | `mahadev-chadhava.jpg` |
+| Shri Kashi Vishwanath | `kashi-vishwanath.jpg` |
+| Durga Mandir, Durgakund | `durga-kund.jpg` |
+| Sankat Mochan Hanuman | `sankat-mochan.jpg` |
+| Kashi Char Dham collage | `kashi-char-dham.jpg` |
+
+The product box and four-part temple collage fit fully inside their existing image areas. Other photos use the existing cover layout. All original uploads are retained without re-encoding.
