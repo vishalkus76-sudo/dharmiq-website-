@@ -61,6 +61,8 @@ The current `index.html` and `chadhava.html` forms call `saveSevaRequest` from `
 
 City and optional sankalp/message are stored with the request and displayed privately in admin. Missing fields in older requests remain blank. The current Rajbhog offering uses service ID `rajbhog-251` (₹251); historical `rajbhog` records retain their saved ₹151 fee. When changing service names/prices, update both page text and `assets/booking-message.js` so the server catalog matches.
 
+Every current booking form has an optional ₹200 prasadi box checkbox. Its price and updated total appear only inside the form, are included in the WhatsApp message, and are saved with the booking for admin. A new service selection opens with this optional box unchecked. For services without a fixed fee, the form shows seva fee + ₹200 instead of inventing a total.
+
 ## Where to edit
 
 - Main page: `index.html`; offerings: `chadhava.html`.

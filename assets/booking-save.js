@@ -21,6 +21,30 @@
   };
 
   const form = document.getElementById('bookingForm');
+  const prasadi = document.getElementById('prasadiBox');
+  const prasadiCost = document.getElementById('prasadiCost');
+  window.sevaPrasadiText = () => {
+    if (!prasadi.checked) return '';
+    const english = document.documentElement.lang === 'en';
+    const fee = form.dataset.sevaFee;
+    const total = fee === undefined
+      ? (english ? 'Total: seva fee + ₹200' : 'कुल: सेवा शुल्क + ₹200')
+      : `${english ? 'Total' : 'कुल'}: ₹${Number(fee) + 200}`;
+    return `${english ? 'Prasadi box (extra)' : 'प्रसादी बॉक्स (अतिरिक्त)'}: ₹200\n${total}`;
+  };
+  window.updateSevaPrasadi = () => {
+    document.getElementById('prasadiLabel').textContent =
+      document.documentElement.lang === 'en'
+        ? 'Add a prasadi box — extra ₹200'
+        : 'प्रसादी बॉक्स चाहिए — अतिरिक्त ₹200';
+    prasadiCost.textContent = window.sevaPrasadiText();
+    prasadiCost.hidden = !prasadi.checked;
+  };
+  prasadi.addEventListener('change', window.updateSevaPrasadi);
+  new MutationObserver(window.updateSevaPrasadi).observe(document.documentElement, {
+    attributes: true, attributeFilter: ['lang'],
+  });
+  window.updateSevaPrasadi();
   form.addEventListener('input', (event) => {
     event.target.setCustomValidity?.('');
     lastDetails = undefined;
