@@ -1,6 +1,12 @@
 export const WHATSAPP_NUMBER = "919555669751";
 export const PRASADI_PRICE = 200;
 export const services = {
+  chadhava: { hi: "चढ़ावा सेवा", en: "Chadhava Seva", price: null },
+  "ganga-pujan": { hi: "गंगा पूजन", en: "Ganga Pujan", price: null },
+  ann: { hi: "नित्यान्नमयी अन्न सेवा", en: "Nityannamayi Ann Seva", price: null },
+  prasadi: { hi: "काशी प्रसादी बॉक्स", en: "Kashi Prasadi Box", price: null },
+  dev: { hi: "देव दीपावली मार्जन सेवा एवं दीपदान", en: "Dev Deepawali Marjan Seva & Deepdaan", price: null },
+  "rajbhog-251": { hi: "राजभोग सेवा", en: "Rajbhog Seva", price: 251 },
   deepdaan: { hi: "कार्तिक दीपदान सेवा", en: "Kartik Deepdaan Service", price: null },
   ganga: { hi: "देव दीपावली गंगा पूजन एवं दीपदान", en: "Dev Deepawali Ganga Pujan & Deepdaan", price: null },
   marjan: { hi: "पवित्र गंगा/यमुना घाटों का मार्जन", en: "Cleaning of Sacred Ganga/Yamuna Ghats", price: null },

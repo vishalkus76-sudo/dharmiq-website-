@@ -1,6 +1,6 @@
 # Dharmique — WhatsApp bookings and admin
 
-Original website ka design wahi hai. Customer seva select karke naam, number, optional gotra aur optional ₹200 prasadi bharta hai. Request PostgreSQL mein save hoti hai, phir WhatsApp khulta hai. Customer ko WhatsApp mein **Send** dabana hota hai. UPI aur booking confirmation chat mein aap khud handle karte hain.
+Customer current website par seva select karke naam, number, city (main page) aur optional sankalp/message bharta hai. Request PostgreSQL mein save hoti hai, phir WhatsApp khulta hai. Customer ko WhatsApp mein **Send** dabana hota hai. UPI aur booking confirmation chat mein aap khud handle karte hain.
 
 ## Admin panel
 
@@ -55,10 +55,16 @@ npm audit --omit=dev --audit-level=high
 
 Tests cover auth, CSRF, cookies/session expiry/revocation, public/private routes, request validation, server-calculated fees, duplicate request protection, database persistence, visits, status concurrency, SQL parameterization, throttling and Vercel pre-parsed requests. Browser checks cover bilingual customer submission, WhatsApp fallback during an outage, admin login/search/status/payment/logout and mobile layout. No payment or WhatsApp message is sent by the tests.
 
+## Redesigned page bookings
+
+The current `index.html` and `chadhava.html` forms call `saveSevaRequest` from `assets/booking-save.js` before opening WhatsApp. Keep this script and the `/api/bookings` call when editing either page; a direct WhatsApp link alone does not create an admin record. Both pages also load `assets/visits.js` for visitor counting.
+
+City and optional sankalp/message are stored with the request and displayed privately in admin. Missing fields in older requests remain blank. The current Rajbhog offering uses service ID `rajbhog-251` (₹251); historical `rajbhog` records retain their saved ₹151 fee. When changing service names/prices, update both page text and `assets/booking-message.js` so the server catalog matches.
+
 ## Where to edit
 
 - Main page: `index.html`; offerings: `chadhava.html`.
-- Customer form and look: `assets/booking-form.js`, `assets/booking-form.css`.
+- Current customer form and look: inline in `index.html` and `chadhava.html`; persistence: `assets/booking-save.js`. Older shared form: `assets/booking-form.js`, `assets/booking-form.css`.
 - Seva names/prices, ₹200 prasadi, WhatsApp number/message: `assets/booking-message.js` (server also imports these prices).
 - Admin page: `admin.html`, `assets/admin.js`, `assets/admin.css`.
 - Backend/auth/validation: `api/`, `lib/api.js`; PostgreSQL schema: `lib/db.js`.

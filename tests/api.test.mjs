@@ -114,11 +114,14 @@ test("admin is private; origin, method, password, cookies and configuration are 
   assert.equal((await request("/.env")).status, 404);
   assert.equal((await request("/.data/admin-password")).status, 404);
 });
-test("all six services persist correct server prices and idempotent requests without public PII", async () => {
+test("all supported services persist correct server prices and idempotent requests without public PII", async () => {
   const ids = [];
   for (const [key, service] of Object.entries(services)) {
+    await database().query("TRUNCATE dharmique.rate_limits");
     const payload = booking({
       serviceId: key,
+      city: "Varanasi",
+      note: "परिवार के लिए संकल्प",
       sevaFee: -1,
       prasadiFee: 0,
       status: "confirmed",
@@ -134,6 +137,9 @@ test("all six services persist correct server prices and idempotent requests wit
       ])
     ).rows[0];
     assert.equal(row.seva_fee, service.price);
+    assert.equal(row.city, "Varanasi");
+    assert.equal(row.note, "परिवार के लिए संकल्प");
+    assert.equal((await request("/api/bookings", { ...payload, note: "Changed" })).status, 409);
     assert.equal(row.prasadi_fee, 200);
     assert.equal(row.status, "requested");
     assert.equal(row.payment_status, "pending");
@@ -163,12 +169,16 @@ test("all six services persist correct server prices and idempotent requests wit
         "SELECT count(*)::int AS n FROM dharmique.bookings",
       )
     ).rows[0].n,
-    7,
+    Object.keys(services).length + 1,
   );
 });
 test("malformed booking data, JSON and oversized requests are rejected", async () => {
   for (const invalid of [
     { name: " " },
+    { city: {} },
+    { city: "x".repeat(101) },
+    { note: [] },
+    { note: "x".repeat(501) },
     { phone: "123" },
     { serviceId: "unknown" },
     { id: "abc" },
@@ -215,8 +225,8 @@ test("visits deduplicate across the two pages and admin totals/filtering remain 
   assert.equal(result.status, 200);
   assert.equal(result.data.stats.total_visits, 2);
   assert.equal(result.data.stats.today_visits, 1);
-  assert.equal(result.data.stats.requests, 7);
-  assert.equal(result.data.stats.pending, 7);
+  assert.equal(result.data.stats.requests, Object.keys(services).length + 1);
+  assert.equal(result.data.stats.pending, Object.keys(services).length + 1);
   assert.equal(result.data.stats.paid, 0);
   assert.equal(
     (await request("/api/admin?status=confirmed", undefined, { cookie })).data
