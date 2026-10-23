@@ -73,6 +73,8 @@ function renderBooking(booking) {
     services[booking.service_id]?.hi || booking.service_id,
   );
   field(details, "नंबर", booking.phone);
+  if (booking.city) field(details, "शहर", booking.city);
+  if (booking.note) field(details, "संकल्प / संदेश", booking.note);
   field(details, "गोत्र", booking.gotra || "नहीं बताया");
   field(
     details,
