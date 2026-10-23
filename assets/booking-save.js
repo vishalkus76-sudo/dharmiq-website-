@@ -1,37 +1,60 @@
-// Connect the redesigned forms to the same private booking store as the admin.
+// Connect both customer forms to the private booking store before opening WhatsApp.
 (() => {
   let saving = false;
   let lastDetails;
   let requestId;
+  let saved = false;
+  let directFallback = false;
+
+  // Native scheme on phones avoids sending customers to WhatsApp Web.
+  // Keep a normal web link for desktop users.
+  window.sevaWhatsAppDestination = (url) => {
+    const mobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+      (/Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+    if (!mobile) return url;
+    const link = new URL(url);
+    return `whatsapp://send?phone=${link.pathname.slice(1)}&text=${encodeURIComponent(link.searchParams.get('text') || '')}`;
+  };
+  window.openSevaWhatsApp = (url) => {
+    // Stay in the current tab: no empty Chrome tab or popup to intercept the app link.
+    window.location.assign(window.sevaWhatsAppDestination(url));
+  };
+
+  const form = document.getElementById('bookingForm');
+  form.addEventListener('input', (event) => {
+    event.target.setCustomValidity?.('');
+    lastDetails = undefined;
+    saved = directFallback = false;
+    const status = document.getElementById('bookingSaveStatus');
+    if (status) status.textContent = '';
+  });
   window.saveSevaRequest = async (details, url) => {
     if (saving) return;
-    const form = document.getElementById('bookingForm');
-    if (!form.reportValidity()) return;
     const english = document.documentElement.lang === 'en';
     const tr = (hi, en) => english ? en : hi;
+    const name = document.getElementById('fullName');
+    name.setCustomValidity(name.value.trim() ? '' : tr('कृपया नाम भरें।', 'Please enter your name.'));
+    if (!form.reportValidity()) return;
     let status = document.getElementById('bookingSaveStatus');
-    let fallback = document.getElementById('bookingWhatsAppFallback');
     if (!status) {
       status = document.createElement('p');
       status.id = 'bookingSaveStatus';
       status.setAttribute('role', 'status');
       status.setAttribute('aria-live', 'polite');
-      fallback = document.createElement('a');
-      fallback.id = 'bookingWhatsAppFallback';
-      fallback.className = 'btn green';
-      fallback.target = '_blank';
-      fallback.rel = 'noopener noreferrer';
-      form.append(status, fallback);
+      form.append(status);
     }
-    fallback.hidden = true;
-    fallback.style.display = 'none';
     const signature = JSON.stringify(details);
     if (signature !== lastDetails) {
       requestId = crypto.randomUUID();
       lastDetails = signature;
+      saved = directFallback = false;
     }
-    const popup = window.open('about:blank', '_blank');
-    try { if (popup) popup.opener = null; } catch {}
+    // A second tap can launch the app synchronously if a phone blocks navigation
+    // after the async save. Reuse the saved request instead of creating a duplicate.
+    if (saved || directFallback) {
+      window.openSevaWhatsApp(url);
+      return;
+    }
     const controls = [...form.querySelectorAll('input, textarea, select, button')];
     const disabled = controls.map(control => control.disabled);
     saving = true;
@@ -45,21 +68,22 @@
         signal: AbortSignal.timeout(15000),
       });
       if (!response.ok || (await response.json()).saved !== true) throw new Error('Save failed');
-      status.textContent = tr('Request सेव हो गई। WhatsApp में Send दबाएँ।', 'Request saved. Press Send in WhatsApp.');
-      if (popup && !popup.closed) popup.location.replace(url);
-    } catch {
-      try { popup?.close(); } catch {}
+      saved = true;
       status.textContent = tr(
-        'Request सेव होने की पुष्टि नहीं मिली। दोबारा कोशिश करें या नीचे WhatsApp पर भेजें।',
-        'We could not confirm your request was saved. Try again or send it on WhatsApp below.',
+        'Request सेव हो गई। WhatsApp में Send दबाएँ। ऐप न खुले तो इसी हरे बटन को फिर दबाएँ।',
+        'Request saved. Press Send in WhatsApp. If the app did not open, tap the same green button again.',
+      );
+    } catch {
+      // Preserve the honest manual WhatsApp fallback using the same single button.
+      directFallback = true;
+      status.textContent = tr(
+        'Request सेव होने की पुष्टि नहीं मिली। सीधे WhatsApp पर पूछताछ के लिए इसी हरे बटन को फिर दबाएँ।',
+        'We could not confirm your request was saved. Tap the same green button again to enquire directly on WhatsApp.',
       );
     } finally {
-      fallback.href = url;
-      fallback.textContent = tr('WhatsApp खोलें', 'Open WhatsApp');
-      fallback.hidden = false;
-      fallback.style.display = '';
       controls.forEach((control, i) => { control.disabled = disabled[i]; });
       saving = false;
     }
+    if (saved) window.openSevaWhatsApp(url);
   };
 })();
