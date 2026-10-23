@@ -1,168 +1,39 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>चढ़ावा सेवा | Dharmique Darshan</title>
-<link rel="icon" type="image/png" href="/Dharmique%20Logo.png">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#b72e28">
+<meta name="description" content="Dharmique Chadhava Seva — Laghu Prasadi, Madhyann Bhog Seva and Rajbhog Seva from Kashi.">
+<title>चढ़ावा सेवा | Dharmique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Hind:wght@400;500;600;700&family=Yatra+One&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#fff8ef;color:#422719;font-family:Arial,sans-serif}
-header{text-align:center;padding:70px 16px 10px}
-h1{font-size:clamp(27px,4vw,40px);margin:0 0 10px}
-header p{color:#795e4c;line-height:1.7}
-.services{max-width:1100px;margin:28px auto;padding:0 18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
-.card{background:#fff;border:1px solid #f0d8c2;border-radius:20px;padding:22px 16px;display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
-.picture{height:105px;width:105px;border-radius:14px;background:#fce9d4;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.picture svg{width:76px;height:76px}
-h2{font-size:20px;line-height:1.4;min-height:56px;display:flex;align-items:center;justify-content:center;margin:0 0 8px}
-.price{font-size:27px;font-weight:bold;color:#c9570b;margin:6px 0 18px}
-button{border:0;border-radius:30px;background:#f47716;color:white;padding:13px 12px;font-size:14px;font-weight:bold;cursor:pointer;width:100%;min-height:48px}
-button:hover{background:#c9570b}
-.card button{margin-top:auto}
-.back{display:block;text-align:center;margin:0 auto 35px;color:#b94f0b}
-.wrap{max-width:1150px;margin:auto;padding:0 22px}
-footer{background:#202746;color:#f7f0e7;padding:45px 0 0;font-size:14px;margin-top:30px}
-.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:30px;padding-bottom:35px}
-.footer-column h3{color:#fff;font-size:17px;margin:0 0 15px}
-.footer-brand{font-size:25px;font-weight:800;margin-bottom:10px}
-.footer-description{color:#d2d7e7;line-height:1.8}
-.footer-column a{display:block;color:#d2d7e7;margin-bottom:10px;overflow-wrap:anywhere}
-.footer-column a:hover{color:#ffb15c}
-.footer-highlight{color:#ffb15c!important}
-.footer-bottom{border-top:1px solid #414968;padding:20px 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#d2d7e7;font-size:12px}
-.language-switch{position:fixed;top:15px;right:15px;z-index:99999;display:flex;gap:4px;padding:4px;border:1px solid #f1ddc8;border-radius:30px;background:#fff8ef;box-shadow:0 3px 12px #42271918}
-.language-switch button{border-radius:22px;padding:8px 12px;background:transparent;color:#3f2818;width:auto;min-height:0}
-.language-switch button.active{background:#f07818;color:white}
-@media(max-width:760px){.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 18px}}
-@media(max-width:650px){.services{grid-template-columns:1fr;max-width:390px}.card{min-height:300px}h2{min-height:0}}
-@media(max-width:440px){.footer-grid{grid-template-columns:1fr}}
+:root{--red:#b72e28;--orange:#f47a27;--cream:#fff7e9;--green:#176c4b;--ink:#31231c;--gold:#edbc65;--line:#eddcc7;--shadow:0 14px 45px #51261918}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans','Hind',sans-serif}body[lang=hi]{font-family:'Hind','DM Sans',sans-serif}a{text-decoration:none;color:inherit}button,input,textarea{font:inherit}button{cursor:pointer}img{display:block;max-width:100%}.container{width:min(1180px,calc(100% - 36px));margin:auto}.header{background:#fffdf7f5;box-shadow:0 3px 20px #4e22131a;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}.nav{min-height:78px;display:flex;align-items:center;gap:22px}.brand{font-family:'Yatra One',serif;font-size:29px;color:var(--red);line-height:1}.brand small{display:block;font:800 10px 'DM Sans',sans-serif;color:var(--green);letter-spacing:1.4px;margin-top:4px}.navright{margin-left:auto;display:flex;align-items:center;gap:12px}.lang{border:1px solid var(--red);color:var(--red);background:#fff;border-radius:30px;padding:9px 14px;font-weight:800}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:9px;padding:13px 19px;background:var(--red);color:#fff;font-weight:800;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn.orange{background:var(--orange)}.btn.green{background:var(--green)}.crumb{padding:20px 0 0;font-size:13px;color:#806c5e}.crumb a{color:var(--green);font-weight:800}.intro{text-align:center;padding:40px 0 26px}.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:800;margin-bottom:12px}.intro h1{font-family:'Yatra One','Hind',serif;font-size:clamp(32px,4.5vw,54px);line-height:1.25;color:var(--red);margin:0 0 14px}.intro p{max-width:720px;margin:0 auto;color:#6d594d;line-height:1.85;font-size:16px}.highlight{background:#fce5ce;border:1px solid #f3c99e;border-radius:12px;padding:15px 18px;margin:20px auto 0;max-width:790px;font-size:13px;line-height:1.7}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding:22px 0 76px}.card{background:#fff;border:1px solid var(--line);border-radius:17px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-4px);box-shadow:0 18px 50px #51261924}.card img{width:100%;height:275px;object-fit:cover;background:#ead6b8}.cardbody{padding:24px;display:flex;flex-direction:column;flex:1}.tag{display:inline-flex;align-self:flex-start;background:#e4f0e5;color:var(--green);padding:6px 10px;border-radius:30px;font-size:11px;font-weight:800;margin-bottom:12px}.card:nth-child(2) .tag{background:#ffead6;color:#b94e11}.card:nth-child(3) .tag{background:#fbe3e0;color:var(--red)}.card h2{font-family:'Yatra One','Hind',serif;color:var(--red);font-size:26px;line-height:1.35;margin:0 0 8px}.price{font-size:30px;font-weight:800;color:var(--green);margin:4px 0 14px}.card:nth-child(2) .price{color:var(--orange)}.card:nth-child(3) .price{color:var(--red);font-size:24px}.card p{font-size:14px;line-height:1.85;color:#6a584e;margin:0 0 15px}.includes{border-top:1px solid var(--line);padding-top:14px;margin-top:auto;font-size:13px;line-height:1.8;color:#55443b}.card .btn{width:100%;margin-top:20px}.smallnote{font-size:11px;color:#8a7364;line-height:1.65;margin-top:12px}.how{background:#fff;padding:48px 0}.how h2{text-align:center;font-family:'Yatra One','Hind',serif;color:var(--red);font-size:30px}.howgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.howitem{background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:20px}.howitem b{display:inline-grid;place-items:center;width:34px;height:34px;background:var(--orange);color:#fff;border-radius:50%;margin-bottom:10px}.howitem h3{font-size:16px;color:var(--green);margin:0 0 8px}.howitem p{font-size:13px;line-height:1.7;color:#6d594d;margin:0}.footer{background:#11593e;color:white;padding:30px 0;text-align:center;font-size:12px;line-height:1.8}.footer strong{font-family:'Yatra One',serif;font-size:22px;color:#ffd18c}.modal{position:fixed;inset:0;background:#170c09b8;z-index:20;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.dialog{width:min(510px,100%);max-height:90vh;overflow:auto;background:#fffdf6;border-radius:16px;padding:26px;box-shadow:0 20px 80px #0004}.dialogtop{display:flex;align-items:center;justify-content:space-between;gap:10px}.dialog h2{font-family:'Yatra One','Hind',serif;color:var(--red);font-size:25px;margin:0}.close{border:0;background:none;font-size:28px;color:var(--red)}.field{display:block;margin-top:14px;font-weight:800;font-size:13px}.field input,.field textarea{width:100%;padding:12px;border:1px solid #dac8b2;border-radius:8px;margin-top:6px;background:white}.dialog .btn{width:100%;margin-top:20px}.note{font-size:12px;color:#806c5e;line-height:1.7}@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.card:last-child{grid-column:1/-1;max-width:calc(50% - 12px);justify-self:center}.card img{height:230px}}@media(max-width:620px){.nav{min-height:68px}.brand{font-size:24px}.navright .btn{display:none}.cards{grid-template-columns:1fr;padding-bottom:48px}.card:last-child{grid-column:auto;max-width:none}.card img{height:250px}.intro{padding-top:28px}.intro p{font-size:14px}.howgrid{grid-template-columns:1fr}.container{width:min(100% - 28px,1180px)}}
 </style>
-  <link rel="stylesheet" href="assets/booking-form.css">
-  <script type="module" src="assets/booking-form.js"></script>
-  <script type="module" src="assets/visits.js"></script>
 </head>
-<body>
-<div class="language-switch" aria-label="Choose language">
-  <button type="button" data-lang="hi" class="active">हिं</button>
-  <button type="button" data-lang="en">E</button>
-</div>
-
-<header>
-  <h1 data-hi="अपनी चढ़ावा सेवा चुनें" data-en="Choose Your Offering Service">अपनी चढ़ावा सेवा चुनें</h1>
-  <p data-hi="श्रद्धा अनुसार सेवा चुनें और WhatsApp से बुक करें।" data-en="Choose a service according to your devotion and book via WhatsApp.">श्रद्धा अनुसार सेवा चुनें और WhatsApp से बुक करें।</p>
-</header>
-
-<main class="services">
-  <article class="card">
-    <div class="picture" aria-label="प्रसादी बॉक्स">
-      <svg viewBox="0 0 100 100" fill="none" stroke="#b95d19" stroke-width="4" stroke-linejoin="round">
-        <path d="M18 38h64v45H18z" fill="#f4c47f"/>
-        <path d="M13 29h74v13H13z" fill="#e99a44"/>
-        <path d="M25 29q0-18 25-18t25 18" fill="#f9dfac"/>
-        <path d="M34 55h32v17H34z" fill="#fff1d1"/>
-        <path d="M42 63h16M50 55v17"/>
-      </svg>
-    </div>
-    <h2 data-hi="1. लघु प्रसादी सेवा" data-en="1. Small Prasadi Service">1. लघु प्रसादी सेवा</h2>
-    <p data-hi="मेवा सेवा" data-en="Dry Fruits Offering">मेवा सेवा</p>
-    <div class="price">₹51</div>
-    <button type="button" data-book="small" data-hi="बुक करें" data-en="Book">बुक करें</button>
-  </article>
-
-  <article class="card">
-    <div class="picture" aria-label="मिठाई">
-      <svg viewBox="0 0 100 100" fill="none" stroke="#b95d19" stroke-width="3">
-        <ellipse cx="50" cy="68" rx="39" ry="16" fill="#f4c47f"/>
-        <path d="M12 63q38 22 76 0" fill="#fff0d1"/>
-        <circle cx="34" cy="48" r="15" fill="#e9a343"/>
-        <circle cx="63" cy="44" r="15" fill="#f2cf78"/>
-        <circle cx="51" cy="62" r="14" fill="#c97b30"/>
-        <path d="M27 45l7-4 7 7M56 40l7 5 7-5M44 61l7-5 8 6" stroke="#fff1d1"/>
-      </svg>
-    </div>
-    <h2 data-hi="2. मध्याह्न भोग सेवा" data-en="2. Midday Bhog Service">2. मध्याह्न भोग सेवा</h2>
-    <p data-hi="मिठाई एवं भोग अर्पण सेवा" data-en="Sweets and Bhog Offering Service">मिठाई एवं भोग अर्पण सेवा</p>
-    <div class="price">₹101</div>
-    <button type="button" data-book="midday" data-hi="बुक करें" data-en="Book">बुक करें</button>
-  </article>
-
-  <article class="card">
-    <div class="picture" aria-label="आरती और मिठाई">
-      <svg viewBox="0 0 100 100" fill="none" stroke="#b95d19" stroke-width="3" stroke-linejoin="round">
-        <path d="M14 61h42l-6 17H20z" fill="#e9a343"/>
-        <path d="M24 60q11-18 22 0" fill="#f9dfac"/>
-        <path d="M35 48q-13-15 0-29 13 14 0 29" fill="#f47716"/>
-        <path d="M35 44q-5-10 0-17 6 9 0 17" fill="#ffdf70"/>
-        <circle cx="69" cy="43" r="12" fill="#e9a343"/>
-        <circle cx="72" cy="67" r="12" fill="#d98b36"/>
-        <circle cx="61" cy="55" r="11" fill="#f2cf78"/>
-        <path d="M64 40l5-3 5 5M66 65l6-3 5 5" stroke="#fff1d1"/>
-      </svg>
-    </div>
-    <h2 data-hi="3. राजभोग सेवा" data-en="3. Rajbhog Service">3. राजभोग सेवा</h2>
-    <p data-hi="राजभोग सेवा" data-en="Rajbhog Offering">राजभोग सेवा</p>
-    <div class="price">₹151</div>
-    <button type="button" data-book="rajbhog" data-hi="बुक करें" data-en="Book">बुक करें</button>
-  </article>
+<body lang="hi">
+<header class="header"><div class="container nav"><a class="brand" href="index.html">DHARMIQUE<small>KASHI • DEVOTION • SEVA</small></a><div class="navright"><button class="lang" id="languageToggle" type="button">English</button><a class="btn green" href="index.html#sevas" data-i18n="back">← सभी सेवाएँ</a></div></div></header>
+<main>
+<div class="container crumb"><a href="index.html" data-i18n="home">होम</a>　›　<span data-i18n="crumb">चढ़ावा सेवा</span></div>
+<section class="intro container"><div class="eyebrow" data-i18n="eyebrow">काशी की पावन परंपरा</div><h1 data-i18n="heading">चढ़ावा सेवा</h1><p data-i18n="intro">अपनी श्रद्धा के अनुसार भगवान को भोग अर्पित करने के लिए नीचे दिए गए तीन विकल्पों में से चुनें। चयनित मंदिर की परंपरा, समय और उपलब्धता के अनुसार सेवा की पुष्टि की जाएगी।</p><div class="highlight" data-i18n="highlight">भोग का वास्तविक आयोजन संबंधित मंदिर की परंपरा और उपलब्धता पर निर्भर करेगा। भुगतान या अंतिम बुकिंग से पहले सभी विवरण टीम से सुनिश्चित करें।</div></section>
+<section class="container cards" aria-label="Chadhava seva options">
+<article class="card"><img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1000&q=85" alt="काशी के मंदिर और घाट का दृश्य" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1000&q=85'"><div class="cardbody"><span class="tag" data-i18n="tag1">प्रातःकालीन भोग</span><h2 data-i18n="title1">लघु प्रसादी</h2><div class="price" data-i18n="price1">₹51</div><p data-i18n="desc1">इस सेवा के अंतर्गत सुबह भगवान को प्रातःकालीन भोग अर्पित किया जाएगा। इस सेवा को चुनकर अपनी श्रद्धा समर्पित करें।</p><div class="includes" data-i18n="inc1">✓ सुबह का भोग<br>✓ सेवा की उपलब्धता की पुष्टि<br>✓ बुकिंग संबंधी अपडेट</div><button class="btn orange" onclick="choose('laghu')" data-i18n="btn1">अपनी सेवा बुक करें</button></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1000&q=85" alt="काशी के मंदिर और घाट का दृश्य" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1000&q=85'"><div class="cardbody"><span class="tag" data-i18n="tag2">मध्याह्न भोग</span><h2 data-i18n="title2">मध्याह्न भोग सेवा</h2><div class="price" data-i18n="price2">₹101</div><p data-i18n="desc2">इस सेवा में दोपहर के समय भगवान को मध्याह्न भोग अर्पित किया जाएगा। भोग का समय संबंधित मंदिर की दैनिक पूजा परंपरा के अनुसार रहेगा।</p><div class="includes" data-i18n="inc2">✓ दोपहर का भोग<br>✓ मंदिर के समय के अनुसार व्यवस्था<br>✓ बुकिंग संबंधी अपडेट</div><button class="btn green" onclick="choose('madhyann')" data-i18n="btn2">अपनी सेवा बुक करें</button></div></article>
+<article class="card"><img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1000&q=85" alt="काशी के मंदिर और घाट का दृश्य" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1000&q=85'"><div class="cardbody"><span class="tag" data-i18n="tag3">विशेष पारंपरिक भोग</span><h2 data-i18n="title3">राजभोग सेवा</h2><div class="price" data-i18n="price3">शुल्क की पुष्टि करें</div><p data-i18n="desc3">विशेष राजभोग सेवा में मेवा तथा अन्य पारंपरिक भोग सामग्री अर्पित की जाएगी। सामग्री मंदिर की परंपरा, मौसम और उपलब्धता के अनुसार तय होगी।</p><div class="includes" data-i18n="inc3">✓ मेवा एवं पारंपरिक भोग<br>✓ सामग्री और शुल्क की पुष्टि<br>✓ बुकिंग संबंधी अपडेट</div><button class="btn" onclick="choose('rajbhog')" data-i18n="btn3">अपनी सेवा बुक करें</button><div class="smallnote" data-i18n="note3">राजभोग सेवा का शुल्क ₹251 है। सेवा की उपलब्धता और सामग्री मंदिर की परंपरा के अनुसार रहेगी।</div></div></article>
+</section>
+<section class="how"><div class="container"><h2 data-i18n="howTitle">सेवा कैसे चुनें?</h2><div class="howgrid"><article class="howitem"><b>1</b><h3 data-i18n="how1t">भोग विकल्प चुनें</h3><p data-i18n="how1d">लघु प्रसादी, मध्याह्न भोग या राजभोग में से अपनी पसंद चुनें।</p></article><article class="howitem"><b>2</b><h3 data-i18n="how2t">अपना विवरण भरें</h3><p data-i18n="how2d">नाम, मोबाइल नंबर और वैकल्पिक संकल्प संदेश दें।</p></article><article class="howitem"><b>3</b><h3 data-i18n="how3t">व्यवस्था की पुष्टि करें</h3><p data-i18n="how3d">टीम मंदिर, उपलब्धता, वास्तविक शुल्क और सेवा प्रक्रिया की पुष्टि करेगी।</p></article></div></div></section>
 </main>
-
-<a class="back" href="index.html" data-hi="← मुख्य पेज पर वापस जाएँ" data-en="← Back to Home Page">← मुख्य पेज पर वापस जाएँ</a>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">Dharmique</div>
-        <p class="footer-description" data-hi="वृंदावन धाम से सीधे आपके लिए। सनातन परंपराओं और पवित्र सेवा से जुड़ाव।" data-en="Serving you from the sacred abode of Vrindavan. A connection to Sanatan traditions and sacred seva.">वृंदावन धाम से सीधे आपके लिए। सनातन परंपराओं और पवित्र सेवा से जुड़ाव।</p>
-      </div>
-      <div class="footer-column">
-        <h3 data-hi="त्वरित लिंक" data-en="Quick Links">त्वरित लिंक</h3>
-        <a href="index.html" data-hi="मुख्य पेज" data-en="Home">मुख्य पेज</a>
-        <a href="index.html#services" data-hi="हमारी सेवाएँ" data-en="Our Sevas">हमारी सेवाएँ</a>
-        <a href="index.html#how" data-hi="बुकिंग कैसे करें" data-en="How to Book">बुकिंग कैसे करें</a>
-      </div>
-      <div class="footer-column">
-        <h3 data-hi="हमारी सेवाएँ" data-en="Our Sevas">हमारी सेवाएँ</h3>
-        <a href="index.html#services" data-hi="कार्तिक दीपदान" data-en="Kartik Deep Daan">कार्तिक दीपदान</a>
-        <a href="index.html#services" data-hi="नवरात्रि प्रसाद सेवा" data-en="Navratri Prasad Seva">नवरात्रि प्रसाद सेवा</a>
-        <a href="index.html#services" data-hi="कार्तिक साधु सेवा" data-en="Kartik Sadhu Seva">कार्तिक साधु सेवा</a>
-        <a href="index.html#services" data-hi="मार्जन सेवा" data-en="Marjan Seva">मार्जन सेवा</a>
-      </div>
-      <div class="footer-column">
-        <h3 data-hi="संपर्क करें" data-en="Contact Us">संपर्क करें</h3>
-        <a class="footer-highlight" href="https://wa.me/919555669751" target="_blank" rel="noopener noreferrer" data-hi="WhatsApp पूछताछ ↗" data-en="WhatsApp Enquiries ↗">WhatsApp पूछताछ ↗</a>
-        <a href="mailto:aryangodvani@gmail.com">aryangodvani@gmail.com</a>
-        <h3 style="margin-top:20px" data-hi="हमें फ़ॉलो करें" data-en="Follow Us">हमें फ़ॉलो करें</h3>
-        <a href="https://www.instagram.com/" data-hi="Instagram ↗" data-en="Instagram ↗">Instagram ↗</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span data-hi="© 2026 Dharmique. सर्वाधिकार सुरक्षित।" data-en="© 2026 Dharmique. All rights reserved.">© 2026 Dharmique. सर्वाधिकार सुरक्षित।</span>
-      <span data-hi="श्रद्धा • सेवा • भक्ति" data-en="Faith • Service • Devotion">श्रद्धा • सेवा • भक्ति</span>
-    </div>
-  </div>
-</footer>
-
+<footer class="footer"><div class="container"><strong>DHARMIQUE</strong><div data-i18n="foot">काशी की धार्मिक सेवाएँ, काशी से आपके घर तक।</div><div>© <span id="year"></span> Dharmique.in · <a href="index.html" data-i18n="backHome">मुख्य वेबसाइट पर वापस जाएँ</a></div></div></footer>
+<div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="formTitle"><div class="dialog"><div class="dialogtop"><h2 id="formTitle" data-i18n="formTitle">चढ़ावा अपनी सेवा बुक करें</h2><button class="close" id="closeModal" aria-label="Close">×</button></div><p class="note" data-i18n="formIntro">अपनी सेवा बुक करने के लिए विवरण भरें। टीम उपलब्धता और अंतिम व्यवस्था की पुष्टि करेगी।</p><form id="bookingForm"><label class="field"><span data-i18n="nameLabel">आपका नाम</span><input id="fullName" required autocomplete="name"></label><label class="field"><span data-i18n="phoneLabel">मोबाइल नंबर</span><input id="phone" required inputmode="tel" autocomplete="tel" pattern="[0-9+() -]{8,18}"></label><label class="field"><span data-i18n="noteLabel">संकल्प संदेश (वैकल्पिक)</span><textarea id="prayerNote" rows="3"></textarea></label><button class="btn orange" type="submit" data-i18n="send">अपनी सेवा बुक करें</button></form><p class="note" data-i18n="formNote">आपकी जानकारी इस डेमो वेबसाइट में सेव नहीं होती।</p></div></div>
 <script>
-(function(){
-  const buttons = document.querySelectorAll(".language-switch button");
-  const elements = document.querySelectorAll("[data-hi][data-en]");
-
-  function setLanguage(lang) {
-    elements.forEach(el => {
-      el.textContent = el.dataset[lang];
-    });
-    buttons.forEach(btn => btn.classList.toggle("active", btn.dataset.lang === lang));
-    document.documentElement.lang = lang;
-    try { localStorage.setItem("dharmique-language", lang); } catch(e) {}
-  }
-
-  buttons.forEach(btn => btn.addEventListener("click", () => setLanguage(btn.dataset.lang)));
-  let saved = "hi";
-  try { saved = localStorage.getItem("dharmique-language") || "hi"; } catch(e) {}
-  setLanguage(saved === "en" ? "en" : "hi");
-})();
+const WHATSAPP_NUMBER='919999999999'; // Replace with official WhatsApp number, digits only
+const WHATSAPP_CONFIGURED=false; // Set true only after replacing the number above
+const copy={hi:{back:'← सभी सेवाएँ',home:'होम',crumb:'चढ़ावा सेवा',eyebrow:'काशी की पावन परंपरा',heading:'चढ़ावा सेवा',intro:'अपनी श्रद्धा के अनुसार भगवान को भोग अर्पित करने के लिए नीचे दिए गए तीन विकल्पों में से चुनें। चयनित मंदिर की परंपरा, समय और उपलब्धता के अनुसार सेवा की पुष्टि की जाएगी।',highlight:'भोग का वास्तविक आयोजन संबंधित मंदिर की परंपरा और उपलब्धता पर निर्भर करेगा। भुगतान या अंतिम बुकिंग से पहले सभी विवरण टीम से सुनिश्चित करें।',tag1:'प्रातःकालीन भोग',title1:'लघु प्रसादी',price1:'₹51',desc1:'इस सेवा के अंतर्गत सुबह भगवान को प्रातःकालीन भोग अर्पित किया जाएगा। इस सेवा को चुनकर अपनी श्रद्धा समर्पित करें।',inc1:'✓ सुबह का भोग<br>✓ सेवा की उपलब्धता की पुष्टि<br>✓ बुकिंग संबंधी अपडेट',btn1:'अपनी सेवा बुक करें',tag2:'मध्याह्न भोग',title2:'मध्याह्न भोग सेवा',price2:'₹101',desc2:'इस सेवा में दोपहर के समय भगवान को मध्याह्न भोग अर्पित किया जाएगा। भोग का समय संबंधित मंदिर की दैनिक पूजा परंपरा के अनुसार रहेगा।',inc2:'✓ दोपहर का भोग<br>✓ मंदिर के समय के अनुसार व्यवस्था<br>✓ बुकिंग संबंधी अपडेट',btn2:'अपनी सेवा बुक करें',tag3:'विशेष पारंपरिक भोग',title3:'राजभोग सेवा',price3:'₹251',desc3:'विशेष राजभोग सेवा में मेवा तथा अन्य पारंपरिक भोग सामग्री अर्पित की जाएगी। सामग्री मंदिर की परंपरा, मौसम और उपलब्धता के अनुसार तय होगी।',inc3:'✓ मेवा एवं पारंपरिक भोग<br>✓ सेवा की उपलब्धता की पुष्टि<br>✓ बुकिंग संबंधी अपडेट',btn3:'अपनी सेवा बुक करें',note3:'राजभोग सेवा का शुल्क ₹251 है। सेवा की उपलब्धता और सामग्री मंदिर की परंपरा के अनुसार रहेगी।',howTitle:'सेवा कैसे बुक करें?',how1t:'भोग विकल्प चुनें',how1d:'लघु प्रसादी, मध्याह्न भोग या राजभोग में से अपनी पसंद चुनें।',how2t:'अपना विवरण भरें',how2d:'नाम, मोबाइल नंबर और वैकल्पिक संकल्प संदेश दें।',how3t:'व्यवस्था की पुष्टि करें',how3d:'टीम मंदिर, उपलब्धता, वास्तविक शुल्क और सेवा प्रक्रिया की पुष्टि करेगी।',foot:'काशी की धार्मिक सेवाएँ, काशी से आपके घर तक।',backHome:'मुख्य वेबसाइट पर वापस जाएँ',formTitle:'चढ़ावा अपनी सेवा बुक करें',formIntro:'अपनी सेवा बुक करने के लिए विवरण भरें। टीम उपलब्धता और अंतिम व्यवस्था की पुष्टि करेगी।',nameLabel:'आपका नाम',phoneLabel:'मोबाइल नंबर',cityLabel:'शहर',noteLabel:'संकल्प संदेश (वैकल्पिक)',send:'अपनी सेवा बुक करें',formNote:'आपकी जानकारी इस डेमो वेबसाइट में सेव नहीं होती।',waMissing:'पहले कोड में आधिकारिक WhatsApp नंबर डालें और WHATSAPP_CONFIGURED को true करें।'},en:{back:'← All Sevas',home:'Home',crumb:'Chadhava Seva',eyebrow:'Sacred traditions of Kashi',heading:'Chadhava Seva',intro:'Choose one of the three offerings below to request a bhog offering for the deity. The seva will be confirmed according to the selected temple’s traditions, schedule and availability.',highlight:'The actual offering depends on the temple’s customs and availability. Please confirm all details with the team before payment or final booking.',tag1:'Morning bhog',title1:'Laghu Prasadi',price1:'₹51',desc1:'This seva is for offering the deity’s morning bhog. Choose this option for a simple and devotional morning offering.',inc1:'✓ Morning bhog offering<br>✓ Availability confirmation<br>✓ Booking updates',btn1:'Book Your Seva',tag2:'Midday bhog',title2:'Madhyann Bhog Seva',price2:'₹101',desc2:'This seva is for offering bhog to the deity around midday. The exact timing follows the selected temple’s daily worship schedule.',inc2:'✓ Midday bhog offering<br>✓ Arranged around temple timings<br>✓ Booking updates',btn2:'Book Your Seva',tag3:'Special traditional offering',title3:'Rajbhog Seva',price3:'₹251',desc3:'This special rajbhog offering features dry fruits and other traditional bhog items. Exact items depend on temple customs, season and availability.',inc3:'✓ Dry fruits and traditional bhog<br>✓ Availability confirmation<br>✓ Booking updates',btn3:'Book Your Seva',note3:'Rajbhog Seva is priced at ₹251. Availability and offering details depend on temple traditions.',howTitle:'How to Book Your Seva',how1t:'Choose an offering',how1d:'Select Laghu Prasadi, Madhyann Bhog or Rajbhog.',how2t:'Enter your details',how2d:'Provide your name, mobile number and optional sankalp note.',how3t:'Confirm arrangements',how3d:'The team will confirm temple, availability, final price and service details.',foot:'Sacred services of Kashi, from Kashi to your home.',backHome:'Return to the main website',formTitle:'Book Your Seva',formIntro:'Enter your details to book your seva. The team will confirm availability and final arrangements.',nameLabel:'Your name',phoneLabel:'Mobile number',cityLabel:'City',noteLabel:'Sankalp / message (optional)',send:'Book Your Seva',formNote:'This demo website does not save your details.',waMissing:'Add the official WhatsApp number in the code and set WHATSAPP_CONFIGURED to true.'}};
+let lang='hi',selected='laghu';const $=id=>document.getElementById(id);
+function render(){document.documentElement.lang=lang;document.body.lang=lang;document.title=lang==='hi'?'चढ़ावा सेवा | Dharmique':'Chadhava Seva | Dharmique';document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(copy[lang][k]!==undefined)el.innerHTML=copy[lang][k]});$('languageToggle').textContent=lang==='hi'?'English':'हिन्दी';}
+function choose(key){selected=key;$('bookingModal').classList.add('show');document.body.style.overflow='hidden';$('fullName').focus()}
+function close(){ $('bookingModal').classList.remove('show');document.body.style.overflow=''}
+$('languageToggle').addEventListener('click',()=>{lang=lang==='hi'?'en':'hi';render()});$('closeModal').addEventListener('click',close);$('bookingModal').addEventListener('click',e=>{if(e.target===$('bookingModal'))close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});$('year').textContent=new Date().getFullYear();
+$('bookingForm').addEventListener('submit',e=>{e.preventDefault();if(!e.currentTarget.reportValidity())return;const t=copy[lang];const names={laghu:lang==='hi'?'लघु प्रसादी — ₹51':'Laghu Prasadi — ₹51',madhyann:lang==='hi'?'मध्याह्न भोग सेवा — ₹101':'Madhyann Bhog Seva — ₹101',rajbhog:lang==='hi'?'राजभोग सेवा — ₹251':'Rajbhog Seva — ₹251'};const msg=`Dharmique Chadhava Seva Booking\nSelected seva: ${names[selected]}\nName: ${$('fullName').value.trim()}\nPhone: ${$('phone').value.trim()}\nSankalp: ${$('prayerNote').value.trim()||'-'}\nPlease confirm availability, final charges and service details.`;if(!WHATSAPP_CONFIGURED){alert(t.waMissing);return}window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,'_blank','noopener,noreferrer')});render();
 </script>
-</body>
-</html>
+</body></html>
