@@ -1,5 +1,9 @@
 import { mkdir, rm, copyFile, cp } from "node:fs/promises";
 const media = [
+  "laghu-prasadi.jpg",
+  "madhyann-bhog.jpg",
+  "rajbhog-seva.jpg",
+
   "kashi-hero.jpg",
   "chadhava-seva.jpg",
   "ganga-pujan.jpg",
