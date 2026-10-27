@@ -1,6 +1,9 @@
 export const WHATSAPP_NUMBER = "919555669751";
 export const PRASADI_PRICE = 200;
 export const services = {
+  "jagannath-five-deep": { hi: "श्री जगन्नाथ जी — 5 दीप श्रृंखला", en: "Shri Jagannath Ji — 5 Deep Offering", price: 51, requiresAddress: true },
+  "jagannath-eleven-deep": { hi: "श्री जगन्नाथ जी — 11 दीप श्रृंखला", en: "Shri Jagannath Ji — 11 Deep Offering", price: 101, requiresAddress: true },
+  "jagannath-deep-bhog": { hi: "श्री जगन्नाथ जी — 21 दीप + भोग श्रृंखला", en: "Shri Jagannath Ji — 21 Deep + Bhog Offering", price: 151, requiresAddress: true },
   chadhava: { hi: "चढ़ावा सेवा", en: "Chadhava Seva", price: null },
   "ganga-pujan": { hi: "गंगा पूजन", en: "Ganga Pujan", price: null },
   ann: { hi: "नित्यान्नमयी अन्न सेवा", en: "Nityannamayi Ann Seva", price: null },
