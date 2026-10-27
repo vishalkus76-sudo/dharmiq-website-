@@ -91,3 +91,9 @@ The nine supplied JPGs are saved in the repository and included in the public bu
 | Kashi Char Dham collage | `kashi-char-dham.jpg` |
 
 The product box and four-part temple collage fit fully inside their existing image areas. Other photos use the existing cover layout. All original uploads are retained without re-encoding.
+
+## Jagannath Deep Nivedan campaign
+
+The homepage hero now uses `jagannath-hero.png` with real bilingual Poppins text. Its CTA opens a separate two-step native dialog in `index.html`: select 5 Deep (₹51), 11 Deep (₹101), or 21 Deep + Bhog (₹151), then enter name, optional gotra, phone and full address. The existing optional prasadi box adds ₹200. `assets/jagannath.js` and `assets/jagannath.css` own this campaign; the older seva forms remain separate. Three option images are cropped from the supplied mockup.
+
+The canonical service IDs/prices live in `assets/booking-message.js`. `/api/bookings` validates address for these three service IDs and computes fees on the server. An additive `address` column migration keeps historical records/old forms compatible (blank address). Admin renders addresses as text. The campaign saves before WhatsApp navigation and retries with the same request ID after save errors; it never claims a failed request was saved. Repeat app-open taps reuse a confirmed booking. Phone navigation uses the existing native WhatsApp helper.

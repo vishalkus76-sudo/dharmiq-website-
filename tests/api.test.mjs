@@ -120,6 +120,7 @@ test("all supported services persist correct server prices and idempotent reques
     await database().query("TRUNCATE dharmique.rate_limits");
     const payload = booking({
       serviceId: key,
+      address: service.requiresAddress ? "Synthetic street 1, Varanasi 221001" : "",
       city: "Varanasi",
       note: "परिवार के लिए संकल्प",
       sevaFee: -1,
@@ -138,6 +139,8 @@ test("all supported services persist correct server prices and idempotent reques
     ).rows[0];
     assert.equal(row.seva_fee, service.price);
     assert.equal(row.city, "Varanasi");
+    assert.equal(row.address, payload.address);
+    assert.equal((await request("/api/bookings", { ...payload, address: "Changed address" })).status, 409);
     assert.equal(row.note, "परिवार के लिए संकल्प");
     assert.equal((await request("/api/bookings", { ...payload, note: "Changed" })).status, 409);
     assert.equal(row.prasadi_fee, 200);
@@ -163,6 +166,7 @@ test("all supported services persist correct server prices and idempotent reques
   ).rows[0];
   assert.equal(row.prasadi_fee, 0);
   assert.equal(row.gotra, "कश्यप");
+  assert.equal(row.address, "");
   assert.equal(
     (
       await database().query(
@@ -175,6 +179,11 @@ test("all supported services persist correct server prices and idempotent reques
 test("malformed booking data, JSON and oversized requests are rejected", async () => {
   for (const invalid of [
     { name: " " },
+    { address: {} },
+    { address: "x".repeat(501) },
+    { serviceId: "jagannath-five-deep" },
+    { serviceId: "jagannath-eleven-deep", address: " " },
+    { serviceId: "jagannath-deep-bhog", address: "" },
     { city: {} },
     { city: "x".repeat(101) },
     { note: [] },
@@ -375,4 +384,34 @@ test("Vercel function entry accepts pre-parsed JSON and rejects cross-protocol o
     ).rows[0].prasadi_fee,
     0,
   );
+});
+
+test("Jagannath address, optional prasadi and private admin records survive retries and migration", async () => {
+  await database().query("TRUNCATE dharmique.rate_limits");
+  await login();
+  for (const serviceId of ["jagannath-five-deep", "jagannath-eleven-deep", "jagannath-deep-bhog"]) {
+    for (const prasadi of [false, true]) {
+      const payload = booking({
+        serviceId, prasadi, gotra: "कश्यप",
+        address: "  Synthetic street 2, Varanasi, UP 221001 <script>test</script>  ",
+      });
+      assert.equal((await request("/api/bookings", payload)).status, 201);
+      assert.equal((await request("/api/bookings", payload)).status, 200);
+      const row = (await database().query("SELECT * FROM dharmique.bookings WHERE id=$1", [payload.id])).rows[0];
+      assert.equal(row.address, payload.address.trim());
+      assert.equal(row.seva_fee, services[serviceId].price);
+      assert.equal(row.prasadi_fee, prasadi ? 200 : 0);
+      assert.equal((await request("/api/bookings", { ...payload, address: "Another address" })).status, 409);
+      const result = await request("/api/admin?search=" + encodeURIComponent(payload.name), undefined, { cookie });
+      assert.equal(result.status, 200);
+      assert.equal(result.data.bookings.find((b) => b.id === payload.id).address, payload.address.trim());
+    }
+    await database().query("TRUNCATE dharmique.rate_limits");
+  }
+  await closeDatabase();
+  await initialize();
+  const rows = (await database().query("SELECT address FROM dharmique.bookings WHERE service_id LIKE 'jagannath-%'")).rows;
+  assert.ok(rows.length >= 6);
+  assert.ok(rows.every((r) => r.address.length > 0));
+  assert.equal((await request("/api/admin")).status, 401);
 });
